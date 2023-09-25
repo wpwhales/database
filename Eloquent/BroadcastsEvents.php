@@ -1,8 +1,8 @@
 <?php
 
-namespace Illuminate\Database\Eloquent;
+namespace WPWhales\Database\Eloquent;
 
-use Illuminate\Support\Arr;
+use WPWhales\Support\Arr;
 
 trait BroadcastsEvents
 {
@@ -39,8 +39,8 @@ trait BroadcastsEvents
     /**
      * Broadcast that the model was created.
      *
-     * @param  \Illuminate\Broadcasting\Channel|\Illuminate\Contracts\Broadcasting\HasBroadcastChannel|array|null  $channels
-     * @return \Illuminate\Broadcasting\PendingBroadcast
+     * @param  \WPWhales\Broadcasting\Channel|\WPWhales\Contracts\Broadcasting\HasBroadcastChannel|array|null  $channels
+     * @return \WPWhales\Broadcasting\PendingBroadcast
      */
     public function broadcastCreated($channels = null)
     {
@@ -52,8 +52,8 @@ trait BroadcastsEvents
     /**
      * Broadcast that the model was updated.
      *
-     * @param  \Illuminate\Broadcasting\Channel|\Illuminate\Contracts\Broadcasting\HasBroadcastChannel|array|null  $channels
-     * @return \Illuminate\Broadcasting\PendingBroadcast
+     * @param  \WPWhales\Broadcasting\Channel|\WPWhales\Contracts\Broadcasting\HasBroadcastChannel|array|null  $channels
+     * @return \WPWhales\Broadcasting\PendingBroadcast
      */
     public function broadcastUpdated($channels = null)
     {
@@ -65,8 +65,8 @@ trait BroadcastsEvents
     /**
      * Broadcast that the model was trashed.
      *
-     * @param  \Illuminate\Broadcasting\Channel|\Illuminate\Contracts\Broadcasting\HasBroadcastChannel|array|null  $channels
-     * @return \Illuminate\Broadcasting\PendingBroadcast
+     * @param  \WPWhales\Broadcasting\Channel|\WPWhales\Contracts\Broadcasting\HasBroadcastChannel|array|null  $channels
+     * @return \WPWhales\Broadcasting\PendingBroadcast
      */
     public function broadcastTrashed($channels = null)
     {
@@ -78,8 +78,8 @@ trait BroadcastsEvents
     /**
      * Broadcast that the model was restored.
      *
-     * @param  \Illuminate\Broadcasting\Channel|\Illuminate\Contracts\Broadcasting\HasBroadcastChannel|array|null  $channels
-     * @return \Illuminate\Broadcasting\PendingBroadcast
+     * @param  \WPWhales\Broadcasting\Channel|\WPWhales\Contracts\Broadcasting\HasBroadcastChannel|array|null  $channels
+     * @return \WPWhales\Broadcasting\PendingBroadcast
      */
     public function broadcastRestored($channels = null)
     {
@@ -91,8 +91,8 @@ trait BroadcastsEvents
     /**
      * Broadcast that the model was deleted.
      *
-     * @param  \Illuminate\Broadcasting\Channel|\Illuminate\Contracts\Broadcasting\HasBroadcastChannel|array|null  $channels
-     * @return \Illuminate\Broadcasting\PendingBroadcast
+     * @param  \WPWhales\Broadcasting\Channel|\WPWhales\Contracts\Broadcasting\HasBroadcastChannel|array|null  $channels
+     * @return \WPWhales\Broadcasting\PendingBroadcast
      */
     public function broadcastDeleted($channels = null)
     {
@@ -107,7 +107,7 @@ trait BroadcastsEvents
      * @param  mixed  $instance
      * @param  string  $event
      * @param  mixed  $channels
-     * @return \Illuminate\Broadcasting\PendingBroadcast|null
+     * @return \WPWhales\Broadcasting\PendingBroadcast|null
      */
     protected function broadcastIfBroadcastChannelsExistForEvent($instance, $event, $channels = null)
     {
@@ -147,7 +147,7 @@ trait BroadcastsEvents
      * Create a new broadcastable model event for the model.
      *
      * @param  string  $event
-     * @return \Illuminate\Database\Eloquent\BroadcastableModelEventOccurred
+     * @return \WPWhales\Database\Eloquent\BroadcastableModelEventOccurred
      */
     protected function newBroadcastableEvent(string $event)
     {
@@ -158,7 +158,7 @@ trait BroadcastsEvents
      * Get the channels that model events should broadcast on.
      *
      * @param  string  $event
-     * @return \Illuminate\Broadcasting\Channel|array
+     * @return \WPWhales\Broadcasting\Channel|array
      */
     public function broadcastOn($event)
     {

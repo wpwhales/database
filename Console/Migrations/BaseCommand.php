@@ -1,8 +1,8 @@
 <?php
 
-namespace Illuminate\Database\Console\Migrations;
+namespace WPWhales\Database\Console\Migrations;
 
-use Illuminate\Console\Command;
+use WPWhales\Console\Command;
 
 class BaseCommand extends Command
 {

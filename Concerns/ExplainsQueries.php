@@ -1,15 +1,15 @@
 <?php
 
-namespace Illuminate\Database\Concerns;
+namespace WPWhales\Database\Concerns;
 
-use Illuminate\Support\Collection;
+use WPWhales\Support\Collection;
 
 trait ExplainsQueries
 {
     /**
      * Explains the query.
      *
-     * @return \Illuminate\Support\Collection
+     * @return \WPWhales\Support\Collection
      */
     public function explain()
     {

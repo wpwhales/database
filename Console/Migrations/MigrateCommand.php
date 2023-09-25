@@ -1,14 +1,14 @@
 <?php
 
-namespace Illuminate\Database\Console\Migrations;
+namespace WPWhales\Database\Console\Migrations;
 
-use Illuminate\Console\ConfirmableTrait;
-use Illuminate\Contracts\Console\Isolatable;
-use Illuminate\Contracts\Events\Dispatcher;
-use Illuminate\Database\Events\SchemaLoaded;
-use Illuminate\Database\Migrations\Migrator;
-use Illuminate\Database\SQLiteDatabaseDoesNotExistException;
-use Illuminate\Database\SqlServerConnection;
+use WPWhales\Console\ConfirmableTrait;
+use WPWhales\Contracts\Console\Isolatable;
+use WPWhales\Contracts\Events\Dispatcher;
+use WPWhales\Database\Events\SchemaLoaded;
+use WPWhales\Database\Migrations\Migrator;
+use WPWhales\Database\SQLiteDatabaseDoesNotExistException;
+use WPWhales\Database\SqlServerConnection;
 use PDOException;
 use Throwable;
 
@@ -43,22 +43,22 @@ class MigrateCommand extends BaseCommand implements Isolatable
     /**
      * The migrator instance.
      *
-     * @var \Illuminate\Database\Migrations\Migrator
+     * @var \WPWhales\Database\Migrations\Migrator
      */
     protected $migrator;
 
     /**
      * The event dispatcher instance.
      *
-     * @var \Illuminate\Contracts\Events\Dispatcher
+     * @var \WPWhales\Contracts\Events\Dispatcher
      */
     protected $dispatcher;
 
     /**
      * Create a new migration command instance.
      *
-     * @param  \Illuminate\Database\Migrations\Migrator  $migrator
-     * @param  \Illuminate\Contracts\Events\Dispatcher  $dispatcher
+     * @param  \WPWhales\Database\Migrations\Migrator  $migrator
+     * @param  \WPWhales\Contracts\Events\Dispatcher  $dispatcher
      * @return void
      */
     public function __construct(Migrator $migrator, Dispatcher $dispatcher)
@@ -265,7 +265,7 @@ class MigrateCommand extends BaseCommand implements Isolatable
     /**
      * Get the path to the stored schema for the given connection.
      *
-     * @param  \Illuminate\Database\Connection  $connection
+     * @param  \WPWhales\Database\Connection  $connection
      * @return string
      */
     protected function schemaPath($connection)

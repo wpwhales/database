@@ -1,10 +1,10 @@
 <?php
 
-namespace Illuminate\Database\Eloquent\Concerns;
+namespace WPWhales\Database\Eloquent\Concerns;
 
 use Closure;
-use Illuminate\Database\Eloquent\Scope;
-use Illuminate\Support\Arr;
+use WPWhales\Database\Eloquent\Scope;
+use WPWhales\Support\Arr;
 use InvalidArgumentException;
 
 trait HasGlobalScopes
@@ -12,8 +12,8 @@ trait HasGlobalScopes
     /**
      * Register a new global scope on the model.
      *
-     * @param  \Illuminate\Database\Eloquent\Scope|\Closure|string  $scope
-     * @param  \Illuminate\Database\Eloquent\Scope|\Closure|null  $implementation
+     * @param  \WPWhales\Database\Eloquent\Scope|\Closure|string  $scope
+     * @param  \WPWhales\Database\Eloquent\Scope|\Closure|null  $implementation
      * @return mixed
      *
      * @throws \InvalidArgumentException
@@ -34,7 +34,7 @@ trait HasGlobalScopes
     /**
      * Determine if a model has a global scope.
      *
-     * @param  \Illuminate\Database\Eloquent\Scope|string  $scope
+     * @param  \WPWhales\Database\Eloquent\Scope|string  $scope
      * @return bool
      */
     public static function hasGlobalScope($scope)
@@ -45,8 +45,8 @@ trait HasGlobalScopes
     /**
      * Get a global scope registered with the model.
      *
-     * @param  \Illuminate\Database\Eloquent\Scope|string  $scope
-     * @return \Illuminate\Database\Eloquent\Scope|\Closure|null
+     * @param  \WPWhales\Database\Eloquent\Scope|string  $scope
+     * @return \WPWhales\Database\Eloquent\Scope|\Closure|null
      */
     public static function getGlobalScope($scope)
     {

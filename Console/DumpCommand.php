@@ -1,14 +1,14 @@
 <?php
 
-namespace Illuminate\Database\Console;
+namespace WPWhales\Database\Console;
 
-use Illuminate\Console\Command;
-use Illuminate\Contracts\Events\Dispatcher;
-use Illuminate\Database\Connection;
-use Illuminate\Database\ConnectionResolverInterface;
-use Illuminate\Database\Events\SchemaDumped;
-use Illuminate\Filesystem\Filesystem;
-use Illuminate\Support\Facades\Config;
+use WPWhales\Console\Command;
+use WPWhales\Contracts\Events\Dispatcher;
+use WPWhales\Database\Connection;
+use WPWhales\Database\ConnectionResolverInterface;
+use WPWhales\Database\Events\SchemaDumped;
+use WPWhales\Filesystem\Filesystem;
+use WPWhales\Support\Facades\Config;
 use Symfony\Component\Console\Attribute\AsCommand;
 
 #[AsCommand(name: 'schema:dump')]
@@ -34,8 +34,8 @@ class DumpCommand extends Command
     /**
      * Execute the console command.
      *
-     * @param  \Illuminate\Database\ConnectionResolverInterface  $connections
-     * @param  \Illuminate\Contracts\Events\Dispatcher  $dispatcher
+     * @param  \WPWhales\Database\ConnectionResolverInterface  $connections
+     * @param  \WPWhales\Contracts\Events\Dispatcher  $dispatcher
      * @return void
      */
     public function handle(ConnectionResolverInterface $connections, Dispatcher $dispatcher)
@@ -64,7 +64,7 @@ class DumpCommand extends Command
     /**
      * Create a schema state instance for the given connection.
      *
-     * @param  \Illuminate\Database\Connection  $connection
+     * @param  \WPWhales\Database\Connection  $connection
      * @return mixed
      */
     protected function schemaState(Connection $connection)
@@ -79,7 +79,7 @@ class DumpCommand extends Command
     /**
      * Get the path that the dump should be written to.
      *
-     * @param  \Illuminate\Database\Connection  $connection
+     * @param  \WPWhales\Database\Connection  $connection
      */
     protected function path(Connection $connection)
     {

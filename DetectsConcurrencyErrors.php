@@ -1,8 +1,8 @@
 <?php
 
-namespace Illuminate\Database;
+namespace WPWhales\Database;
 
-use Illuminate\Support\Str;
+use WPWhales\Support\Str;
 use PDOException;
 use Throwable;
 

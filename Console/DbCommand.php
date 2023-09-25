@@ -1,9 +1,9 @@
 <?php
 
-namespace Illuminate\Database\Console;
+namespace WPWhales\Database\Console;
 
-use Illuminate\Console\Command;
-use Illuminate\Support\ConfigurationUrlParser;
+use WPWhales\Console\Command;
+use WPWhales\Support\ConfigurationUrlParser;
 use Symfony\Component\Process\Process;
 use UnexpectedValueException;
 

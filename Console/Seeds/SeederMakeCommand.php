@@ -1,9 +1,9 @@
 <?php
 
-namespace Illuminate\Database\Console\Seeds;
+namespace WPWhales\Database\Console\Seeds;
 
-use Illuminate\Console\GeneratorCommand;
-use Illuminate\Support\Str;
+use WPWhales\Console\GeneratorCommand;
+use WPWhales\Support\Str;
 use Symfony\Component\Console\Attribute\AsCommand;
 
 #[AsCommand(name: 'make:seeder')]

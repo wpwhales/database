@@ -1,15 +1,15 @@
 <?php
 
-namespace Illuminate\Database;
+namespace WPWhales\Database;
 
 use Exception;
-use Illuminate\Database\PDO\MySqlDriver;
-use Illuminate\Database\Query\Grammars\MySqlGrammar as QueryGrammar;
-use Illuminate\Database\Query\Processors\MySqlProcessor;
-use Illuminate\Database\Schema\Grammars\MySqlGrammar as SchemaGrammar;
-use Illuminate\Database\Schema\MySqlBuilder;
-use Illuminate\Database\Schema\MySqlSchemaState;
-use Illuminate\Filesystem\Filesystem;
+use WPWhales\Database\PDO\MySqlDriver;
+use WPWhales\Database\Query\Grammars\MySqlGrammar as QueryGrammar;
+use WPWhales\Database\Query\Processors\MySqlProcessor;
+use WPWhales\Database\Schema\Grammars\MySqlGrammar as SchemaGrammar;
+use WPWhales\Database\Schema\MySqlBuilder;
+use WPWhales\Database\Schema\MySqlSchemaState;
+use WPWhales\Filesystem\Filesystem;
 use PDO;
 
 class MySqlConnection extends Connection
@@ -51,7 +51,7 @@ class MySqlConnection extends Connection
     /**
      * Get the default query grammar instance.
      *
-     * @return \Illuminate\Database\Query\Grammars\MySqlGrammar
+     * @return \WPWhales\Database\Query\Grammars\MySqlGrammar
      */
     protected function getDefaultQueryGrammar()
     {
@@ -63,7 +63,7 @@ class MySqlConnection extends Connection
     /**
      * Get a schema builder instance for the connection.
      *
-     * @return \Illuminate\Database\Schema\MySqlBuilder
+     * @return \WPWhales\Database\Schema\MySqlBuilder
      */
     public function getSchemaBuilder()
     {
@@ -77,7 +77,7 @@ class MySqlConnection extends Connection
     /**
      * Get the default schema grammar instance.
      *
-     * @return \Illuminate\Database\Schema\Grammars\MySqlGrammar
+     * @return \WPWhales\Database\Schema\Grammars\MySqlGrammar
      */
     protected function getDefaultSchemaGrammar()
     {
@@ -89,9 +89,9 @@ class MySqlConnection extends Connection
     /**
      * Get the schema state for the connection.
      *
-     * @param  \Illuminate\Filesystem\Filesystem|null  $files
+     * @param  \WPWhales\Filesystem\Filesystem|null  $files
      * @param  callable|null  $processFactory
-     * @return \Illuminate\Database\Schema\MySqlSchemaState
+     * @return \WPWhales\Database\Schema\MySqlSchemaState
      */
     public function getSchemaState(Filesystem $files = null, callable $processFactory = null)
     {
@@ -101,7 +101,7 @@ class MySqlConnection extends Connection
     /**
      * Get the default post processor instance.
      *
-     * @return \Illuminate\Database\Query\Processors\MySqlProcessor
+     * @return \WPWhales\Database\Query\Processors\MySqlProcessor
      */
     protected function getDefaultPostProcessor()
     {
@@ -111,7 +111,7 @@ class MySqlConnection extends Connection
     /**
      * Get the Doctrine DBAL driver.
      *
-     * @return \Illuminate\Database\PDO\MySqlDriver
+     * @return \WPWhales\Database\PDO\MySqlDriver
      */
     protected function getDoctrineDriver()
     {

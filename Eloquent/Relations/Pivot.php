@@ -1,9 +1,9 @@
 <?php
 
-namespace Illuminate\Database\Eloquent\Relations;
+namespace WPWhales\Database\Eloquent\Relations;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\Concerns\AsPivot;
+use WPWhales\Database\Eloquent\Model;
+use WPWhales\Database\Eloquent\Relations\Concerns\AsPivot;
 
 class Pivot extends Model
 {

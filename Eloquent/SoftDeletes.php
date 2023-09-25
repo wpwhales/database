@@ -1,11 +1,11 @@
 <?php
 
-namespace Illuminate\Database\Eloquent;
+namespace WPWhales\Database\Eloquent;
 
 /**
- * @method static \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Query\Builder withTrashed(bool $withTrashed = true)
- * @method static \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Query\Builder onlyTrashed()
- * @method static \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Query\Builder withoutTrashed()
+ * @method static \WPWhales\Database\Eloquent\Builder|\WPWhales\Database\Query\Builder withTrashed(bool $withTrashed = true)
+ * @method static \WPWhales\Database\Eloquent\Builder|\WPWhales\Database\Query\Builder onlyTrashed()
+ * @method static \WPWhales\Database\Eloquent\Builder|\WPWhales\Database\Query\Builder withoutTrashed()
  */
 trait SoftDeletes
 {

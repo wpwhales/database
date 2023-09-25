@@ -1,32 +1,32 @@
 <?php
 
-namespace Illuminate\Database\Eloquent;
+namespace WPWhales\Database\Eloquent;
 
 use BadMethodCallException;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Support\Str;
+use WPWhales\Database\Eloquent\Relations\HasMany;
+use WPWhales\Support\Str;
 
 class PendingHasThroughRelationship
 {
     /**
      * The root model that the relationship exists on.
      *
-     * @var \Illuminate\Database\Eloquent\Model
+     * @var \WPWhales\Database\Eloquent\Model
      */
     protected $rootModel;
 
     /**
      * The local relationship.
      *
-     * @var \Illuminate\Database\Eloquent\Relations\HasMany|\Illuminate\Database\Eloquent\Relations\HasOne
+     * @var \WPWhales\Database\Eloquent\Relations\HasMany|\WPWhales\Database\Eloquent\Relations\HasOne
      */
     protected $localRelationship;
 
     /**
      * Create a pending has-many-through or has-one-through relationship.
      *
-     * @param  \Illuminate\Database\Eloquent\Model  $rootModel
-     * @param  \Illuminate\Database\Eloquent\Relations\HasMany|\Illuminate\Database\Eloquent\Relations\HasOne  $localRelationship
+     * @param  \WPWhales\Database\Eloquent\Model  $rootModel
+     * @param  \WPWhales\Database\Eloquent\Relations\HasMany|\WPWhales\Database\Eloquent\Relations\HasOne  $localRelationship
      */
     public function __construct($rootModel, $localRelationship)
     {
@@ -38,8 +38,8 @@ class PendingHasThroughRelationship
     /**
      * Define the distant relationship that this model has.
      *
-     * @param  string|(callable(\Illuminate\Database\Eloquent\Model): (\Illuminate\Database\Eloquent\Relations\HasOne|\Illuminate\Database\Eloquent\Relations\HasMany))  $callback
-     * @return \Illuminate\Database\Eloquent\Relations\HasManyThrough|\Illuminate\Database\Eloquent\Relations\HasOneThrough
+     * @param  string|(callable(\WPWhales\Database\Eloquent\Model): (\WPWhales\Database\Eloquent\Relations\HasOne|\WPWhales\Database\Eloquent\Relations\HasMany))  $callback
+     * @return \WPWhales\Database\Eloquent\Relations\HasManyThrough|\WPWhales\Database\Eloquent\Relations\HasOneThrough
      */
     public function has($callback)
     {

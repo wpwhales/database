@@ -1,8 +1,8 @@
 <?php
 
-namespace Illuminate\Database\Connectors;
+namespace WPWhales\Database\Connectors;
 
-use Illuminate\Support\Arr;
+use WPWhales\Support\Arr;
 use PDO;
 
 class SqlServerConnector extends Connector implements ConnectorInterface

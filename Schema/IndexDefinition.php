@@ -1,8 +1,8 @@
 <?php
 
-namespace Illuminate\Database\Schema;
+namespace WPWhales\Database\Schema;
 
-use Illuminate\Support\Fluent;
+use WPWhales\Support\Fluent;
 
 /**
  * @method $this algorithm(string $algorithm) Specify an algorithm for the index (MySQL/PostgreSQL)

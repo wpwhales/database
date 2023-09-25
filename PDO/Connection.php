@@ -1,6 +1,6 @@
 <?php
 
-namespace Illuminate\Database\PDO;
+namespace WPWhales\Database\PDO;
 
 use Doctrine\DBAL\Driver\PDO\Exception;
 use Doctrine\DBAL\Driver\PDO\Result;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Illuminate\Database;
+namespace WPWhales\Database;
 
 use Carbon\CarbonInterval;
 use Closure;
@@ -8,21 +8,21 @@ use DateTimeInterface;
 use Doctrine\DBAL\Connection as DoctrineConnection;
 use Doctrine\DBAL\Types\Type;
 use Exception;
-use Illuminate\Contracts\Events\Dispatcher;
-use Illuminate\Database\Events\QueryExecuted;
-use Illuminate\Database\Events\StatementPrepared;
-use Illuminate\Database\Events\TransactionBeginning;
-use Illuminate\Database\Events\TransactionCommitted;
-use Illuminate\Database\Events\TransactionCommitting;
-use Illuminate\Database\Events\TransactionRolledBack;
-use Illuminate\Database\Query\Builder as QueryBuilder;
-use Illuminate\Database\Query\Expression;
-use Illuminate\Database\Query\Grammars\Grammar as QueryGrammar;
-use Illuminate\Database\Query\Processors\Processor;
-use Illuminate\Database\Schema\Builder as SchemaBuilder;
-use Illuminate\Support\Arr;
-use Illuminate\Support\InteractsWithTime;
-use Illuminate\Support\Traits\Macroable;
+use WPWhales\Contracts\Events\Dispatcher;
+use WPWhales\Database\Events\QueryExecuted;
+use WPWhales\Database\Events\StatementPrepared;
+use WPWhales\Database\Events\TransactionBeginning;
+use WPWhales\Database\Events\TransactionCommitted;
+use WPWhales\Database\Events\TransactionCommitting;
+use WPWhales\Database\Events\TransactionRolledBack;
+use WPWhales\Database\Query\Builder as QueryBuilder;
+use WPWhales\Database\Query\Expression;
+use WPWhales\Database\Query\Grammars\Grammar as QueryGrammar;
+use WPWhales\Database\Query\Processors\Processor;
+use WPWhales\Database\Schema\Builder as SchemaBuilder;
+use WPWhales\Support\Arr;
+use WPWhales\Support\InteractsWithTime;
+use WPWhales\Support\Traits\Macroable;
 use PDO;
 use PDOStatement;
 use RuntimeException;
@@ -87,28 +87,28 @@ class Connection implements ConnectionInterface
     /**
      * The query grammar implementation.
      *
-     * @var \Illuminate\Database\Query\Grammars\Grammar
+     * @var \WPWhales\Database\Query\Grammars\Grammar
      */
     protected $queryGrammar;
 
     /**
      * The schema grammar implementation.
      *
-     * @var \Illuminate\Database\Schema\Grammars\Grammar
+     * @var \WPWhales\Database\Schema\Grammars\Grammar
      */
     protected $schemaGrammar;
 
     /**
      * The query post processor implementation.
      *
-     * @var \Illuminate\Database\Query\Processors\Processor
+     * @var \WPWhales\Database\Query\Processors\Processor
      */
     protected $postProcessor;
 
     /**
      * The event dispatcher instance.
      *
-     * @var \Illuminate\Contracts\Events\Dispatcher
+     * @var \WPWhales\Contracts\Events\Dispatcher
      */
     protected $events;
 
@@ -129,7 +129,7 @@ class Connection implements ConnectionInterface
     /**
      * The transaction manager instance.
      *
-     * @var \Illuminate\Database\DatabaseTransactionsManager
+     * @var \WPWhales\Database\DatabaseTransactionsManager
      */
     protected $transactionsManager;
 
@@ -253,7 +253,7 @@ class Connection implements ConnectionInterface
     /**
      * Get the default query grammar instance.
      *
-     * @return \Illuminate\Database\Query\Grammars\Grammar
+     * @return \WPWhales\Database\Query\Grammars\Grammar
      */
     protected function getDefaultQueryGrammar()
     {
@@ -275,7 +275,7 @@ class Connection implements ConnectionInterface
     /**
      * Get the default schema grammar instance.
      *
-     * @return \Illuminate\Database\Schema\Grammars\Grammar|null
+     * @return \WPWhales\Database\Schema\Grammars\Grammar|null
      */
     protected function getDefaultSchemaGrammar()
     {
@@ -295,7 +295,7 @@ class Connection implements ConnectionInterface
     /**
      * Get the default post processor instance.
      *
-     * @return \Illuminate\Database\Query\Processors\Processor
+     * @return \WPWhales\Database\Query\Processors\Processor
      */
     protected function getDefaultPostProcessor()
     {
@@ -305,7 +305,7 @@ class Connection implements ConnectionInterface
     /**
      * Get a schema builder instance for the connection.
      *
-     * @return \Illuminate\Database\Schema\Builder
+     * @return \WPWhales\Database\Schema\Builder
      */
     public function getSchemaBuilder()
     {
@@ -319,9 +319,9 @@ class Connection implements ConnectionInterface
     /**
      * Begin a fluent query against a database table.
      *
-     * @param  \Closure|\Illuminate\Database\Query\Builder|\Illuminate\Contracts\Database\Query\Expression|string  $table
+     * @param  \Closure|\WPWhales\Database\Query\Builder|\WPWhales\Contracts\Database\Query\Expression|string  $table
      * @param  string|null  $as
-     * @return \Illuminate\Database\Query\Builder
+     * @return \WPWhales\Database\Query\Builder
      */
     public function table($table, $as = null)
     {
@@ -331,7 +331,7 @@ class Connection implements ConnectionInterface
     /**
      * Get a new query builder instance.
      *
-     * @return \Illuminate\Database\Query\Builder
+     * @return \WPWhales\Database\Query\Builder
      */
     public function query()
     {
@@ -363,7 +363,7 @@ class Connection implements ConnectionInterface
      * @param  bool  $useReadPdo
      * @return mixed
      *
-     * @throws \Illuminate\Database\MultipleColumnsSelectedException
+     * @throws \WPWhales\Database\MultipleColumnsSelectedException
      */
     public function scalar($query, $bindings = [], $useReadPdo = true)
     {
@@ -736,7 +736,7 @@ class Connection implements ConnectionInterface
      * @param  \Closure  $callback
      * @return mixed
      *
-     * @throws \Illuminate\Database\QueryException
+     * @throws \WPWhales\Database\QueryException
      */
     protected function run($query, $bindings, Closure $callback)
     {
@@ -777,7 +777,7 @@ class Connection implements ConnectionInterface
      * @param  \Closure  $callback
      * @return mixed
      *
-     * @throws \Illuminate\Database\QueryException
+     * @throws \WPWhales\Database\QueryException
      */
     protected function runQueryCallback($query, $bindings, Closure $callback)
     {
@@ -913,13 +913,13 @@ class Connection implements ConnectionInterface
     /**
      * Handle a query exception.
      *
-     * @param  \Illuminate\Database\QueryException  $e
+     * @param  \WPWhales\Database\QueryException  $e
      * @param  string  $query
      * @param  array  $bindings
      * @param  \Closure  $callback
      * @return mixed
      *
-     * @throws \Illuminate\Database\QueryException
+     * @throws \WPWhales\Database\QueryException
      */
     protected function handleQueryException(QueryException $e, $query, $bindings, Closure $callback)
     {
@@ -935,13 +935,13 @@ class Connection implements ConnectionInterface
     /**
      * Handle a query exception that occurred during query execution.
      *
-     * @param  \Illuminate\Database\QueryException  $e
+     * @param  \WPWhales\Database\QueryException  $e
      * @param  string  $query
      * @param  array  $bindings
      * @param  \Closure  $callback
      * @return mixed
      *
-     * @throws \Illuminate\Database\QueryException
+     * @throws \WPWhales\Database\QueryException
      */
     protected function tryAgainIfCausedByLostConnection(QueryException $e, $query, $bindings, Closure $callback)
     {
@@ -959,7 +959,7 @@ class Connection implements ConnectionInterface
      *
      * @return mixed|false
      *
-     * @throws \Illuminate\Database\LostConnectionException
+     * @throws \WPWhales\Database\LostConnectionException
      */
     public function reconnect()
     {
@@ -1052,7 +1052,7 @@ class Connection implements ConnectionInterface
      * Get a new raw query expression.
      *
      * @param  mixed  $value
-     * @return \Illuminate\Contracts\Database\Query\Expression
+     * @return \WPWhales\Contracts\Database\Query\Expression
      */
     public function raw($value)
     {
@@ -1423,7 +1423,7 @@ class Connection implements ConnectionInterface
     /**
      * Get the query grammar used by the connection.
      *
-     * @return \Illuminate\Database\Query\Grammars\Grammar
+     * @return \WPWhales\Database\Query\Grammars\Grammar
      */
     public function getQueryGrammar()
     {
@@ -1433,7 +1433,7 @@ class Connection implements ConnectionInterface
     /**
      * Set the query grammar used by the connection.
      *
-     * @param  \Illuminate\Database\Query\Grammars\Grammar  $grammar
+     * @param  \WPWhales\Database\Query\Grammars\Grammar  $grammar
      * @return $this
      */
     public function setQueryGrammar(Query\Grammars\Grammar $grammar)
@@ -1446,7 +1446,7 @@ class Connection implements ConnectionInterface
     /**
      * Get the schema grammar used by the connection.
      *
-     * @return \Illuminate\Database\Schema\Grammars\Grammar
+     * @return \WPWhales\Database\Schema\Grammars\Grammar
      */
     public function getSchemaGrammar()
     {
@@ -1456,7 +1456,7 @@ class Connection implements ConnectionInterface
     /**
      * Set the schema grammar used by the connection.
      *
-     * @param  \Illuminate\Database\Schema\Grammars\Grammar  $grammar
+     * @param  \WPWhales\Database\Schema\Grammars\Grammar  $grammar
      * @return $this
      */
     public function setSchemaGrammar(Schema\Grammars\Grammar $grammar)
@@ -1469,7 +1469,7 @@ class Connection implements ConnectionInterface
     /**
      * Get the query post processor used by the connection.
      *
-     * @return \Illuminate\Database\Query\Processors\Processor
+     * @return \WPWhales\Database\Query\Processors\Processor
      */
     public function getPostProcessor()
     {
@@ -1479,7 +1479,7 @@ class Connection implements ConnectionInterface
     /**
      * Set the query post processor used by the connection.
      *
-     * @param  \Illuminate\Database\Query\Processors\Processor  $processor
+     * @param  \WPWhales\Database\Query\Processors\Processor  $processor
      * @return $this
      */
     public function setPostProcessor(Processor $processor)
@@ -1492,7 +1492,7 @@ class Connection implements ConnectionInterface
     /**
      * Get the event dispatcher used by the connection.
      *
-     * @return \Illuminate\Contracts\Events\Dispatcher
+     * @return \WPWhales\Contracts\Events\Dispatcher
      */
     public function getEventDispatcher()
     {
@@ -1502,7 +1502,7 @@ class Connection implements ConnectionInterface
     /**
      * Set the event dispatcher instance on the connection.
      *
-     * @param  \Illuminate\Contracts\Events\Dispatcher  $events
+     * @param  \WPWhales\Contracts\Events\Dispatcher  $events
      * @return $this
      */
     public function setEventDispatcher(Dispatcher $events)
@@ -1525,7 +1525,7 @@ class Connection implements ConnectionInterface
     /**
      * Set the transaction manager instance on the connection.
      *
-     * @param  \Illuminate\Database\DatabaseTransactionsManager  $manager
+     * @param  \WPWhales\Database\DatabaseTransactionsManager  $manager
      * @return $this
      */
     public function setTransactionManager($manager)
@@ -1685,8 +1685,8 @@ class Connection implements ConnectionInterface
     /**
      * Set the table prefix and return the grammar.
      *
-     * @param  \Illuminate\Database\Grammar  $grammar
-     * @return \Illuminate\Database\Grammar
+     * @param  \WPWhales\Database\Grammar  $grammar
+     * @return \WPWhales\Database\Grammar
      */
     public function withTablePrefix(Grammar $grammar)
     {

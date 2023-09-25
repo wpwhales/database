@@ -1,20 +1,20 @@
 <?php
 
-namespace Illuminate\Database;
+namespace WPWhales\Database;
 
 use Doctrine\DBAL\Types\Type;
-use Illuminate\Database\Connectors\ConnectionFactory;
-use Illuminate\Database\Events\ConnectionEstablished;
-use Illuminate\Support\Arr;
-use Illuminate\Support\ConfigurationUrlParser;
-use Illuminate\Support\Str;
-use Illuminate\Support\Traits\Macroable;
+use WPWhales\Database\Connectors\ConnectionFactory;
+use WPWhales\Database\Events\ConnectionEstablished;
+use WPWhales\Support\Arr;
+use WPWhales\Support\ConfigurationUrlParser;
+use WPWhales\Support\Str;
+use WPWhales\Support\Traits\Macroable;
 use InvalidArgumentException;
 use PDO;
 use RuntimeException;
 
 /**
- * @mixin \Illuminate\Database\Connection
+ * @mixin \WPWhales\Database\Connection
  */
 class DatabaseManager implements ConnectionResolverInterface
 {
@@ -25,21 +25,21 @@ class DatabaseManager implements ConnectionResolverInterface
     /**
      * The application instance.
      *
-     * @var \Illuminate\Contracts\Foundation\Application
+     * @var \WPWhales\Contracts\Foundation\Application
      */
     protected $app;
 
     /**
      * The database connection factory instance.
      *
-     * @var \Illuminate\Database\Connectors\ConnectionFactory
+     * @var \WPWhales\Database\Connectors\ConnectionFactory
      */
     protected $factory;
 
     /**
      * The active connection instances.
      *
-     * @var array<string, \Illuminate\Database\Connection>
+     * @var array<string, \WPWhales\Database\Connection>
      */
     protected $connections = [];
 
@@ -67,8 +67,8 @@ class DatabaseManager implements ConnectionResolverInterface
     /**
      * Create a new database manager instance.
      *
-     * @param  \Illuminate\Contracts\Foundation\Application  $app
-     * @param  \Illuminate\Database\Connectors\ConnectionFactory  $factory
+     * @param  \WPWhales\Contracts\Foundation\Application  $app
+     * @param  \WPWhales\Database\Connectors\ConnectionFactory  $factory
      * @return void
      */
     public function __construct($app, ConnectionFactory $factory)
@@ -85,7 +85,7 @@ class DatabaseManager implements ConnectionResolverInterface
      * Get a database connection instance.
      *
      * @param  string|null  $name
-     * @return \Illuminate\Database\Connection
+     * @return \WPWhales\Database\Connection
      */
     public function connection($name = null)
     {
@@ -129,7 +129,7 @@ class DatabaseManager implements ConnectionResolverInterface
      * Make the database connection instance.
      *
      * @param  string  $name
-     * @return \Illuminate\Database\Connection
+     * @return \WPWhales\Database\Connection
      */
     protected function makeConnection($name)
     {
@@ -180,9 +180,9 @@ class DatabaseManager implements ConnectionResolverInterface
     /**
      * Prepare the database connection instance.
      *
-     * @param  \Illuminate\Database\Connection  $connection
+     * @param  \WPWhales\Database\Connection  $connection
      * @param  string  $type
-     * @return \Illuminate\Database\Connection
+     * @return \WPWhales\Database\Connection
      */
     protected function configure(Connection $connection, $type)
     {
@@ -212,9 +212,9 @@ class DatabaseManager implements ConnectionResolverInterface
     /**
      * Prepare the read / write mode for database connection instance.
      *
-     * @param  \Illuminate\Database\Connection  $connection
+     * @param  \WPWhales\Database\Connection  $connection
      * @param  string|null  $type
-     * @return \Illuminate\Database\Connection
+     * @return \WPWhales\Database\Connection
      */
     protected function setPdoForType(Connection $connection, $type = null)
     {
@@ -230,7 +230,7 @@ class DatabaseManager implements ConnectionResolverInterface
     /**
      * Register custom Doctrine types with the connection.
      *
-     * @param  \Illuminate\Database\Connection  $connection
+     * @param  \WPWhales\Database\Connection  $connection
      * @return void
      */
     protected function registerConfiguredDoctrineTypes(Connection $connection): void
@@ -302,7 +302,7 @@ class DatabaseManager implements ConnectionResolverInterface
      * Reconnect to the given database.
      *
      * @param  string|null  $name
-     * @return \Illuminate\Database\Connection
+     * @return \WPWhales\Database\Connection
      */
     public function reconnect($name = null)
     {
@@ -337,7 +337,7 @@ class DatabaseManager implements ConnectionResolverInterface
      * Refresh the PDO connections on a given connection.
      *
      * @param  string  $name
-     * @return \Illuminate\Database\Connection
+     * @return \WPWhales\Database\Connection
      */
     protected function refreshPdoConnections($name)
     {
@@ -422,7 +422,7 @@ class DatabaseManager implements ConnectionResolverInterface
     /**
      * Return all of the created connections.
      *
-     * @return array<string, \Illuminate\Database\Connection>
+     * @return array<string, \WPWhales\Database\Connection>
      */
     public function getConnections()
     {
@@ -443,7 +443,7 @@ class DatabaseManager implements ConnectionResolverInterface
     /**
      * Set the application instance used by the manager.
      *
-     * @param  \Illuminate\Contracts\Foundation\Application  $app
+     * @param  \WPWhales\Contracts\Foundation\Application  $app
      * @return $this
      */
     public function setApplication($app)

@@ -1,9 +1,9 @@
 <?php
 
-namespace Illuminate\Database\Console;
+namespace WPWhales\Database\Console;
 
-use Illuminate\Console\Command;
-use Illuminate\Console\ConfirmableTrait;
+use WPWhales\Console\Command;
+use WPWhales\Console\ConfirmableTrait;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Input\InputOption;
 

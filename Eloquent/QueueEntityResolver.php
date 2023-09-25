@@ -1,9 +1,9 @@
 <?php
 
-namespace Illuminate\Database\Eloquent;
+namespace WPWhales\Database\Eloquent;
 
-use Illuminate\Contracts\Queue\EntityNotFoundException;
-use Illuminate\Contracts\Queue\EntityResolver as EntityResolverContract;
+use WPWhales\Contracts\Queue\EntityNotFoundException;
+use WPWhales\Contracts\Queue\EntityResolver as EntityResolverContract;
 
 class QueueEntityResolver implements EntityResolverContract
 {
@@ -14,7 +14,7 @@ class QueueEntityResolver implements EntityResolverContract
      * @param  mixed  $id
      * @return mixed
      *
-     * @throws \Illuminate\Contracts\Queue\EntityNotFoundException
+     * @throws \WPWhales\Contracts\Queue\EntityNotFoundException
      */
     public function resolve($type, $id)
     {

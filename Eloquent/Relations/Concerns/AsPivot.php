@@ -1,16 +1,16 @@
 <?php
 
-namespace Illuminate\Database\Eloquent\Relations\Concerns;
+namespace WPWhales\Database\Eloquent\Relations\Concerns;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Str;
+use WPWhales\Database\Eloquent\Model;
+use WPWhales\Support\Str;
 
 trait AsPivot
 {
     /**
      * The parent model of the relationship.
      *
-     * @var \Illuminate\Database\Eloquent\Model
+     * @var \WPWhales\Database\Eloquent\Model
      */
     public $pivotParent;
 
@@ -31,7 +31,7 @@ trait AsPivot
     /**
      * Create a new pivot model instance.
      *
-     * @param  \Illuminate\Database\Eloquent\Model  $parent
+     * @param  \WPWhales\Database\Eloquent\Model  $parent
      * @param  array  $attributes
      * @param  string  $table
      * @param  bool  $exists
@@ -64,7 +64,7 @@ trait AsPivot
     /**
      * Create a new pivot model from raw values returned from a query.
      *
-     * @param  \Illuminate\Database\Eloquent\Model  $parent
+     * @param  \WPWhales\Database\Eloquent\Model  $parent
      * @param  array  $attributes
      * @param  string  $table
      * @param  bool  $exists
@@ -86,8 +86,8 @@ trait AsPivot
     /**
      * Set the keys for a select query.
      *
-     * @param  \Illuminate\Database\Eloquent\Builder  $query
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @param  \WPWhales\Database\Eloquent\Builder  $query
+     * @return \WPWhales\Database\Eloquent\Builder
      */
     protected function setKeysForSelectQuery($query)
     {
@@ -107,8 +107,8 @@ trait AsPivot
     /**
      * Set the keys for a save update query.
      *
-     * @param  \Illuminate\Database\Eloquent\Builder  $query
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @param  \WPWhales\Database\Eloquent\Builder  $query
+     * @return \WPWhales\Database\Eloquent\Builder
      */
     protected function setKeysForSaveQuery($query)
     {
@@ -142,7 +142,7 @@ trait AsPivot
     /**
      * Get the query builder for a delete operation on the pivot.
      *
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @return \WPWhales\Database\Eloquent\Builder
      */
     protected function getDeleteQuery()
     {
@@ -271,7 +271,7 @@ trait AsPivot
      * Get a new query to restore one or more models by their queueable IDs.
      *
      * @param  int[]|string[]|string  $ids
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @return \WPWhales\Database\Eloquent\Builder
      */
     public function newQueryForRestoration($ids)
     {
@@ -294,7 +294,7 @@ trait AsPivot
      * Get a new query to restore multiple models by their queueable IDs.
      *
      * @param  int[]|string[]  $ids
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @return \WPWhales\Database\Eloquent\Builder
      */
     protected function newQueryForCollectionRestoration(array $ids)
     {

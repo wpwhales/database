@@ -1,14 +1,14 @@
 <?php
 
-namespace Illuminate\Database;
+namespace WPWhales\Database;
 
 use Faker\Factory as FakerFactory;
 use Faker\Generator as FakerGenerator;
-use Illuminate\Contracts\Queue\EntityResolver;
-use Illuminate\Database\Connectors\ConnectionFactory;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\QueueEntityResolver;
-use Illuminate\Support\ServiceProvider;
+use WPWhales\Contracts\Queue\EntityResolver;
+use WPWhales\Database\Connectors\ConnectionFactory;
+use WPWhales\Database\Eloquent\Model;
+use WPWhales\Database\Eloquent\QueueEntityResolver;
+use WPWhales\Support\ServiceProvider;
 
 class DatabaseServiceProvider extends ServiceProvider
 {

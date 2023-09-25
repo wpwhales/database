@@ -1,24 +1,24 @@
 <?php
 
-namespace Illuminate\Database\Eloquent;
+namespace WPWhales\Database\Eloquent;
 
 use BadMethodCallException;
 use Closure;
 use Exception;
-use Illuminate\Contracts\Database\Eloquent\Builder as BuilderContract;
-use Illuminate\Contracts\Database\Query\Expression;
-use Illuminate\Contracts\Support\Arrayable;
-use Illuminate\Database\Concerns\BuildsQueries;
-use Illuminate\Database\Eloquent\Concerns\QueriesRelationships;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\Relations\Relation;
-use Illuminate\Database\Query\Builder as QueryBuilder;
-use Illuminate\Database\RecordsNotFoundException;
-use Illuminate\Database\UniqueConstraintViolationException;
-use Illuminate\Pagination\Paginator;
-use Illuminate\Support\Arr;
-use Illuminate\Support\Str;
-use Illuminate\Support\Traits\ForwardsCalls;
+use WPWhales\Contracts\Database\Eloquent\Builder as BuilderContract;
+use WPWhales\Contracts\Database\Query\Expression;
+use WPWhales\Contracts\Support\Arrayable;
+use WPWhales\Database\Concerns\BuildsQueries;
+use WPWhales\Database\Eloquent\Concerns\QueriesRelationships;
+use WPWhales\Database\Eloquent\Relations\BelongsToMany;
+use WPWhales\Database\Eloquent\Relations\Relation;
+use WPWhales\Database\Query\Builder as QueryBuilder;
+use WPWhales\Database\RecordsNotFoundException;
+use WPWhales\Database\UniqueConstraintViolationException;
+use WPWhales\Pagination\Paginator;
+use WPWhales\Support\Arr;
+use WPWhales\Support\Str;
+use WPWhales\Support\Traits\ForwardsCalls;
 use ReflectionClass;
 use ReflectionMethod;
 
@@ -27,7 +27,7 @@ use ReflectionMethod;
  * @property-read HigherOrderBuilderProxy $whereNot
  * @property-read HigherOrderBuilderProxy $orWhereNot
  *
- * @mixin \Illuminate\Database\Query\Builder
+ * @mixin \WPWhales\Database\Query\Builder
  */
 class Builder implements BuilderContract
 {
@@ -38,14 +38,14 @@ class Builder implements BuilderContract
     /**
      * The base query builder instance.
      *
-     * @var \Illuminate\Database\Query\Builder
+     * @var \WPWhales\Database\Query\Builder
      */
     protected $query;
 
     /**
      * The model being queried.
      *
-     * @var \Illuminate\Database\Eloquent\Model
+     * @var \WPWhales\Database\Eloquent\Model
      */
     protected $model;
 
@@ -139,7 +139,7 @@ class Builder implements BuilderContract
     /**
      * Create a new Eloquent query builder instance.
      *
-     * @param  \Illuminate\Database\Query\Builder  $query
+     * @param  \WPWhales\Database\Query\Builder  $query
      * @return void
      */
     public function __construct(QueryBuilder $query)
@@ -151,7 +151,7 @@ class Builder implements BuilderContract
      * Create and return an un-saved model instance.
      *
      * @param  array  $attributes
-     * @return \Illuminate\Database\Eloquent\Model|static
+     * @return \WPWhales\Database\Eloquent\Model|static
      */
     public function make(array $attributes = [])
     {
@@ -162,7 +162,7 @@ class Builder implements BuilderContract
      * Register a new global scope.
      *
      * @param  string  $identifier
-     * @param  \Illuminate\Database\Eloquent\Scope|\Closure  $scope
+     * @param  \WPWhales\Database\Eloquent\Scope|\Closure  $scope
      * @return $this
      */
     public function withGlobalScope($identifier, $scope)
@@ -179,7 +179,7 @@ class Builder implements BuilderContract
     /**
      * Remove a registered global scope.
      *
-     * @param  \Illuminate\Database\Eloquent\Scope|string  $scope
+     * @param  \WPWhales\Database\Eloquent\Scope|string  $scope
      * @return $this
      */
     public function withoutGlobalScope($scope)
@@ -285,7 +285,7 @@ class Builder implements BuilderContract
     /**
      * Add a basic where clause to the query.
      *
-     * @param  \Closure|string|array|\Illuminate\Contracts\Database\Query\Expression  $column
+     * @param  \Closure|string|array|\WPWhales\Contracts\Database\Query\Expression  $column
      * @param  mixed  $operator
      * @param  mixed  $value
      * @param  string  $boolean
@@ -307,11 +307,11 @@ class Builder implements BuilderContract
     /**
      * Add a basic where clause to the query, and return the first result.
      *
-     * @param  \Closure|string|array|\Illuminate\Contracts\Database\Query\Expression  $column
+     * @param  \Closure|string|array|\WPWhales\Contracts\Database\Query\Expression  $column
      * @param  mixed  $operator
      * @param  mixed  $value
      * @param  string  $boolean
-     * @return \Illuminate\Database\Eloquent\Model|static|null
+     * @return \WPWhales\Database\Eloquent\Model|static|null
      */
     public function firstWhere($column, $operator = null, $value = null, $boolean = 'and')
     {
@@ -321,7 +321,7 @@ class Builder implements BuilderContract
     /**
      * Add an "or where" clause to the query.
      *
-     * @param  \Closure|array|string|\Illuminate\Contracts\Database\Query\Expression  $column
+     * @param  \Closure|array|string|\WPWhales\Contracts\Database\Query\Expression  $column
      * @param  mixed  $operator
      * @param  mixed  $value
      * @return $this
@@ -338,7 +338,7 @@ class Builder implements BuilderContract
     /**
      * Add a basic "where not" clause to the query.
      *
-     * @param  \Closure|string|array|\Illuminate\Contracts\Database\Query\Expression  $column
+     * @param  \Closure|string|array|\WPWhales\Contracts\Database\Query\Expression  $column
      * @param  mixed  $operator
      * @param  mixed  $value
      * @param  string  $boolean
@@ -352,7 +352,7 @@ class Builder implements BuilderContract
     /**
      * Add an "or where not" clause to the query.
      *
-     * @param  \Closure|array|string|\Illuminate\Contracts\Database\Query\Expression  $column
+     * @param  \Closure|array|string|\WPWhales\Contracts\Database\Query\Expression  $column
      * @param  mixed  $operator
      * @param  mixed  $value
      * @return $this
@@ -365,7 +365,7 @@ class Builder implements BuilderContract
     /**
      * Add an "order by" clause for a timestamp to the query.
      *
-     * @param  string|\Illuminate\Contracts\Database\Query\Expression  $column
+     * @param  string|\WPWhales\Contracts\Database\Query\Expression  $column
      * @return $this
      */
     public function latest($column = null)
@@ -382,7 +382,7 @@ class Builder implements BuilderContract
     /**
      * Add an "order by" clause for a timestamp to the query.
      *
-     * @param  string|\Illuminate\Contracts\Database\Query\Expression  $column
+     * @param  string|\WPWhales\Contracts\Database\Query\Expression  $column
      * @return $this
      */
     public function oldest($column = null)
@@ -400,7 +400,7 @@ class Builder implements BuilderContract
      * Create a collection of models from plain arrays.
      *
      * @param  array  $items
-     * @return \Illuminate\Database\Eloquent\Collection
+     * @return \WPWhales\Database\Eloquent\Collection
      */
     public function hydrate(array $items)
     {
@@ -422,7 +422,7 @@ class Builder implements BuilderContract
      *
      * @param  string  $query
      * @param  array  $bindings
-     * @return \Illuminate\Database\Eloquent\Collection
+     * @return \WPWhales\Database\Eloquent\Collection
      */
     public function fromQuery($query, $bindings = [])
     {
@@ -436,7 +436,7 @@ class Builder implements BuilderContract
      *
      * @param  mixed  $id
      * @param  array|string  $columns
-     * @return \Illuminate\Database\Eloquent\Model|\Illuminate\Database\Eloquent\Collection|static[]|static|null
+     * @return \WPWhales\Database\Eloquent\Model|\WPWhales\Database\Eloquent\Collection|static[]|static|null
      */
     public function find($id, $columns = ['*'])
     {
@@ -450,9 +450,9 @@ class Builder implements BuilderContract
     /**
      * Find multiple models by their primary keys.
      *
-     * @param  \Illuminate\Contracts\Support\Arrayable|array  $ids
+     * @param  \WPWhales\Contracts\Support\Arrayable|array  $ids
      * @param  array|string  $columns
-     * @return \Illuminate\Database\Eloquent\Collection
+     * @return \WPWhales\Database\Eloquent\Collection
      */
     public function findMany($ids, $columns = ['*'])
     {
@@ -470,9 +470,9 @@ class Builder implements BuilderContract
      *
      * @param  mixed  $id
      * @param  array|string  $columns
-     * @return \Illuminate\Database\Eloquent\Model|\Illuminate\Database\Eloquent\Collection|static|static[]
+     * @return \WPWhales\Database\Eloquent\Model|\WPWhales\Database\Eloquent\Collection|static|static[]
      *
-     * @throws \Illuminate\Database\Eloquent\ModelNotFoundException<\Illuminate\Database\Eloquent\Model>
+     * @throws \WPWhales\Database\Eloquent\ModelNotFoundException<\WPWhales\Database\Eloquent\Model>
      */
     public function findOrFail($id, $columns = ['*'])
     {
@@ -504,7 +504,7 @@ class Builder implements BuilderContract
      *
      * @param  mixed  $id
      * @param  array|string  $columns
-     * @return \Illuminate\Database\Eloquent\Model|static
+     * @return \WPWhales\Database\Eloquent\Model|static
      */
     public function findOrNew($id, $columns = ['*'])
     {
@@ -521,7 +521,7 @@ class Builder implements BuilderContract
      * @param  mixed  $id
      * @param  \Closure|array|string  $columns
      * @param  \Closure|null  $callback
-     * @return \Illuminate\Database\Eloquent\Model|\Illuminate\Database\Eloquent\Collection|static[]|static|mixed
+     * @return \WPWhales\Database\Eloquent\Model|\WPWhales\Database\Eloquent\Collection|static[]|static|mixed
      */
     public function findOr($id, $columns = ['*'], Closure $callback = null)
     {
@@ -543,7 +543,7 @@ class Builder implements BuilderContract
      *
      * @param  array  $attributes
      * @param  array  $values
-     * @return \Illuminate\Database\Eloquent\Model|static
+     * @return \WPWhales\Database\Eloquent\Model|static
      */
     public function firstOrNew(array $attributes = [], array $values = [])
     {
@@ -559,7 +559,7 @@ class Builder implements BuilderContract
      *
      * @param  array  $attributes
      * @param  array  $values
-     * @return \Illuminate\Database\Eloquent\Model|static
+     * @return \WPWhales\Database\Eloquent\Model|static
      */
     public function firstOrCreate(array $attributes = [], array $values = [])
     {
@@ -575,7 +575,7 @@ class Builder implements BuilderContract
      *
      * @param  array  $attributes
      * @param  array  $values
-     * @return \Illuminate\Database\Eloquent\Model|static
+     * @return \WPWhales\Database\Eloquent\Model|static
      */
     public function createOrFirst(array $attributes = [], array $values = [])
     {
@@ -591,7 +591,7 @@ class Builder implements BuilderContract
      *
      * @param  array  $attributes
      * @param  array  $values
-     * @return \Illuminate\Database\Eloquent\Model|static
+     * @return \WPWhales\Database\Eloquent\Model|static
      */
     public function updateOrCreate(array $attributes, array $values = [])
     {
@@ -606,9 +606,9 @@ class Builder implements BuilderContract
      * Execute the query and get the first result or throw an exception.
      *
      * @param  array|string  $columns
-     * @return \Illuminate\Database\Eloquent\Model|static
+     * @return \WPWhales\Database\Eloquent\Model|static
      *
-     * @throws \Illuminate\Database\Eloquent\ModelNotFoundException<\Illuminate\Database\Eloquent\Model>
+     * @throws \WPWhales\Database\Eloquent\ModelNotFoundException<\WPWhales\Database\Eloquent\Model>
      */
     public function firstOrFail($columns = ['*'])
     {
@@ -624,7 +624,7 @@ class Builder implements BuilderContract
      *
      * @param  \Closure|array|string  $columns
      * @param  \Closure|null  $callback
-     * @return \Illuminate\Database\Eloquent\Model|static|mixed
+     * @return \WPWhales\Database\Eloquent\Model|static|mixed
      */
     public function firstOr($columns = ['*'], Closure $callback = null)
     {
@@ -645,10 +645,10 @@ class Builder implements BuilderContract
      * Execute the query and get the first result if it's the sole matching record.
      *
      * @param  array|string  $columns
-     * @return \Illuminate\Database\Eloquent\Model
+     * @return \WPWhales\Database\Eloquent\Model
      *
-     * @throws \Illuminate\Database\Eloquent\ModelNotFoundException<\Illuminate\Database\Eloquent\Model>
-     * @throws \Illuminate\Database\MultipleRecordsFoundException
+     * @throws \WPWhales\Database\Eloquent\ModelNotFoundException<\WPWhales\Database\Eloquent\Model>
+     * @throws \WPWhales\Database\MultipleRecordsFoundException
      */
     public function sole($columns = ['*'])
     {
@@ -662,7 +662,7 @@ class Builder implements BuilderContract
     /**
      * Get a single column's value from the first result of a query.
      *
-     * @param  string|\Illuminate\Contracts\Database\Query\Expression  $column
+     * @param  string|\WPWhales\Contracts\Database\Query\Expression  $column
      * @return mixed
      */
     public function value($column)
@@ -677,11 +677,11 @@ class Builder implements BuilderContract
     /**
      * Get a single column's value from the first result of a query if it's the sole matching record.
      *
-     * @param  string|\Illuminate\Contracts\Database\Query\Expression  $column
+     * @param  string|\WPWhales\Contracts\Database\Query\Expression  $column
      * @return mixed
      *
-     * @throws \Illuminate\Database\Eloquent\ModelNotFoundException<\Illuminate\Database\Eloquent\Model>
-     * @throws \Illuminate\Database\MultipleRecordsFoundException
+     * @throws \WPWhales\Database\Eloquent\ModelNotFoundException<\WPWhales\Database\Eloquent\Model>
+     * @throws \WPWhales\Database\MultipleRecordsFoundException
      */
     public function soleValue($column)
     {
@@ -693,10 +693,10 @@ class Builder implements BuilderContract
     /**
      * Get a single column's value from the first result of the query or throw an exception.
      *
-     * @param  string|\Illuminate\Contracts\Database\Query\Expression  $column
+     * @param  string|\WPWhales\Contracts\Database\Query\Expression  $column
      * @return mixed
      *
-     * @throws \Illuminate\Database\Eloquent\ModelNotFoundException<\Illuminate\Database\Eloquent\Model>
+     * @throws \WPWhales\Database\Eloquent\ModelNotFoundException<\WPWhales\Database\Eloquent\Model>
      */
     public function valueOrFail($column)
     {
@@ -709,7 +709,7 @@ class Builder implements BuilderContract
      * Execute the query as a "select" statement.
      *
      * @param  array|string  $columns
-     * @return \Illuminate\Database\Eloquent\Collection|static[]
+     * @return \WPWhales\Database\Eloquent\Collection|static[]
      */
     public function get($columns = ['*'])
     {
@@ -729,7 +729,7 @@ class Builder implements BuilderContract
      * Get the hydrated models without eager loading.
      *
      * @param  array|string  $columns
-     * @return \Illuminate\Database\Eloquent\Model[]|static[]
+     * @return \WPWhales\Database\Eloquent\Model[]|static[]
      */
     public function getModels($columns = ['*'])
     {
@@ -790,7 +790,7 @@ class Builder implements BuilderContract
      * Get the relation instance for the given relation name.
      *
      * @param  string  $name
-     * @return \Illuminate\Database\Eloquent\Relations\Relation
+     * @return \WPWhales\Database\Eloquent\Relations\Relation
      */
     public function getRelation($name)
     {
@@ -854,7 +854,7 @@ class Builder implements BuilderContract
     /**
      * Get a lazy collection for the given query.
      *
-     * @return \Illuminate\Support\LazyCollection
+     * @return \WPWhales\Support\LazyCollection
      */
     public function cursor()
     {
@@ -878,9 +878,9 @@ class Builder implements BuilderContract
     /**
      * Get a collection with the values of a given column.
      *
-     * @param  string|\Illuminate\Contracts\Database\Query\Expression  $column
+     * @param  string|\WPWhales\Contracts\Database\Query\Expression  $column
      * @param  string|null  $key
-     * @return \Illuminate\Support\Collection
+     * @return \WPWhales\Support\Collection
      */
     public function pluck($column, $key = null)
     {
@@ -910,7 +910,7 @@ class Builder implements BuilderContract
      * @param  string  $pageName
      * @param  int|null  $page
      * @param  \Closure|int|null  $total
-     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
+     * @return \WPWhales\Contracts\Pagination\LengthAwarePaginator
      *
      * @throws \InvalidArgumentException
      */
@@ -942,7 +942,7 @@ class Builder implements BuilderContract
      * @param  array|string  $columns
      * @param  string  $pageName
      * @param  int|null  $page
-     * @return \Illuminate\Contracts\Pagination\Paginator
+     * @return \WPWhales\Contracts\Pagination\Paginator
      */
     public function simplePaginate($perPage = null, $columns = ['*'], $pageName = 'page', $page = null)
     {
@@ -967,8 +967,8 @@ class Builder implements BuilderContract
      * @param  int|null  $perPage
      * @param  array|string  $columns
      * @param  string  $cursorName
-     * @param  \Illuminate\Pagination\Cursor|string|null  $cursor
-     * @return \Illuminate\Contracts\Pagination\CursorPaginator
+     * @param  \WPWhales\Pagination\Cursor|string|null  $cursor
+     * @return \WPWhales\Contracts\Pagination\CursorPaginator
      */
     public function cursorPaginate($perPage = null, $columns = ['*'], $cursorName = 'cursor', $cursor = null)
     {
@@ -981,7 +981,7 @@ class Builder implements BuilderContract
      * Ensure the proper order by required for cursor pagination.
      *
      * @param  bool  $shouldReverse
-     * @return \Illuminate\Support\Collection
+     * @return \WPWhales\Support\Collection
      */
     protected function ensureOrderForCursorPagination($shouldReverse = false)
     {
@@ -1015,7 +1015,7 @@ class Builder implements BuilderContract
      * Save a new model and return the instance.
      *
      * @param  array  $attributes
-     * @return \Illuminate\Database\Eloquent\Model|$this
+     * @return \WPWhales\Database\Eloquent\Model|$this
      */
     public function create(array $attributes = [])
     {
@@ -1028,7 +1028,7 @@ class Builder implements BuilderContract
      * Save a new model and return the instance. Allow mass-assignment.
      *
      * @param  array  $attributes
-     * @return \Illuminate\Database\Eloquent\Model|$this
+     * @return \WPWhales\Database\Eloquent\Model|$this
      */
     public function forceCreate(array $attributes)
     {
@@ -1041,7 +1041,7 @@ class Builder implements BuilderContract
      * Save a new model instance with mass assignment without raising model events.
      *
      * @param  array  $attributes
-     * @return \Illuminate\Database\Eloquent\Model|$this
+     * @return \WPWhales\Database\Eloquent\Model|$this
      */
     public function forceCreateQuietly(array $attributes = [])
     {
@@ -1114,7 +1114,7 @@ class Builder implements BuilderContract
     /**
      * Increment a column's value by a given amount.
      *
-     * @param  string|\Illuminate\Contracts\Database\Query\Expression  $column
+     * @param  string|\WPWhales\Contracts\Database\Query\Expression  $column
      * @param  float|int  $amount
      * @param  array  $extra
      * @return int
@@ -1129,7 +1129,7 @@ class Builder implements BuilderContract
     /**
      * Decrement a column's value by a given amount.
      *
-     * @param  string|\Illuminate\Contracts\Database\Query\Expression  $column
+     * @param  string|\WPWhales\Contracts\Database\Query\Expression  $column
      * @param  float|int  $amount
      * @param  array  $extra
      * @return int
@@ -1417,7 +1417,7 @@ class Builder implements BuilderContract
     /**
      * Nest where conditions by slicing them at the given where count.
      *
-     * @param  \Illuminate\Database\Query\Builder  $query
+     * @param  \WPWhales\Database\Query\Builder  $query
      * @param  int  $originalWhereCount
      * @return void
      */
@@ -1442,7 +1442,7 @@ class Builder implements BuilderContract
     /**
      * Slice where conditions at the given offset and add them to the query as a nested condition.
      *
-     * @param  \Illuminate\Database\Query\Builder  $query
+     * @param  \WPWhales\Database\Query\Builder  $query
      * @param  array  $whereSlice
      * @return void
      */
@@ -1530,7 +1530,7 @@ class Builder implements BuilderContract
      * Create a new instance of the model being queried.
      *
      * @param  array  $attributes
-     * @return \Illuminate\Database\Eloquent\Model|static
+     * @return \WPWhales\Database\Eloquent\Model|static
      */
     public function newModelInstance($attributes = [])
     {
@@ -1729,7 +1729,7 @@ class Builder implements BuilderContract
     /**
      * Get the underlying query builder instance.
      *
-     * @return \Illuminate\Database\Query\Builder
+     * @return \WPWhales\Database\Query\Builder
      */
     public function getQuery()
     {
@@ -1739,7 +1739,7 @@ class Builder implements BuilderContract
     /**
      * Set the underlying query builder instance.
      *
-     * @param  \Illuminate\Database\Query\Builder  $query
+     * @param  \WPWhales\Database\Query\Builder  $query
      * @return $this
      */
     public function setQuery($query)
@@ -1752,7 +1752,7 @@ class Builder implements BuilderContract
     /**
      * Get a base query builder instance.
      *
-     * @return \Illuminate\Database\Query\Builder
+     * @return \WPWhales\Database\Query\Builder
      */
     public function toBase()
     {
@@ -1818,7 +1818,7 @@ class Builder implements BuilderContract
     /**
      * Get the model instance being queried.
      *
-     * @return \Illuminate\Database\Eloquent\Model|static
+     * @return \WPWhales\Database\Eloquent\Model|static
      */
     public function getModel()
     {
@@ -1828,7 +1828,7 @@ class Builder implements BuilderContract
     /**
      * Set a model instance for the model being queried.
      *
-     * @param  \Illuminate\Database\Eloquent\Model  $model
+     * @param  \WPWhales\Database\Eloquent\Model  $model
      * @return $this
      */
     public function setModel(Model $model)
@@ -1843,7 +1843,7 @@ class Builder implements BuilderContract
     /**
      * Qualify the given column name by the model's table.
      *
-     * @param  string|\Illuminate\Contracts\Database\Query\Expression  $column
+     * @param  string|\WPWhales\Contracts\Database\Query\Expression  $column
      * @return string
      */
     public function qualifyColumn($column)
@@ -1856,7 +1856,7 @@ class Builder implements BuilderContract
     /**
      * Qualify the given columns with the model's table.
      *
-     * @param  array|\Illuminate\Contracts\Database\Query\Expression  $columns
+     * @param  array|\WPWhales\Contracts\Database\Query\Expression  $columns
      * @return array
      */
     public function qualifyColumns($columns)

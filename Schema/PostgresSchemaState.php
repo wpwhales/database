@@ -1,15 +1,15 @@
 <?php
 
-namespace Illuminate\Database\Schema;
+namespace WPWhales\Database\Schema;
 
-use Illuminate\Database\Connection;
+use WPWhales\Database\Connection;
 
 class PostgresSchemaState extends SchemaState
 {
     /**
      * Dump the database's schema into a file.
      *
-     * @param  \Illuminate\Database\Connection  $connection
+     * @param  \WPWhales\Database\Connection  $connection
      * @param  string  $path
      * @return void
      */

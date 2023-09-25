@@ -1,14 +1,14 @@
 <?php
 
-namespace Illuminate\Database\Eloquent;
+namespace WPWhales\Database\Eloquent;
 
 interface Scope
 {
     /**
      * Apply the scope to a given Eloquent query builder.
      *
-     * @param  \Illuminate\Database\Eloquent\Builder  $builder
-     * @param  \Illuminate\Database\Eloquent\Model  $model
+     * @param  \WPWhales\Database\Eloquent\Builder  $builder
+     * @param  \WPWhales\Database\Eloquent\Model  $model
      * @return void
      */
     public function apply(Builder $builder, Model $model);

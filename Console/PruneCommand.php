@@ -1,16 +1,16 @@
 <?php
 
-namespace Illuminate\Database\Console;
+namespace WPWhales\Database\Console;
 
-use Illuminate\Console\Command;
-use Illuminate\Contracts\Events\Dispatcher;
-use Illuminate\Database\Eloquent\MassPrunable;
-use Illuminate\Database\Eloquent\Prunable;
-use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Database\Events\ModelPruningFinished;
-use Illuminate\Database\Events\ModelPruningStarting;
-use Illuminate\Database\Events\ModelsPruned;
-use Illuminate\Support\Str;
+use WPWhales\Console\Command;
+use WPWhales\Contracts\Events\Dispatcher;
+use WPWhales\Database\Eloquent\MassPrunable;
+use WPWhales\Database\Eloquent\Prunable;
+use WPWhales\Database\Eloquent\SoftDeletes;
+use WPWhales\Database\Events\ModelPruningFinished;
+use WPWhales\Database\Events\ModelPruningStarting;
+use WPWhales\Database\Events\ModelsPruned;
+use WPWhales\Support\Str;
 use InvalidArgumentException;
 use Symfony\Component\Finder\Finder;
 
@@ -37,7 +37,7 @@ class PruneCommand extends Command
     /**
      * Execute the console command.
      *
-     * @param  \Illuminate\Contracts\Events\Dispatcher  $events
+     * @param  \WPWhales\Contracts\Events\Dispatcher  $events
      * @return void
      */
     public function handle(Dispatcher $events)
@@ -109,7 +109,7 @@ class PruneCommand extends Command
     /**
      * Determine the models that should be pruned.
      *
-     * @return \Illuminate\Support\Collection
+     * @return \WPWhales\Support\Collection
      */
     protected function models()
     {

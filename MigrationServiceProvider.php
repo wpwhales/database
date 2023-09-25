@@ -1,21 +1,21 @@
 <?php
 
-namespace Illuminate\Database;
+namespace WPWhales\Database;
 
-use Illuminate\Contracts\Events\Dispatcher;
-use Illuminate\Contracts\Support\DeferrableProvider;
-use Illuminate\Database\Console\Migrations\FreshCommand;
-use Illuminate\Database\Console\Migrations\InstallCommand;
-use Illuminate\Database\Console\Migrations\MigrateCommand;
-use Illuminate\Database\Console\Migrations\MigrateMakeCommand;
-use Illuminate\Database\Console\Migrations\RefreshCommand;
-use Illuminate\Database\Console\Migrations\ResetCommand;
-use Illuminate\Database\Console\Migrations\RollbackCommand;
-use Illuminate\Database\Console\Migrations\StatusCommand;
-use Illuminate\Database\Migrations\DatabaseMigrationRepository;
-use Illuminate\Database\Migrations\MigrationCreator;
-use Illuminate\Database\Migrations\Migrator;
-use Illuminate\Support\ServiceProvider;
+use WPWhales\Contracts\Events\Dispatcher;
+use WPWhales\Contracts\Support\DeferrableProvider;
+use WPWhales\Database\Console\Migrations\FreshCommand;
+use WPWhales\Database\Console\Migrations\InstallCommand;
+use WPWhales\Database\Console\Migrations\MigrateCommand;
+use WPWhales\Database\Console\Migrations\MigrateMakeCommand;
+use WPWhales\Database\Console\Migrations\RefreshCommand;
+use WPWhales\Database\Console\Migrations\ResetCommand;
+use WPWhales\Database\Console\Migrations\RollbackCommand;
+use WPWhales\Database\Console\Migrations\StatusCommand;
+use WPWhales\Database\Migrations\DatabaseMigrationRepository;
+use WPWhales\Database\Migrations\MigrationCreator;
+use WPWhales\Database\Migrations\Migrator;
+use WPWhales\Support\ServiceProvider;
 
 class MigrationServiceProvider extends ServiceProvider implements DeferrableProvider
 {

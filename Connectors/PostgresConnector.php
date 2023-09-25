@@ -1,8 +1,8 @@
 <?php
 
-namespace Illuminate\Database\Connectors;
+namespace WPWhales\Database\Connectors;
 
-use Illuminate\Database\Concerns\ParsesSearchPath;
+use WPWhales\Database\Concerns\ParsesSearchPath;
 use PDO;
 
 class PostgresConnector extends Connector implements ConnectorInterface

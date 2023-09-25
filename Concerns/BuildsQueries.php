@@ -1,20 +1,20 @@
 <?php
 
-namespace Illuminate\Database\Concerns;
+namespace WPWhales\Database\Concerns;
 
-use Illuminate\Container\Container;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\MultipleRecordsFoundException;
-use Illuminate\Database\Query\Expression;
-use Illuminate\Database\RecordsNotFoundException;
-use Illuminate\Pagination\Cursor;
-use Illuminate\Pagination\CursorPaginator;
-use Illuminate\Pagination\LengthAwarePaginator;
-use Illuminate\Pagination\Paginator;
-use Illuminate\Support\Collection;
-use Illuminate\Support\LazyCollection;
-use Illuminate\Support\Str;
-use Illuminate\Support\Traits\Conditionable;
+use WPWhales\Container\Container;
+use WPWhales\Database\Eloquent\Builder;
+use WPWhales\Database\MultipleRecordsFoundException;
+use WPWhales\Database\Query\Expression;
+use WPWhales\Database\RecordsNotFoundException;
+use WPWhales\Pagination\Cursor;
+use WPWhales\Pagination\CursorPaginator;
+use WPWhales\Pagination\LengthAwarePaginator;
+use WPWhales\Pagination\Paginator;
+use WPWhales\Support\Collection;
+use WPWhales\Support\LazyCollection;
+use WPWhales\Support\Str;
+use WPWhales\Support\Traits\Conditionable;
 use InvalidArgumentException;
 use RuntimeException;
 
@@ -67,7 +67,7 @@ trait BuildsQueries
      *
      * @param  callable  $callback
      * @param  int  $count
-     * @return \Illuminate\Support\Collection
+     * @return \WPWhales\Support\Collection
      */
     public function chunkMap(callable $callback, $count = 1000)
     {
@@ -180,7 +180,7 @@ trait BuildsQueries
      * Query lazily, by chunks of the given size.
      *
      * @param  int  $chunkSize
-     * @return \Illuminate\Support\LazyCollection
+     * @return \WPWhales\Support\LazyCollection
      *
      * @throws \InvalidArgumentException
      */
@@ -215,7 +215,7 @@ trait BuildsQueries
      * @param  int  $chunkSize
      * @param  string|null  $column
      * @param  string|null  $alias
-     * @return \Illuminate\Support\LazyCollection
+     * @return \WPWhales\Support\LazyCollection
      *
      * @throws \InvalidArgumentException
      */
@@ -230,7 +230,7 @@ trait BuildsQueries
      * @param  int  $chunkSize
      * @param  string|null  $column
      * @param  string|null  $alias
-     * @return \Illuminate\Support\LazyCollection
+     * @return \WPWhales\Support\LazyCollection
      *
      * @throws \InvalidArgumentException
      */
@@ -246,7 +246,7 @@ trait BuildsQueries
      * @param  string|null  $column
      * @param  string|null  $alias
      * @param  bool  $descending
-     * @return \Illuminate\Support\LazyCollection
+     * @return \WPWhales\Support\LazyCollection
      *
      * @throws \InvalidArgumentException
      */
@@ -289,7 +289,7 @@ trait BuildsQueries
      * Execute the query and get the first result.
      *
      * @param  array|string  $columns
-     * @return \Illuminate\Database\Eloquent\Model|object|static|null
+     * @return \WPWhales\Database\Eloquent\Model|object|static|null
      */
     public function first($columns = ['*'])
     {
@@ -300,10 +300,10 @@ trait BuildsQueries
      * Execute the query and get the first result if it's the sole matching record.
      *
      * @param  array|string  $columns
-     * @return \Illuminate\Database\Eloquent\Model|object|static|null
+     * @return \WPWhales\Database\Eloquent\Model|object|static|null
      *
-     * @throws \Illuminate\Database\RecordsNotFoundException
-     * @throws \Illuminate\Database\MultipleRecordsFoundException
+     * @throws \WPWhales\Database\RecordsNotFoundException
+     * @throws \WPWhales\Database\MultipleRecordsFoundException
      */
     public function sole($columns = ['*'])
     {
@@ -328,8 +328,8 @@ trait BuildsQueries
      * @param  int  $perPage
      * @param  array|string  $columns
      * @param  string  $cursorName
-     * @param  \Illuminate\Pagination\Cursor|string|null  $cursor
-     * @return \Illuminate\Contracts\Pagination\CursorPaginator
+     * @param  \WPWhales\Pagination\Cursor|string|null  $cursor
+     * @return \WPWhales\Contracts\Pagination\CursorPaginator
      */
     protected function paginateUsingCursor($perPage, $columns = ['*'], $cursorName = 'cursor', $cursor = null)
     {
@@ -417,7 +417,7 @@ trait BuildsQueries
     /**
      * Get the original column name of the given column, without any aliasing.
      *
-     * @param  \Illuminate\Database\Query\Builder|\Illuminate\Database\Eloquent\Builder  $builder
+     * @param  \WPWhales\Database\Query\Builder|\WPWhales\Database\Eloquent\Builder  $builder
      * @param  string  $parameter
      * @return string
      */
@@ -445,12 +445,12 @@ trait BuildsQueries
     /**
      * Create a new length-aware paginator instance.
      *
-     * @param  \Illuminate\Support\Collection  $items
+     * @param  \WPWhales\Support\Collection  $items
      * @param  int  $total
      * @param  int  $perPage
      * @param  int  $currentPage
      * @param  array  $options
-     * @return \Illuminate\Pagination\LengthAwarePaginator
+     * @return \WPWhales\Pagination\LengthAwarePaginator
      */
     protected function paginator($items, $total, $perPage, $currentPage, $options)
     {
@@ -462,11 +462,11 @@ trait BuildsQueries
     /**
      * Create a new simple paginator instance.
      *
-     * @param  \Illuminate\Support\Collection  $items
+     * @param  \WPWhales\Support\Collection  $items
      * @param  int  $perPage
      * @param  int  $currentPage
      * @param  array  $options
-     * @return \Illuminate\Pagination\Paginator
+     * @return \WPWhales\Pagination\Paginator
      */
     protected function simplePaginator($items, $perPage, $currentPage, $options)
     {
@@ -478,11 +478,11 @@ trait BuildsQueries
     /**
      * Create a new cursor paginator instance.
      *
-     * @param  \Illuminate\Support\Collection  $items
+     * @param  \WPWhales\Support\Collection  $items
      * @param  int  $perPage
-     * @param  \Illuminate\Pagination\Cursor  $cursor
+     * @param  \WPWhales\Pagination\Cursor  $cursor
      * @param  array  $options
-     * @return \Illuminate\Pagination\CursorPaginator
+     * @return \WPWhales\Pagination\CursorPaginator
      */
     protected function cursorPaginator($items, $perPage, $cursor, $options)
     {

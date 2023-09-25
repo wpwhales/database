@@ -1,8 +1,8 @@
 <?php
 
-namespace Illuminate\Database\Eloquent\Relations\Concerns;
+namespace WPWhales\Database\Eloquent\Relations\Concerns;
 
-use Illuminate\Database\Eloquent\Model;
+use WPWhales\Database\Eloquent\Model;
 
 trait SupportsDefaultModels
 {
@@ -18,8 +18,8 @@ trait SupportsDefaultModels
     /**
      * Make a new related instance for the given model.
      *
-     * @param  \Illuminate\Database\Eloquent\Model  $parent
-     * @return \Illuminate\Database\Eloquent\Model
+     * @param  \WPWhales\Database\Eloquent\Model  $parent
+     * @return \WPWhales\Database\Eloquent\Model
      */
     abstract protected function newRelatedInstanceFor(Model $parent);
 
@@ -39,8 +39,8 @@ trait SupportsDefaultModels
     /**
      * Get the default value for this relation.
      *
-     * @param  \Illuminate\Database\Eloquent\Model  $parent
-     * @return \Illuminate\Database\Eloquent\Model|null
+     * @param  \WPWhales\Database\Eloquent\Model  $parent
+     * @return \WPWhales\Database\Eloquent\Model|null
      */
     protected function getDefaultFor(Model $parent)
     {

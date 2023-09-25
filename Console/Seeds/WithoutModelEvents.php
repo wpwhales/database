@@ -1,8 +1,8 @@
 <?php
 
-namespace Illuminate\Database\Console\Seeds;
+namespace WPWhales\Database\Console\Seeds;
 
-use Illuminate\Database\Eloquent\Model;
+use WPWhales\Database\Eloquent\Model;
 
 trait WithoutModelEvents
 {

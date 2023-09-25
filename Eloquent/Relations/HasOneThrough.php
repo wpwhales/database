@@ -1,11 +1,11 @@
 <?php
 
-namespace Illuminate\Database\Eloquent\Relations;
+namespace WPWhales\Database\Eloquent\Relations;
 
-use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\Concerns\InteractsWithDictionary;
-use Illuminate\Database\Eloquent\Relations\Concerns\SupportsDefaultModels;
+use WPWhales\Database\Eloquent\Collection;
+use WPWhales\Database\Eloquent\Model;
+use WPWhales\Database\Eloquent\Relations\Concerns\InteractsWithDictionary;
+use WPWhales\Database\Eloquent\Relations\Concerns\SupportsDefaultModels;
 
 class HasOneThrough extends HasManyThrough
 {
@@ -41,7 +41,7 @@ class HasOneThrough extends HasManyThrough
      * Match the eagerly loaded results to their parents.
      *
      * @param  array  $models
-     * @param  \Illuminate\Database\Eloquent\Collection  $results
+     * @param  \WPWhales\Database\Eloquent\Collection  $results
      * @param  string  $relation
      * @return array
      */
@@ -67,8 +67,8 @@ class HasOneThrough extends HasManyThrough
     /**
      * Make a new related instance for the given model.
      *
-     * @param  \Illuminate\Database\Eloquent\Model  $parent
-     * @return \Illuminate\Database\Eloquent\Model
+     * @param  \WPWhales\Database\Eloquent\Model  $parent
+     * @return \WPWhales\Database\Eloquent\Model
      */
     public function newRelatedInstanceFor(Model $parent)
     {

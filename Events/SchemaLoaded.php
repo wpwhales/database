@@ -1,13 +1,13 @@
 <?php
 
-namespace Illuminate\Database\Events;
+namespace WPWhales\Database\Events;
 
 class SchemaLoaded
 {
     /**
      * The database connection instance.
      *
-     * @var \Illuminate\Database\Connection
+     * @var \WPWhales\Database\Connection
      */
     public $connection;
 
@@ -28,7 +28,7 @@ class SchemaLoaded
     /**
      * Create a new event instance.
      *
-     * @param  \Illuminate\Database\Connection  $connection
+     * @param  \WPWhales\Database\Connection  $connection
      * @param  string  $path
      * @return void
      */

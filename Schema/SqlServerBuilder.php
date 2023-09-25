@@ -1,6 +1,6 @@
 <?php
 
-namespace Illuminate\Database\Schema;
+namespace WPWhales\Database\Schema;
 
 class SqlServerBuilder extends Builder
 {

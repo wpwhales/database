@@ -1,6 +1,6 @@
 <?php
 
-namespace Illuminate\Database\Query\Processors;
+namespace WPWhales\Database\Query\Processors;
 
 class MySqlProcessor extends Processor
 {

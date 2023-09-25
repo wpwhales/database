@@ -1,6 +1,6 @@
 <?php
 
-namespace Illuminate\Database\Concerns;
+namespace WPWhales\Database\Concerns;
 
 trait ParsesSearchPath
 {

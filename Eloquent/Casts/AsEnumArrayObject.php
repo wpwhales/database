@@ -1,11 +1,11 @@
 <?php
 
-namespace Illuminate\Database\Eloquent\Casts;
+namespace WPWhales\Database\Eloquent\Casts;
 
 use BackedEnum;
-use Illuminate\Contracts\Database\Eloquent\Castable;
-use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
-use Illuminate\Support\Collection;
+use WPWhales\Contracts\Database\Eloquent\Castable;
+use WPWhales\Contracts\Database\Eloquent\CastsAttributes;
+use WPWhales\Support\Collection;
 
 class AsEnumArrayObject implements Castable
 {
@@ -15,7 +15,7 @@ class AsEnumArrayObject implements Castable
      * @template TEnum
      *
      * @param  array{class-string<TEnum>}  $arguments
-     * @return \Illuminate\Contracts\Database\Eloquent\CastsAttributes<\Illuminate\Database\Eloquent\Casts\ArrayObject<array-key, TEnum>, iterable<TEnum>>
+     * @return \WPWhales\Contracts\Database\Eloquent\CastsAttributes<\WPWhales\Database\Eloquent\Casts\ArrayObject<array-key, TEnum>, iterable<TEnum>>
      */
     public static function castUsing(array $arguments)
     {

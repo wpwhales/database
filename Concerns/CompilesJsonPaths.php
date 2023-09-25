@@ -1,8 +1,8 @@
 <?php
 
-namespace Illuminate\Database\Concerns;
+namespace WPWhales\Database\Concerns;
 
-use Illuminate\Support\Str;
+use WPWhales\Support\Str;
 
 trait CompilesJsonPaths
 {

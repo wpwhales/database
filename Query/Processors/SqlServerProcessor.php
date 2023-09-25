@@ -1,17 +1,17 @@
 <?php
 
-namespace Illuminate\Database\Query\Processors;
+namespace WPWhales\Database\Query\Processors;
 
 use Exception;
-use Illuminate\Database\Connection;
-use Illuminate\Database\Query\Builder;
+use WPWhales\Database\Connection;
+use WPWhales\Database\Query\Builder;
 
 class SqlServerProcessor extends Processor
 {
     /**
      * Process an "insert get ID" query.
      *
-     * @param  \Illuminate\Database\Query\Builder  $query
+     * @param  \WPWhales\Database\Query\Builder  $query
      * @param  string  $sql
      * @param  array  $values
      * @param  string|null  $sequence
@@ -35,7 +35,7 @@ class SqlServerProcessor extends Processor
     /**
      * Process an "insert get ID" query for ODBC.
      *
-     * @param  \Illuminate\Database\Connection  $connection
+     * @param  \WPWhales\Database\Connection  $connection
      * @return int
      *
      * @throws \Exception

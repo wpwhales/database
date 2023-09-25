@@ -1,14 +1,14 @@
 <?php
 
-namespace Illuminate\Database\Connectors;
+namespace WPWhales\Database\Connectors;
 
-use Illuminate\Contracts\Container\Container;
-use Illuminate\Database\Connection;
-use Illuminate\Database\MySqlConnection;
-use Illuminate\Database\PostgresConnection;
-use Illuminate\Database\SQLiteConnection;
-use Illuminate\Database\SqlServerConnection;
-use Illuminate\Support\Arr;
+use WPWhales\Contracts\Container\Container;
+use WPWhales\Database\Connection;
+use WPWhales\Database\MySqlConnection;
+use WPWhales\Database\PostgresConnection;
+use WPWhales\Database\SQLiteConnection;
+use WPWhales\Database\SqlServerConnection;
+use WPWhales\Support\Arr;
 use InvalidArgumentException;
 use PDOException;
 
@@ -17,14 +17,14 @@ class ConnectionFactory
     /**
      * The IoC container instance.
      *
-     * @var \Illuminate\Contracts\Container\Container
+     * @var \WPWhales\Contracts\Container\Container
      */
     protected $container;
 
     /**
      * Create a new connection factory instance.
      *
-     * @param  \Illuminate\Contracts\Container\Container  $container
+     * @param  \WPWhales\Contracts\Container\Container  $container
      * @return void
      */
     public function __construct(Container $container)
@@ -37,7 +37,7 @@ class ConnectionFactory
      *
      * @param  array  $config
      * @param  string|null  $name
-     * @return \Illuminate\Database\Connection
+     * @return \WPWhales\Database\Connection
      */
     public function make(array $config, $name = null)
     {
@@ -66,7 +66,7 @@ class ConnectionFactory
      * Create a single database connection instance.
      *
      * @param  array  $config
-     * @return \Illuminate\Database\Connection
+     * @return \WPWhales\Database\Connection
      */
     protected function createSingleConnection(array $config)
     {
@@ -81,7 +81,7 @@ class ConnectionFactory
      * Create a read / write database connection instance.
      *
      * @param  array  $config
-     * @return \Illuminate\Database\Connection
+     * @return \WPWhales\Database\Connection
      */
     protected function createReadWriteConnection(array $config)
     {
@@ -225,7 +225,7 @@ class ConnectionFactory
      * Create a connector instance based on the configuration.
      *
      * @param  array  $config
-     * @return \Illuminate\Database\Connectors\ConnectorInterface
+     * @return \WPWhales\Database\Connectors\ConnectorInterface
      *
      * @throws \InvalidArgumentException
      */
@@ -256,7 +256,7 @@ class ConnectionFactory
      * @param  string  $database
      * @param  string  $prefix
      * @param  array  $config
-     * @return \Illuminate\Database\Connection
+     * @return \WPWhales\Database\Connection
      *
      * @throws \InvalidArgumentException
      */

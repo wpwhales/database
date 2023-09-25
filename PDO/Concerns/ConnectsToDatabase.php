@@ -1,8 +1,8 @@
 <?php
 
-namespace Illuminate\Database\PDO\Concerns;
+namespace WPWhales\Database\PDO\Concerns;
 
-use Illuminate\Database\PDO\Connection;
+use WPWhales\Database\PDO\Connection;
 use InvalidArgumentException;
 use PDO;
 
@@ -15,7 +15,7 @@ trait ConnectsToDatabase
      * @param  string|null  $username
      * @param  string|null  $password
      * @param  mixed[]  $driverOptions
-     * @return \Illuminate\Database\PDO\Connection
+     * @return \WPWhales\Database\PDO\Connection
      *
      * @throws \InvalidArgumentException
      */

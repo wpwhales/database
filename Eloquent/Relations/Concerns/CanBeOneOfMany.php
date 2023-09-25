@@ -1,11 +1,11 @@
 <?php
 
-namespace Illuminate\Database\Eloquent\Relations\Concerns;
+namespace WPWhales\Database\Eloquent\Relations\Concerns;
 
 use Closure;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Query\JoinClause;
-use Illuminate\Support\Arr;
+use WPWhales\Database\Eloquent\Builder;
+use WPWhales\Database\Query\JoinClause;
+use WPWhales\Support\Arr;
 use InvalidArgumentException;
 
 trait CanBeOneOfMany
@@ -27,14 +27,14 @@ trait CanBeOneOfMany
     /**
      * The one of many inner join subselect query builder instance.
      *
-     * @var \Illuminate\Database\Eloquent\Builder|null
+     * @var \WPWhales\Database\Eloquent\Builder|null
      */
     protected $oneOfManySubQuery;
 
     /**
      * Add constraints for inner join subselect for one of many relationships.
      *
-     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @param  \WPWhales\Database\Eloquent\Builder  $query
      * @param  string|null  $column
      * @param  string|null  $aggregate
      * @return void
@@ -51,7 +51,7 @@ trait CanBeOneOfMany
     /**
      * Add join query constraints for one of many relationships.
      *
-     * @param  \Illuminate\Database\Query\JoinClause  $join
+     * @param  \WPWhales\Database\Query\JoinClause  $join
      * @return void
      */
     abstract public function addOneOfManyJoinSubQueryConstraints(JoinClause $join);
@@ -179,7 +179,7 @@ trait CanBeOneOfMany
      * @param  string|array  $groupBy
      * @param  string|null  $column
      * @param  string|null  $aggregate
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @return \WPWhales\Database\Eloquent\Builder
      */
     protected function newOneOfManySubQuery($groupBy, $column = null, $aggregate = null)
     {
@@ -203,8 +203,8 @@ trait CanBeOneOfMany
     /**
      * Add the join subquery to the given query on the given column and the relationship's foreign key.
      *
-     * @param  \Illuminate\Database\Eloquent\Builder  $parent
-     * @param  \Illuminate\Database\Eloquent\Builder  $subQuery
+     * @param  \WPWhales\Database\Eloquent\Builder  $parent
+     * @param  \WPWhales\Database\Eloquent\Builder  $subQuery
      * @param  string  $on
      * @return void
      */
@@ -224,7 +224,7 @@ trait CanBeOneOfMany
     /**
      * Merge the relationship query joins to the given query builder.
      *
-     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @param  \WPWhales\Database\Eloquent\Builder  $query
      * @return void
      */
     protected function mergeOneOfManyJoinsTo(Builder $query)
@@ -237,7 +237,7 @@ trait CanBeOneOfMany
     /**
      * Get the query builder that will contain the relationship constraints.
      *
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @return \WPWhales\Database\Eloquent\Builder
      */
     protected function getRelationQuery()
     {
@@ -249,7 +249,7 @@ trait CanBeOneOfMany
     /**
      * Get the one of many inner join subselect builder instance.
      *
-     * @return \Illuminate\Database\Eloquent\Builder|void
+     * @return \WPWhales\Database\Eloquent\Builder|void
      */
     public function getOneOfManySubQuery()
     {

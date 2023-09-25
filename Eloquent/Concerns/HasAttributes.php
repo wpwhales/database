@@ -1,6 +1,6 @@
 <?php
 
-namespace Illuminate\Database\Eloquent\Concerns;
+namespace WPWhales\Database\Eloquent\Concerns;
 
 use BackedEnum;
 use Brick\Math\BigDecimal;
@@ -10,30 +10,30 @@ use Carbon\CarbonImmutable;
 use Carbon\CarbonInterface;
 use DateTimeImmutable;
 use DateTimeInterface;
-use Illuminate\Contracts\Database\Eloquent\Castable;
-use Illuminate\Contracts\Database\Eloquent\CastsInboundAttributes;
-use Illuminate\Contracts\Support\Arrayable;
-use Illuminate\Database\Eloquent\Casts\AsArrayObject;
-use Illuminate\Database\Eloquent\Casts\AsCollection;
-use Illuminate\Database\Eloquent\Casts\AsEncryptedArrayObject;
-use Illuminate\Database\Eloquent\Casts\AsEncryptedCollection;
-use Illuminate\Database\Eloquent\Casts\AsEnumArrayObject;
-use Illuminate\Database\Eloquent\Casts\AsEnumCollection;
-use Illuminate\Database\Eloquent\Casts\Attribute;
-use Illuminate\Database\Eloquent\Casts\Json;
-use Illuminate\Database\Eloquent\InvalidCastException;
-use Illuminate\Database\Eloquent\JsonEncodingException;
-use Illuminate\Database\Eloquent\MissingAttributeException;
-use Illuminate\Database\Eloquent\Relations\Relation;
-use Illuminate\Database\LazyLoadingViolationException;
-use Illuminate\Support\Arr;
-use Illuminate\Support\Carbon;
-use Illuminate\Support\Collection as BaseCollection;
-use Illuminate\Support\Exceptions\MathException;
-use Illuminate\Support\Facades\Crypt;
-use Illuminate\Support\Facades\Date;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Str;
+use WPWhales\Contracts\Database\Eloquent\Castable;
+use WPWhales\Contracts\Database\Eloquent\CastsInboundAttributes;
+use WPWhales\Contracts\Support\Arrayable;
+use WPWhales\Database\Eloquent\Casts\AsArrayObject;
+use WPWhales\Database\Eloquent\Casts\AsCollection;
+use WPWhales\Database\Eloquent\Casts\AsEncryptedArrayObject;
+use WPWhales\Database\Eloquent\Casts\AsEncryptedCollection;
+use WPWhales\Database\Eloquent\Casts\AsEnumArrayObject;
+use WPWhales\Database\Eloquent\Casts\AsEnumCollection;
+use WPWhales\Database\Eloquent\Casts\Attribute;
+use WPWhales\Database\Eloquent\Casts\Json;
+use WPWhales\Database\Eloquent\InvalidCastException;
+use WPWhales\Database\Eloquent\JsonEncodingException;
+use WPWhales\Database\Eloquent\MissingAttributeException;
+use WPWhales\Database\Eloquent\Relations\Relation;
+use WPWhales\Database\LazyLoadingViolationException;
+use WPWhales\Support\Arr;
+use WPWhales\Support\Carbon;
+use WPWhales\Support\Collection as BaseCollection;
+use WPWhales\Support\Exceptions\MathException;
+use WPWhales\Support\Facades\Crypt;
+use WPWhales\Support\Facades\Date;
+use WPWhales\Support\Facades\Hash;
+use WPWhales\Support\Str;
 use InvalidArgumentException;
 use LogicException;
 use ReflectionClass;
@@ -178,7 +178,7 @@ trait HasAttributes
     /**
      * The encrypter instance that is used to encrypt attributes.
      *
-     * @var \Illuminate\Contracts\Encryption\Encrypter|null
+     * @var \WPWhales\Contracts\Encryption\Encrypter|null
      */
     public static $encrypter;
 
@@ -473,7 +473,7 @@ trait HasAttributes
      * @param  string  $key
      * @return null
      *
-     * @throws \Illuminate\Database\Eloquent\MissingAttributeException
+     * @throws \WPWhales\Database\Eloquent\MissingAttributeException
      */
     protected function throwMissingAttributeExceptionIfApplicable($key)
     {
@@ -1345,7 +1345,7 @@ trait HasAttributes
     /**
      * Set the encrypter instance that will be used to encrypt attributes.
      *
-     * @param  \Illuminate\Contracts\Encryption\Encrypter|null  $encrypter
+     * @param  \WPWhales\Contracts\Encryption\Encrypter|null  $encrypter
      * @return void
      */
     public static function encryptUsing($encrypter)
@@ -1401,7 +1401,7 @@ trait HasAttributes
      * Return a timestamp as DateTime object with time set to 00:00:00.
      *
      * @param  mixed  $value
-     * @return \Illuminate\Support\Carbon
+     * @return \WPWhales\Support\Carbon
      */
     protected function asDate($value)
     {
@@ -1412,7 +1412,7 @@ trait HasAttributes
      * Return a timestamp as DateTime object.
      *
      * @param  mixed  $value
-     * @return \Illuminate\Support\Carbon
+     * @return \WPWhales\Support\Carbon
      */
     protected function asDateTime($value)
     {
@@ -1634,7 +1634,7 @@ trait HasAttributes
      * @param  string  $key
      * @return bool
      *
-     * @throws \Illuminate\Database\Eloquent\InvalidCastException
+     * @throws \WPWhales\Database\Eloquent\InvalidCastException
      */
     protected function isClassCastable($key)
     {
@@ -1686,7 +1686,7 @@ trait HasAttributes
      * @param  string  $key
      * @return bool
      *
-     * @throws \Illuminate\Database\Eloquent\InvalidCastException
+     * @throws \WPWhales\Database\Eloquent\InvalidCastException
      */
     protected function isClassDeviable($key)
     {
@@ -1705,7 +1705,7 @@ trait HasAttributes
      * @param  string  $key
      * @return bool
      *
-     * @throws \Illuminate\Database\Eloquent\InvalidCastException
+     * @throws \WPWhales\Database\Eloquent\InvalidCastException
      */
     protected function isClassSerializable($key)
     {

@@ -1,15 +1,15 @@
 <?php
 
-namespace Illuminate\Database\Eloquent\Relations;
+namespace WPWhales\Database\Eloquent\Relations;
 
-use Illuminate\Contracts\Database\Eloquent\SupportsPartialRelations;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\Concerns\CanBeOneOfMany;
-use Illuminate\Database\Eloquent\Relations\Concerns\ComparesRelatedModels;
-use Illuminate\Database\Eloquent\Relations\Concerns\SupportsDefaultModels;
-use Illuminate\Database\Query\JoinClause;
+use WPWhales\Contracts\Database\Eloquent\SupportsPartialRelations;
+use WPWhales\Database\Eloquent\Builder;
+use WPWhales\Database\Eloquent\Collection;
+use WPWhales\Database\Eloquent\Model;
+use WPWhales\Database\Eloquent\Relations\Concerns\CanBeOneOfMany;
+use WPWhales\Database\Eloquent\Relations\Concerns\ComparesRelatedModels;
+use WPWhales\Database\Eloquent\Relations\Concerns\SupportsDefaultModels;
+use WPWhales\Database\Query\JoinClause;
 
 class HasOne extends HasOneOrMany implements SupportsPartialRelations
 {
@@ -49,7 +49,7 @@ class HasOne extends HasOneOrMany implements SupportsPartialRelations
      * Match the eagerly loaded results to their parents.
      *
      * @param  array  $models
-     * @param  \Illuminate\Database\Eloquent\Collection  $results
+     * @param  \WPWhales\Database\Eloquent\Collection  $results
      * @param  string  $relation
      * @return array
      */
@@ -63,10 +63,10 @@ class HasOne extends HasOneOrMany implements SupportsPartialRelations
      *
      * Essentially, these queries compare on column names like "whereColumn".
      *
-     * @param  \Illuminate\Database\Eloquent\Builder  $query
-     * @param  \Illuminate\Database\Eloquent\Builder  $parentQuery
+     * @param  \WPWhales\Database\Eloquent\Builder  $query
+     * @param  \WPWhales\Database\Eloquent\Builder  $parentQuery
      * @param  array|mixed  $columns
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @return \WPWhales\Database\Eloquent\Builder
      */
     public function getRelationExistenceQuery(Builder $query, Builder $parentQuery, $columns = ['*'])
     {
@@ -80,7 +80,7 @@ class HasOne extends HasOneOrMany implements SupportsPartialRelations
     /**
      * Add constraints for inner join subselect for one of many relationships.
      *
-     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @param  \WPWhales\Database\Eloquent\Builder  $query
      * @param  string|null  $column
      * @param  string|null  $aggregate
      * @return void
@@ -103,7 +103,7 @@ class HasOne extends HasOneOrMany implements SupportsPartialRelations
     /**
      * Add join query constraints for one of many relationships.
      *
-     * @param  \Illuminate\Database\Query\JoinClause  $join
+     * @param  \WPWhales\Database\Query\JoinClause  $join
      * @return void
      */
     public function addOneOfManyJoinSubQueryConstraints(JoinClause $join)
@@ -114,8 +114,8 @@ class HasOne extends HasOneOrMany implements SupportsPartialRelations
     /**
      * Make a new related instance for the given model.
      *
-     * @param  \Illuminate\Database\Eloquent\Model  $parent
-     * @return \Illuminate\Database\Eloquent\Model
+     * @param  \WPWhales\Database\Eloquent\Model  $parent
+     * @return \WPWhales\Database\Eloquent\Model
      */
     public function newRelatedInstanceFor(Model $parent)
     {
@@ -127,7 +127,7 @@ class HasOne extends HasOneOrMany implements SupportsPartialRelations
     /**
      * Get the value of the model's foreign key.
      *
-     * @param  \Illuminate\Database\Eloquent\Model  $model
+     * @param  \WPWhales\Database\Eloquent\Model  $model
      * @return mixed
      */
     protected function getRelatedKeyFrom(Model $model)

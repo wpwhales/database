@@ -1,6 +1,6 @@
 <?php
 
-namespace Illuminate\Database\PDO;
+namespace WPWhales\Database\PDO;
 
 use Doctrine\DBAL\Driver\PDO\SQLSrv\Statement;
 use Doctrine\DBAL\Driver\Result;
@@ -14,14 +14,14 @@ class SqlServerConnection implements ServerInfoAwareConnection
     /**
      * The underlying connection instance.
      *
-     * @var \Illuminate\Database\PDO\Connection
+     * @var \WPWhales\Database\PDO\Connection
      */
     protected $connection;
 
     /**
      * Create a new SQL Server connection instance.
      *
-     * @param  \Illuminate\Database\PDO\Connection  $connection
+     * @param  \WPWhales\Database\PDO\Connection  $connection
      * @return void
      */
     public function __construct(Connection $connection)

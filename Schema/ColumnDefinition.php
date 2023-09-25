@@ -1,8 +1,8 @@
 <?php
 
-namespace Illuminate\Database\Schema;
+namespace WPWhales\Database\Schema;
 
-use Illuminate\Support\Fluent;
+use WPWhales\Support\Fluent;
 
 /**
  * @method $this after(string $column) Place the column "after" another column (MySQL)

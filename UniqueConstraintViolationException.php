@@ -1,6 +1,6 @@
 <?php
 
-namespace Illuminate\Database;
+namespace WPWhales\Database;
 
 class UniqueConstraintViolationException extends QueryException
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Illuminate\Database\PDO;
+namespace WPWhales\Database\PDO;
 
 use Doctrine\DBAL\Driver\AbstractSQLServerDriver;
 
@@ -13,7 +13,7 @@ class SqlServerDriver extends AbstractSQLServerDriver
      * @param  string|null  $username
      * @param  string|null  $password
      * @param  mixed[]  $driverOptions
-     * @return \Illuminate\Database\PDO\SqlServerConnection
+     * @return \WPWhales\Database\PDO\SqlServerConnection
      */
     public function connect(array $params, $username = null, $password = null, array $driverOptions = [])
     {

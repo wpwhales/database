@@ -1,6 +1,6 @@
 <?php
 
-namespace Illuminate\Database\Console\Migrations;
+namespace WPWhales\Database\Console\Migrations;
 
 class TableGuesser
 {

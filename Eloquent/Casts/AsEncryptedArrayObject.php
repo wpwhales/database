@@ -1,10 +1,10 @@
 <?php
 
-namespace Illuminate\Database\Eloquent\Casts;
+namespace WPWhales\Database\Eloquent\Casts;
 
-use Illuminate\Contracts\Database\Eloquent\Castable;
-use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
-use Illuminate\Support\Facades\Crypt;
+use WPWhales\Contracts\Database\Eloquent\Castable;
+use WPWhales\Contracts\Database\Eloquent\CastsAttributes;
+use WPWhales\Support\Facades\Crypt;
 
 class AsEncryptedArrayObject implements Castable
 {
@@ -12,7 +12,7 @@ class AsEncryptedArrayObject implements Castable
      * Get the caster class to use when casting from / to this cast target.
      *
      * @param  array  $arguments
-     * @return \Illuminate\Contracts\Database\Eloquent\CastsAttributes<\Illuminate\Database\Eloquent\Casts\ArrayObject<array-key, mixed>, iterable>
+     * @return \WPWhales\Contracts\Database\Eloquent\CastsAttributes<\WPWhales\Database\Eloquent\Casts\ArrayObject<array-key, mixed>, iterable>
      */
     public static function castUsing(array $arguments)
     {

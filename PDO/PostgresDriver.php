@@ -1,9 +1,9 @@
 <?php
 
-namespace Illuminate\Database\PDO;
+namespace WPWhales\Database\PDO;
 
 use Doctrine\DBAL\Driver\AbstractPostgreSQLDriver;
-use Illuminate\Database\PDO\Concerns\ConnectsToDatabase;
+use WPWhales\Database\PDO\Concerns\ConnectsToDatabase;
 
 class PostgresDriver extends AbstractPostgreSQLDriver
 {

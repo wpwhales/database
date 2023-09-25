@@ -1,24 +1,24 @@
 <?php
 
-namespace Illuminate\Database\Migrations;
+namespace WPWhales\Database\Migrations;
 
 use Doctrine\DBAL\Schema\SchemaException;
-use Illuminate\Console\View\Components\BulletList;
-use Illuminate\Console\View\Components\Error;
-use Illuminate\Console\View\Components\Info;
-use Illuminate\Console\View\Components\Task;
-use Illuminate\Console\View\Components\TwoColumnDetail;
-use Illuminate\Contracts\Events\Dispatcher;
-use Illuminate\Database\ConnectionResolverInterface as Resolver;
-use Illuminate\Database\Events\MigrationEnded;
-use Illuminate\Database\Events\MigrationsEnded;
-use Illuminate\Database\Events\MigrationsStarted;
-use Illuminate\Database\Events\MigrationStarted;
-use Illuminate\Database\Events\NoPendingMigrations;
-use Illuminate\Filesystem\Filesystem;
-use Illuminate\Support\Arr;
-use Illuminate\Support\Collection;
-use Illuminate\Support\Str;
+use WPWhales\Console\View\Components\BulletList;
+use WPWhales\Console\View\Components\Error;
+use WPWhales\Console\View\Components\Info;
+use WPWhales\Console\View\Components\Task;
+use WPWhales\Console\View\Components\TwoColumnDetail;
+use WPWhales\Contracts\Events\Dispatcher;
+use WPWhales\Database\ConnectionResolverInterface as Resolver;
+use WPWhales\Database\Events\MigrationEnded;
+use WPWhales\Database\Events\MigrationsEnded;
+use WPWhales\Database\Events\MigrationsStarted;
+use WPWhales\Database\Events\MigrationStarted;
+use WPWhales\Database\Events\NoPendingMigrations;
+use WPWhales\Filesystem\Filesystem;
+use WPWhales\Support\Arr;
+use WPWhales\Support\Collection;
+use WPWhales\Support\Str;
 use ReflectionClass;
 use Symfony\Component\Console\Output\OutputInterface;
 
@@ -27,28 +27,28 @@ class Migrator
     /**
      * The event dispatcher instance.
      *
-     * @var \Illuminate\Contracts\Events\Dispatcher
+     * @var \WPWhales\Contracts\Events\Dispatcher
      */
     protected $events;
 
     /**
      * The migration repository implementation.
      *
-     * @var \Illuminate\Database\Migrations\MigrationRepositoryInterface
+     * @var \WPWhales\Database\Migrations\MigrationRepositoryInterface
      */
     protected $repository;
 
     /**
      * The filesystem instance.
      *
-     * @var \Illuminate\Filesystem\Filesystem
+     * @var \WPWhales\Filesystem\Filesystem
      */
     protected $files;
 
     /**
      * The connection resolver instance.
      *
-     * @var \Illuminate\Database\ConnectionResolverInterface
+     * @var \WPWhales\Database\ConnectionResolverInterface
      */
     protected $resolver;
 
@@ -69,7 +69,7 @@ class Migrator
     /**
      * The paths that have already been required.
      *
-     * @var array<string, \Illuminate\Database\Migrations\Migration|null>
+     * @var array<string, \WPWhales\Database\Migrations\Migration|null>
      */
     protected static $requiredPathCache = [];
 
@@ -83,10 +83,10 @@ class Migrator
     /**
      * Create a new migrator instance.
      *
-     * @param  \Illuminate\Database\Migrations\MigrationRepositoryInterface  $repository
-     * @param  \Illuminate\Database\ConnectionResolverInterface  $resolver
-     * @param  \Illuminate\Filesystem\Filesystem  $files
-     * @param  \Illuminate\Contracts\Events\Dispatcher|null  $dispatcher
+     * @param  \WPWhales\Database\Migrations\MigrationRepositoryInterface  $repository
+     * @param  \WPWhales\Database\ConnectionResolverInterface  $resolver
+     * @param  \WPWhales\Filesystem\Filesystem  $files
+     * @param  \WPWhales\Contracts\Events\Dispatcher|null  $dispatcher
      * @return void
      */
     public function __construct(MigrationRepositoryInterface $repository,
@@ -478,7 +478,7 @@ class Migrator
     /**
      * Run a migration method on the given connection.
      *
-     * @param  \Illuminate\Database\Connection  $connection
+     * @param  \WPWhales\Database\Connection  $connection
      * @param  object  $migration
      * @param  string  $method
      * @return void
@@ -656,7 +656,7 @@ class Migrator
      * Resolve the database connection instance.
      *
      * @param  string  $connection
-     * @return \Illuminate\Database\Connection
+     * @return \WPWhales\Database\Connection
      */
     public function resolveConnection($connection)
     {
@@ -666,8 +666,8 @@ class Migrator
     /**
      * Get the schema grammar out of a migration connection.
      *
-     * @param  \Illuminate\Database\Connection  $connection
-     * @return \Illuminate\Database\Schema\Grammars\Grammar
+     * @param  \WPWhales\Database\Connection  $connection
+     * @return \WPWhales\Database\Schema\Grammars\Grammar
      */
     protected function getSchemaGrammar($connection)
     {
@@ -683,7 +683,7 @@ class Migrator
     /**
      * Get the migration repository instance.
      *
-     * @return \Illuminate\Database\Migrations\MigrationRepositoryInterface
+     * @return \WPWhales\Database\Migrations\MigrationRepositoryInterface
      */
     public function getRepository()
     {
@@ -723,7 +723,7 @@ class Migrator
     /**
      * Get the file system instance.
      *
-     * @return \Illuminate\Filesystem\Filesystem
+     * @return \WPWhales\Filesystem\Filesystem
      */
     public function getFilesystem()
     {
@@ -766,7 +766,7 @@ class Migrator
     /**
      * Fire the given event for the migration.
      *
-     * @param  \Illuminate\Contracts\Database\Events\MigrationEvent  $event
+     * @param  \WPWhales\Contracts\Database\Events\MigrationEvent  $event
      * @return void
      */
     public function fireMigrationEvent($event)

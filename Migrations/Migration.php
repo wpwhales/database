@@ -1,6 +1,6 @@
 <?php
 
-namespace Illuminate\Database\Migrations;
+namespace WPWhales\Database\Migrations;
 
 abstract class Migration
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace Illuminate\Database\Query;
+namespace WPWhales\Database\Query;
 
-use Illuminate\Contracts\Database\Query\Expression as ExpressionContract;
-use Illuminate\Database\Grammar;
+use WPWhales\Contracts\Database\Query\Expression as ExpressionContract;
+use WPWhales\Database\Grammar;
 
 class Expression implements ExpressionContract
 {
@@ -28,7 +28,7 @@ class Expression implements ExpressionContract
     /**
      * Get the value of the expression.
      *
-     * @param  \Illuminate\Database\Grammar  $grammar
+     * @param  \WPWhales\Database\Grammar  $grammar
      * @return string|int|float
      */
     public function getValue(Grammar $grammar)

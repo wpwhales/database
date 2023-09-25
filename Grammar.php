@@ -1,9 +1,9 @@
 <?php
 
-namespace Illuminate\Database;
+namespace WPWhales\Database;
 
-use Illuminate\Contracts\Database\Query\Expression;
-use Illuminate\Support\Traits\Macroable;
+use WPWhales\Contracts\Database\Query\Expression;
+use WPWhales\Support\Traits\Macroable;
 use RuntimeException;
 
 abstract class Grammar
@@ -13,7 +13,7 @@ abstract class Grammar
     /**
      * The connection used for escaping values.
      *
-     * @var \Illuminate\Database\Connection
+     * @var \WPWhales\Database\Connection
      */
     protected $connection;
 
@@ -38,7 +38,7 @@ abstract class Grammar
     /**
      * Wrap a table in keyword identifiers.
      *
-     * @param  \Illuminate\Contracts\Database\Query\Expression|string  $table
+     * @param  \WPWhales\Contracts\Database\Query\Expression|string  $table
      * @return string
      */
     public function wrapTable($table)
@@ -53,7 +53,7 @@ abstract class Grammar
     /**
      * Wrap a value in keyword identifiers.
      *
-     * @param  \Illuminate\Contracts\Database\Query\Expression|string  $value
+     * @param  \WPWhales\Contracts\Database\Query\Expression|string  $value
      * @param  bool  $prefixAlias
      * @return string
      */
@@ -233,7 +233,7 @@ abstract class Grammar
     /**
      * Transforms expressions to their scalar types.
      *
-     * @param  \Illuminate\Contracts\Database\Query\Expression|string|int|float  $expression
+     * @param  \WPWhales\Contracts\Database\Query\Expression|string|int|float  $expression
      * @return string|int|float
      */
     public function getValue($expression)
@@ -281,7 +281,7 @@ abstract class Grammar
     /**
      * Set the grammar's database connection.
      *
-     * @param  \Illuminate\Database\Connection  $prefix
+     * @param  \WPWhales\Database\Connection  $prefix
      * @return $this
      */
     public function setConnection($connection)

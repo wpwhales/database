@@ -1,13 +1,13 @@
 <?php
 
-namespace Illuminate\Database\Console;
+namespace WPWhales\Database\Console;
 
 use Doctrine\DBAL\Schema\AbstractSchemaManager;
 use Doctrine\DBAL\Schema\Table;
 use Doctrine\DBAL\Schema\View;
-use Illuminate\Database\ConnectionInterface;
-use Illuminate\Database\ConnectionResolverInterface;
-use Illuminate\Support\Arr;
+use WPWhales\Database\ConnectionInterface;
+use WPWhales\Database\ConnectionResolverInterface;
+use WPWhales\Support\Arr;
 use Symfony\Component\Console\Attribute\AsCommand;
 
 #[AsCommand(name: 'db:show')]
@@ -33,7 +33,7 @@ class ShowCommand extends DatabaseInspectionCommand
     /**
      * Execute the console command.
      *
-     * @param  \Illuminate\Database\ConnectionResolverInterface  $connections
+     * @param  \WPWhales\Database\ConnectionResolverInterface  $connections
      * @return int
      */
     public function handle(ConnectionResolverInterface $connections)
@@ -70,9 +70,9 @@ class ShowCommand extends DatabaseInspectionCommand
     /**
      * Get information regarding the tables within the database.
      *
-     * @param  \Illuminate\Database\ConnectionInterface  $connection
+     * @param  \WPWhales\Database\ConnectionInterface  $connection
      * @param  \Doctrine\DBAL\Schema\AbstractSchemaManager  $schema
-     * @return \Illuminate\Support\Collection
+     * @return \WPWhales\Support\Collection
      */
     protected function tables(ConnectionInterface $connection, AbstractSchemaManager $schema)
     {
@@ -88,9 +88,9 @@ class ShowCommand extends DatabaseInspectionCommand
     /**
      * Get information regarding the views within the database.
      *
-     * @param  \Illuminate\Database\ConnectionInterface  $connection
+     * @param  \WPWhales\Database\ConnectionInterface  $connection
      * @param  \Doctrine\DBAL\Schema\AbstractSchemaManager  $schema
-     * @return \Illuminate\Support\Collection
+     * @return \WPWhales\Support\Collection
      */
     protected function collectViews(ConnectionInterface $connection, AbstractSchemaManager $schema)
     {

@@ -1,9 +1,9 @@
 <?php
 
-namespace Illuminate\Database\Console\Factories;
+namespace WPWhales\Database\Console\Factories;
 
-use Illuminate\Console\GeneratorCommand;
-use Illuminate\Support\Str;
+use WPWhales\Console\GeneratorCommand;
+use WPWhales\Support\Str;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Input\InputOption;
 

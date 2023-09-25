@@ -1,8 +1,8 @@
 <?php
 
-namespace Illuminate\Database\Eloquent\Factories;
+namespace WPWhales\Database\Eloquent\Factories;
 
-use Illuminate\Support\Arr;
+use WPWhales\Support\Arr;
 
 class CrossJoinSequence extends Sequence
 {

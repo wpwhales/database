@@ -1,12 +1,12 @@
 <?php
 
-namespace Illuminate\Database\Eloquent;
+namespace WPWhales\Database\Eloquent;
 
-use Illuminate\Database\RecordsNotFoundException;
-use Illuminate\Support\Arr;
+use WPWhales\Database\RecordsNotFoundException;
+use WPWhales\Support\Arr;
 
 /**
- * @template TModel of \Illuminate\Database\Eloquent\Model
+ * @template TModel of \WPWhales\Database\Eloquent\Model
  */
 class ModelNotFoundException extends RecordsNotFoundException
 {

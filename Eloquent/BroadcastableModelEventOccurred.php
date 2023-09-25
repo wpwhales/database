@@ -1,11 +1,11 @@
 <?php
 
-namespace Illuminate\Database\Eloquent;
+namespace WPWhales\Database\Eloquent;
 
-use Illuminate\Broadcasting\InteractsWithSockets;
-use Illuminate\Broadcasting\PrivateChannel;
-use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
-use Illuminate\Queue\SerializesModels;
+use WPWhales\Broadcasting\InteractsWithSockets;
+use WPWhales\Broadcasting\PrivateChannel;
+use WPWhales\Contracts\Broadcasting\ShouldBroadcast;
+use WPWhales\Queue\SerializesModels;
 
 class BroadcastableModelEventOccurred implements ShouldBroadcast
 {
@@ -14,7 +14,7 @@ class BroadcastableModelEventOccurred implements ShouldBroadcast
     /**
      * The model instance corresponding to the event.
      *
-     * @var \Illuminate\Database\Eloquent\Model
+     * @var \WPWhales\Database\Eloquent\Model
      */
     public $model;
 
@@ -56,7 +56,7 @@ class BroadcastableModelEventOccurred implements ShouldBroadcast
     /**
      * Create a new event instance.
      *
-     * @param  \Illuminate\Database\Eloquent\Model  $model
+     * @param  \WPWhales\Database\Eloquent\Model  $model
      * @param  string  $event
      * @return void
      */

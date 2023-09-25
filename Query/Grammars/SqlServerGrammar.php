@@ -1,10 +1,10 @@
 <?php
 
-namespace Illuminate\Database\Query\Grammars;
+namespace WPWhales\Database\Query\Grammars;
 
-use Illuminate\Database\Query\Builder;
-use Illuminate\Support\Arr;
-use Illuminate\Support\Str;
+use WPWhales\Database\Query\Builder;
+use WPWhales\Support\Arr;
+use WPWhales\Support\Str;
 
 class SqlServerGrammar extends Grammar
 {
@@ -42,7 +42,7 @@ class SqlServerGrammar extends Grammar
     /**
      * Compile a select query into SQL.
      *
-     * @param  \Illuminate\Database\Query\Builder  $query
+     * @param  \WPWhales\Database\Query\Builder  $query
      * @return string
      */
     public function compileSelect(Builder $query)
@@ -58,7 +58,7 @@ class SqlServerGrammar extends Grammar
     /**
      * Compile the "select *" portion of the query.
      *
-     * @param  \Illuminate\Database\Query\Builder  $query
+     * @param  \WPWhales\Database\Query\Builder  $query
      * @param  array  $columns
      * @return string|null
      */
@@ -83,7 +83,7 @@ class SqlServerGrammar extends Grammar
     /**
      * Compile the "from" portion of the query.
      *
-     * @param  \Illuminate\Database\Query\Builder  $query
+     * @param  \WPWhales\Database\Query\Builder  $query
      * @param  string  $table
      * @return string
      */
@@ -105,8 +105,8 @@ class SqlServerGrammar extends Grammar
     /**
      * Compile the index hints for the query.
      *
-     * @param  \Illuminate\Database\Query\Builder  $query
-     * @param  \Illuminate\Database\Query\IndexHint  $indexHint
+     * @param  \WPWhales\Database\Query\Builder  $query
+     * @param  \WPWhales\Database\Query\IndexHint  $indexHint
      * @return string
      */
     protected function compileIndexHint(Builder $query, $indexHint)
@@ -119,7 +119,7 @@ class SqlServerGrammar extends Grammar
     /**
      * {@inheritdoc}
      *
-     * @param  \Illuminate\Database\Query\Builder  $query
+     * @param  \WPWhales\Database\Query\Builder  $query
      * @param  array  $where
      * @return string
      */
@@ -135,7 +135,7 @@ class SqlServerGrammar extends Grammar
     /**
      * Compile a "where date" clause.
      *
-     * @param  \Illuminate\Database\Query\Builder  $query
+     * @param  \WPWhales\Database\Query\Builder  $query
      * @param  array  $where
      * @return string
      */
@@ -149,7 +149,7 @@ class SqlServerGrammar extends Grammar
     /**
      * Compile a "where time" clause.
      *
-     * @param  \Illuminate\Database\Query\Builder  $query
+     * @param  \WPWhales\Database\Query\Builder  $query
      * @param  array  $where
      * @return string
      */
@@ -269,7 +269,7 @@ class SqlServerGrammar extends Grammar
     /**
      * Compile a delete statement without joins into SQL.
      *
-     * @param  \Illuminate\Database\Query\Builder  $query
+     * @param  \WPWhales\Database\Query\Builder  $query
      * @param  string  $table
      * @param  string  $where
      * @return string
@@ -297,7 +297,7 @@ class SqlServerGrammar extends Grammar
     /**
      * Compile the "limit" portions of the query.
      *
-     * @param  \Illuminate\Database\Query\Builder  $query
+     * @param  \WPWhales\Database\Query\Builder  $query
      * @param  int  $limit
      * @return string
      */
@@ -315,7 +315,7 @@ class SqlServerGrammar extends Grammar
     /**
      * Compile the "offset" portions of the query.
      *
-     * @param  \Illuminate\Database\Query\Builder  $query
+     * @param  \WPWhales\Database\Query\Builder  $query
      * @param  int  $offset
      * @return string
      */
@@ -333,7 +333,7 @@ class SqlServerGrammar extends Grammar
     /**
      * Compile the lock into SQL.
      *
-     * @param  \Illuminate\Database\Query\Builder  $query
+     * @param  \WPWhales\Database\Query\Builder  $query
      * @param  bool|string  $value
      * @return string
      */
@@ -356,7 +356,7 @@ class SqlServerGrammar extends Grammar
     /**
      * Compile an exists statement into SQL.
      *
-     * @param  \Illuminate\Database\Query\Builder  $query
+     * @param  \WPWhales\Database\Query\Builder  $query
      * @return string
      */
     public function compileExists(Builder $query)
@@ -371,7 +371,7 @@ class SqlServerGrammar extends Grammar
     /**
      * Compile an update statement with joins into SQL.
      *
-     * @param  \Illuminate\Database\Query\Builder  $query
+     * @param  \WPWhales\Database\Query\Builder  $query
      * @param  string  $table
      * @param  string  $columns
      * @param  string  $where
@@ -389,7 +389,7 @@ class SqlServerGrammar extends Grammar
     /**
      * Compile an "upsert" statement into SQL.
      *
-     * @param  \Illuminate\Database\Query\Builder  $query
+     * @param  \WPWhales\Database\Query\Builder  $query
      * @param  array  $values
      * @param  array  $uniqueBy
      * @param  array  $update
@@ -514,7 +514,7 @@ class SqlServerGrammar extends Grammar
     /**
      * Wrap a table in keyword identifiers.
      *
-     * @param  \Illuminate\Contracts\Database\Query\Expression|string  $table
+     * @param  \WPWhales\Contracts\Database\Query\Expression|string  $table
      * @return string
      */
     public function wrapTable($table)

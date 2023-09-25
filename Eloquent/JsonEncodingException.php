@@ -1,6 +1,6 @@
 <?php
 
-namespace Illuminate\Database\Eloquent;
+namespace WPWhales\Database\Eloquent;
 
 use RuntimeException;
 
@@ -21,7 +21,7 @@ class JsonEncodingException extends RuntimeException
     /**
      * Create a new JSON encoding exception for the resource.
      *
-     * @param  \Illuminate\Http\Resources\Json\JsonResource  $resource
+     * @param  \WPWhales\Http\Resources\Json\JsonResource  $resource
      * @param  string  $message
      * @return static
      */

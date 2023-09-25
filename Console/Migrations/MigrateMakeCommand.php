@@ -1,11 +1,11 @@
 <?php
 
-namespace Illuminate\Database\Console\Migrations;
+namespace WPWhales\Database\Console\Migrations;
 
-use Illuminate\Contracts\Console\PromptsForMissingInput;
-use Illuminate\Database\Migrations\MigrationCreator;
-use Illuminate\Support\Composer;
-use Illuminate\Support\Str;
+use WPWhales\Contracts\Console\PromptsForMissingInput;
+use WPWhales\Database\Migrations\MigrationCreator;
+use WPWhales\Support\Composer;
+use WPWhales\Support\Str;
 
 class MigrateMakeCommand extends BaseCommand implements PromptsForMissingInput
 {
@@ -31,14 +31,14 @@ class MigrateMakeCommand extends BaseCommand implements PromptsForMissingInput
     /**
      * The migration creator instance.
      *
-     * @var \Illuminate\Database\Migrations\MigrationCreator
+     * @var \WPWhales\Database\Migrations\MigrationCreator
      */
     protected $creator;
 
     /**
      * The Composer instance.
      *
-     * @var \Illuminate\Support\Composer
+     * @var \WPWhales\Support\Composer
      *
      * @deprecated Will be removed in a future Laravel version.
      */
@@ -47,8 +47,8 @@ class MigrateMakeCommand extends BaseCommand implements PromptsForMissingInput
     /**
      * Create a new migration install command instance.
      *
-     * @param  \Illuminate\Database\Migrations\MigrationCreator  $creator
-     * @param  \Illuminate\Support\Composer  $composer
+     * @param  \WPWhales\Database\Migrations\MigrationCreator  $creator
+     * @param  \WPWhales\Support\Composer  $composer
      * @return void
      */
     public function __construct(MigrationCreator $creator, Composer $composer)

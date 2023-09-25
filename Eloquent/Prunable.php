@@ -1,8 +1,8 @@
 <?php
 
-namespace Illuminate\Database\Eloquent;
+namespace WPWhales\Database\Eloquent;
 
-use Illuminate\Database\Events\ModelsPruned;
+use WPWhales\Database\Events\ModelsPruned;
 use LogicException;
 
 trait Prunable
@@ -34,7 +34,7 @@ trait Prunable
     /**
      * Get the prunable model query.
      *
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @return \WPWhales\Database\Eloquent\Builder
      */
     public function prunable()
     {

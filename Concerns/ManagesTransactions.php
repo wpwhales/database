@@ -1,9 +1,9 @@
 <?php
 
-namespace Illuminate\Database\Concerns;
+namespace WPWhales\Database\Concerns;
 
 use Closure;
-use Illuminate\Database\DeadlockException;
+use WPWhales\Database\DeadlockException;
 use RuntimeException;
 use Throwable;
 

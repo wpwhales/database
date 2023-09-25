@@ -1,10 +1,10 @@
 <?php
 
-namespace Illuminate\Database\Migrations;
+namespace WPWhales\Database\Migrations;
 
 use Closure;
-use Illuminate\Filesystem\Filesystem;
-use Illuminate\Support\Str;
+use WPWhales\Filesystem\Filesystem;
+use WPWhales\Support\Str;
 use InvalidArgumentException;
 
 class MigrationCreator
@@ -12,7 +12,7 @@ class MigrationCreator
     /**
      * The filesystem instance.
      *
-     * @var \Illuminate\Filesystem\Filesystem
+     * @var \WPWhales\Filesystem\Filesystem
      */
     protected $files;
 
@@ -33,7 +33,7 @@ class MigrationCreator
     /**
      * Create a new migration creator instance.
      *
-     * @param  \Illuminate\Filesystem\Filesystem  $files
+     * @param  \WPWhales\Filesystem\Filesystem  $files
      * @param  string  $customStubPath
      * @return void
      */
@@ -222,7 +222,7 @@ class MigrationCreator
     /**
      * Get the filesystem instance.
      *
-     * @return \Illuminate\Filesystem\Filesystem
+     * @return \WPWhales\Filesystem\Filesystem
      */
     public function getFilesystem()
     {

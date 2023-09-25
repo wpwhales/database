@@ -1,8 +1,8 @@
 <?php
 
-namespace Illuminate\Database\Eloquent\Concerns;
+namespace WPWhales\Database\Eloquent\Concerns;
 
-use Illuminate\Support\Facades\Date;
+use WPWhales\Support\Facades\Date;
 
 trait HasTimestamps
 {
@@ -107,7 +107,7 @@ trait HasTimestamps
     /**
      * Get a fresh timestamp for the model.
      *
-     * @return \Illuminate\Support\Carbon
+     * @return \WPWhales\Support\Carbon
      */
     public function freshTimestamp()
     {

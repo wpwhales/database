@@ -1,11 +1,11 @@
 <?php
 
-namespace Illuminate\Database\Console\Seeds;
+namespace WPWhales\Database\Console\Seeds;
 
-use Illuminate\Console\Command;
-use Illuminate\Console\ConfirmableTrait;
-use Illuminate\Database\ConnectionResolverInterface as Resolver;
-use Illuminate\Database\Eloquent\Model;
+use WPWhales\Console\Command;
+use WPWhales\Console\ConfirmableTrait;
+use WPWhales\Database\ConnectionResolverInterface as Resolver;
+use WPWhales\Database\Eloquent\Model;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
@@ -32,14 +32,14 @@ class SeedCommand extends Command
     /**
      * The connection resolver instance.
      *
-     * @var \Illuminate\Database\ConnectionResolverInterface
+     * @var \WPWhales\Database\ConnectionResolverInterface
      */
     protected $resolver;
 
     /**
      * Create a new database seed command instance.
      *
-     * @param  \Illuminate\Database\ConnectionResolverInterface  $resolver
+     * @param  \WPWhales\Database\ConnectionResolverInterface  $resolver
      * @return void
      */
     public function __construct(Resolver $resolver)
@@ -80,7 +80,7 @@ class SeedCommand extends Command
     /**
      * Get a seeder instance from the container.
      *
-     * @return \Illuminate\Database\Seeder
+     * @return \WPWhales\Database\Seeder
      */
     protected function getSeeder()
     {

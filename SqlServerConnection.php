@@ -1,15 +1,15 @@
 <?php
 
-namespace Illuminate\Database;
+namespace WPWhales\Database;
 
 use Closure;
 use Exception;
-use Illuminate\Database\PDO\SqlServerDriver;
-use Illuminate\Database\Query\Grammars\SqlServerGrammar as QueryGrammar;
-use Illuminate\Database\Query\Processors\SqlServerProcessor;
-use Illuminate\Database\Schema\Grammars\SqlServerGrammar as SchemaGrammar;
-use Illuminate\Database\Schema\SqlServerBuilder;
-use Illuminate\Filesystem\Filesystem;
+use WPWhales\Database\PDO\SqlServerDriver;
+use WPWhales\Database\Query\Grammars\SqlServerGrammar as QueryGrammar;
+use WPWhales\Database\Query\Processors\SqlServerProcessor;
+use WPWhales\Database\Schema\Grammars\SqlServerGrammar as SchemaGrammar;
+use WPWhales\Database\Schema\SqlServerBuilder;
+use WPWhales\Filesystem\Filesystem;
 use RuntimeException;
 use Throwable;
 
@@ -82,7 +82,7 @@ class SqlServerConnection extends Connection
     /**
      * Get the default query grammar instance.
      *
-     * @return \Illuminate\Database\Query\Grammars\SqlServerGrammar
+     * @return \WPWhales\Database\Query\Grammars\SqlServerGrammar
      */
     protected function getDefaultQueryGrammar()
     {
@@ -94,7 +94,7 @@ class SqlServerConnection extends Connection
     /**
      * Get a schema builder instance for the connection.
      *
-     * @return \Illuminate\Database\Schema\SqlServerBuilder
+     * @return \WPWhales\Database\Schema\SqlServerBuilder
      */
     public function getSchemaBuilder()
     {
@@ -108,7 +108,7 @@ class SqlServerConnection extends Connection
     /**
      * Get the default schema grammar instance.
      *
-     * @return \Illuminate\Database\Schema\Grammars\SqlServerGrammar
+     * @return \WPWhales\Database\Schema\Grammars\SqlServerGrammar
      */
     protected function getDefaultSchemaGrammar()
     {
@@ -120,7 +120,7 @@ class SqlServerConnection extends Connection
     /**
      * Get the schema state for the connection.
      *
-     * @param  \Illuminate\Filesystem\Filesystem|null  $files
+     * @param  \WPWhales\Filesystem\Filesystem|null  $files
      * @param  callable|null  $processFactory
      *
      * @throws \RuntimeException
@@ -133,7 +133,7 @@ class SqlServerConnection extends Connection
     /**
      * Get the default post processor instance.
      *
-     * @return \Illuminate\Database\Query\Processors\SqlServerProcessor
+     * @return \WPWhales\Database\Query\Processors\SqlServerProcessor
      */
     protected function getDefaultPostProcessor()
     {
@@ -143,7 +143,7 @@ class SqlServerConnection extends Connection
     /**
      * Get the Doctrine DBAL driver.
      *
-     * @return \Illuminate\Database\PDO\SqlServerDriver
+     * @return \WPWhales\Database\PDO\SqlServerDriver
      */
     protected function getDoctrineDriver()
     {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Illuminate\Database\Events;
+namespace WPWhales\Database\Events;
 
-use Illuminate\Contracts\Database\Events\MigrationEvent as MigrationEventContract;
+use WPWhales\Contracts\Database\Events\MigrationEvent as MigrationEventContract;
 
 abstract class MigrationsEvent implements MigrationEventContract
 {

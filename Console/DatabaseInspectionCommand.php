@@ -1,17 +1,17 @@
 <?php
 
-namespace Illuminate\Database\Console;
+namespace WPWhales\Database\Console;
 
 use Doctrine\DBAL\Platforms\AbstractPlatform;
-use Illuminate\Console\Command;
-use Illuminate\Database\ConnectionInterface;
-use Illuminate\Database\MySqlConnection;
-use Illuminate\Database\PostgresConnection;
-use Illuminate\Database\QueryException;
-use Illuminate\Database\SQLiteConnection;
-use Illuminate\Database\SqlServerConnection;
-use Illuminate\Support\Arr;
-use Illuminate\Support\Composer;
+use WPWhales\Console\Command;
+use WPWhales\Database\ConnectionInterface;
+use WPWhales\Database\MySqlConnection;
+use WPWhales\Database\PostgresConnection;
+use WPWhales\Database\QueryException;
+use WPWhales\Database\SQLiteConnection;
+use WPWhales\Database\SqlServerConnection;
+use WPWhales\Support\Arr;
+use WPWhales\Support\Composer;
 use Symfony\Component\Process\Exception\ProcessSignaledException;
 use Symfony\Component\Process\Exception\RuntimeException;
 use Symfony\Component\Process\Process;
@@ -44,14 +44,14 @@ abstract class DatabaseInspectionCommand extends Command
     /**
      * The Composer instance.
      *
-     * @var \Illuminate\Support\Composer
+     * @var \WPWhales\Support\Composer
      */
     protected $composer;
 
     /**
      * Create a new command instance.
      *
-     * @param  \Illuminate\Support\Composer|null  $composer
+     * @param  \WPWhales\Support\Composer|null  $composer
      * @return void
      */
     public function __construct(Composer $composer = null)
@@ -98,7 +98,7 @@ abstract class DatabaseInspectionCommand extends Command
     /**
      * Get the size of a table in bytes.
      *
-     * @param  \Illuminate\Database\ConnectionInterface  $connection
+     * @param  \WPWhales\Database\ConnectionInterface  $connection
      * @param  string  $table
      * @return int|null
      */
@@ -115,7 +115,7 @@ abstract class DatabaseInspectionCommand extends Command
     /**
      * Get the size of a MySQL table in bytes.
      *
-     * @param  \Illuminate\Database\ConnectionInterface  $connection
+     * @param  \WPWhales\Database\ConnectionInterface  $connection
      * @param  string  $table
      * @return mixed
      */
@@ -132,7 +132,7 @@ abstract class DatabaseInspectionCommand extends Command
     /**
      * Get the size of a Postgres table in bytes.
      *
-     * @param  \Illuminate\Database\ConnectionInterface  $connection
+     * @param  \WPWhales\Database\ConnectionInterface  $connection
      * @param  string  $table
      * @return mixed
      */
@@ -148,7 +148,7 @@ abstract class DatabaseInspectionCommand extends Command
     /**
      * Get the size of a SQLite table in bytes.
      *
-     * @param  \Illuminate\Database\ConnectionInterface  $connection
+     * @param  \WPWhales\Database\ConnectionInterface  $connection
      * @param  string  $table
      * @return mixed
      */
@@ -168,7 +168,7 @@ abstract class DatabaseInspectionCommand extends Command
     /**
      * Get the number of open connections for a database.
      *
-     * @param  \Illuminate\Database\ConnectionInterface  $connection
+     * @param  \WPWhales\Database\ConnectionInterface  $connection
      * @return int|null
      */
     protected function getConnectionCount(ConnectionInterface $connection)

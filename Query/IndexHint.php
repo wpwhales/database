@@ -1,6 +1,6 @@
 <?php
 
-namespace Illuminate\Database\Query;
+namespace WPWhales\Database\Query;
 
 class IndexHint
 {

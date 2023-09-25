@@ -1,10 +1,10 @@
 <?php
 
-namespace Illuminate\Database\Eloquent\Casts;
+namespace WPWhales\Database\Eloquent\Casts;
 
-use Illuminate\Contracts\Database\Eloquent\Castable;
-use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
-use Illuminate\Support\Collection;
+use WPWhales\Contracts\Database\Eloquent\Castable;
+use WPWhales\Contracts\Database\Eloquent\CastsAttributes;
+use WPWhales\Support\Collection;
 use InvalidArgumentException;
 
 class AsCollection implements Castable
@@ -13,7 +13,7 @@ class AsCollection implements Castable
      * Get the caster class to use when casting from / to this cast target.
      *
      * @param  array  $arguments
-     * @return \Illuminate\Contracts\Database\Eloquent\CastsAttributes<\Illuminate\Support\Collection<array-key, mixed>, iterable>
+     * @return \WPWhales\Contracts\Database\Eloquent\CastsAttributes<\WPWhales\Support\Collection<array-key, mixed>, iterable>
      */
     public static function castUsing(array $arguments)
     {

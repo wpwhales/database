@@ -1,8 +1,8 @@
 <?php
 
-namespace Illuminate\Database\Schema;
+namespace WPWhales\Database\Schema;
 
-use Illuminate\Support\Facades\File;
+use WPWhales\Support\Facades\File;
 
 class SQLiteBuilder extends Builder
 {

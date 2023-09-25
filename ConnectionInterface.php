@@ -1,6 +1,6 @@
 <?php
 
-namespace Illuminate\Database;
+namespace WPWhales\Database;
 
 use Closure;
 
@@ -9,9 +9,9 @@ interface ConnectionInterface
     /**
      * Begin a fluent query against a database table.
      *
-     * @param  \Closure|\Illuminate\Database\Query\Builder|string  $table
+     * @param  \Closure|\WPWhales\Database\Query\Builder|string  $table
      * @param  string|null  $as
-     * @return \Illuminate\Database\Query\Builder
+     * @return \WPWhales\Database\Query\Builder
      */
     public function table($table, $as = null);
 
@@ -19,7 +19,7 @@ interface ConnectionInterface
      * Get a new raw query expression.
      *
      * @param  mixed  $value
-     * @return \Illuminate\Contracts\Database\Query\Expression
+     * @return \WPWhales\Contracts\Database\Query\Expression
      */
     public function raw($value);
 
@@ -41,7 +41,7 @@ interface ConnectionInterface
      * @param  bool  $useReadPdo
      * @return mixed
      *
-     * @throws \Illuminate\Database\MultipleColumnsSelectedException
+     * @throws \WPWhales\Database\MultipleColumnsSelectedException
      */
     public function scalar($query, $bindings = [], $useReadPdo = true);
 

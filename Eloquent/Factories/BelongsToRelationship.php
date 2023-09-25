@@ -1,16 +1,16 @@
 <?php
 
-namespace Illuminate\Database\Eloquent\Factories;
+namespace WPWhales\Database\Eloquent\Factories;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\MorphTo;
+use WPWhales\Database\Eloquent\Model;
+use WPWhales\Database\Eloquent\Relations\MorphTo;
 
 class BelongsToRelationship
 {
     /**
      * The related factory instance.
      *
-     * @var \Illuminate\Database\Eloquent\Factories\Factory|\Illuminate\Database\Eloquent\Model
+     * @var \WPWhales\Database\Eloquent\Factories\Factory|\WPWhales\Database\Eloquent\Model
      */
     protected $factory;
 
@@ -31,7 +31,7 @@ class BelongsToRelationship
     /**
      * Create a new "belongs to" relationship definition.
      *
-     * @param  \Illuminate\Database\Eloquent\Factories\Factory|\Illuminate\Database\Eloquent\Model  $factory
+     * @param  \WPWhales\Database\Eloquent\Factories\Factory|\WPWhales\Database\Eloquent\Model  $factory
      * @param  string  $relationship
      * @return void
      */
@@ -44,7 +44,7 @@ class BelongsToRelationship
     /**
      * Get the parent model attributes and resolvers for the given child model.
      *
-     * @param  \Illuminate\Database\Eloquent\Model  $model
+     * @param  \WPWhales\Database\Eloquent\Model  $model
      * @return array
      */
     public function attributesFor(Model $model)
@@ -83,7 +83,7 @@ class BelongsToRelationship
     /**
      * Specify the model instances to always use when creating relationships.
      *
-     * @param  \Illuminate\Support\Collection  $recycle
+     * @param  \WPWhales\Support\Collection  $recycle
      * @return $this
      */
     public function recycle($recycle)

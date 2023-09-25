@@ -1,9 +1,9 @@
 <?php
 
-namespace Illuminate\Database\Connectors;
+namespace WPWhales\Database\Connectors;
 
 use Exception;
-use Illuminate\Database\DetectsLostConnections;
+use WPWhales\Database\DetectsLostConnections;
 use PDO;
 use Throwable;
 

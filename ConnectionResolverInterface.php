@@ -1,6 +1,6 @@
 <?php
 
-namespace Illuminate\Database;
+namespace WPWhales\Database;
 
 interface ConnectionResolverInterface
 {
@@ -8,7 +8,7 @@ interface ConnectionResolverInterface
      * Get a database connection instance.
      *
      * @param  string|null  $name
-     * @return \Illuminate\Database\ConnectionInterface
+     * @return \WPWhales\Database\ConnectionInterface
      */
     public function connection($name = null);
 

@@ -1,16 +1,16 @@
 <?php
 
-namespace Illuminate\Database\Eloquent\Relations;
+namespace WPWhales\Database\Eloquent\Relations;
 
-use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Model;
+use WPWhales\Database\Eloquent\Collection;
+use WPWhales\Database\Eloquent\Model;
 
 class MorphMany extends MorphOneOrMany
 {
     /**
      * Convert the relationship to a "morph one" relationship.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\MorphOne
+     * @return \WPWhales\Database\Eloquent\Relations\MorphOne
      */
     public function one()
     {
@@ -55,7 +55,7 @@ class MorphMany extends MorphOneOrMany
      * Match the eagerly loaded results to their parents.
      *
      * @param  array  $models
-     * @param  \Illuminate\Database\Eloquent\Collection  $results
+     * @param  \WPWhales\Database\Eloquent\Collection  $results
      * @param  string  $relation
      * @return array
      */
@@ -68,7 +68,7 @@ class MorphMany extends MorphOneOrMany
      * Create a new instance of the related model. Allow mass-assignment.
      *
      * @param  array  $attributes
-     * @return \Illuminate\Database\Eloquent\Model
+     * @return \WPWhales\Database\Eloquent\Model
      */
     public function forceCreate(array $attributes = [])
     {
@@ -81,7 +81,7 @@ class MorphMany extends MorphOneOrMany
      * Create a new instance of the related model with mass assignment without raising model events.
      *
      * @param  array  $attributes
-     * @return \Illuminate\Database\Eloquent\Model
+     * @return \WPWhales\Database\Eloquent\Model
      */
     public function forceCreateQuietly(array $attributes = [])
     {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Illuminate\Database\Schema;
+namespace WPWhales\Database\Schema;
 
-use Illuminate\Database\Concerns\ParsesSearchPath;
+use WPWhales\Database\Concerns\ParsesSearchPath;
 
 class PostgresBuilder extends Builder
 {

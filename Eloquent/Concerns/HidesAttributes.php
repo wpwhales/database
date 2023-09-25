@@ -1,6 +1,6 @@
 <?php
 
-namespace Illuminate\Database\Eloquent\Concerns;
+namespace WPWhales\Database\Eloquent\Concerns;
 
 trait HidesAttributes
 {

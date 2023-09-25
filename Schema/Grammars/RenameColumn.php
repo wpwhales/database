@@ -1,23 +1,23 @@
 <?php
 
-namespace Illuminate\Database\Schema\Grammars;
+namespace WPWhales\Database\Schema\Grammars;
 
 use Doctrine\DBAL\Schema\AbstractSchemaManager as SchemaManager;
 use Doctrine\DBAL\Schema\Column;
 use Doctrine\DBAL\Schema\TableDiff;
-use Illuminate\Database\Connection;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Fluent;
+use WPWhales\Database\Connection;
+use WPWhales\Database\Schema\Blueprint;
+use WPWhales\Support\Fluent;
 
 class RenameColumn
 {
     /**
      * Compile a rename column command.
      *
-     * @param  \Illuminate\Database\Schema\Grammars\Grammar  $grammar
-     * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
-     * @param  \Illuminate\Support\Fluent  $command
-     * @param  \Illuminate\Database\Connection  $connection
+     * @param  \WPWhales\Database\Schema\Grammars\Grammar  $grammar
+     * @param  \WPWhales\Database\Schema\Blueprint  $blueprint
+     * @param  \WPWhales\Support\Fluent  $command
+     * @param  \WPWhales\Database\Connection  $connection
      * @return array
      */
     public static function compile(Grammar $grammar, Blueprint $blueprint, Fluent $command, Connection $connection)
@@ -38,9 +38,9 @@ class RenameColumn
     /**
      * Get a new column instance with the new column name.
      *
-     * @param  \Illuminate\Database\Schema\Grammars\Grammar  $grammar
-     * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
-     * @param  \Illuminate\Support\Fluent  $command
+     * @param  \WPWhales\Database\Schema\Grammars\Grammar  $grammar
+     * @param  \WPWhales\Database\Schema\Blueprint  $blueprint
+     * @param  \WPWhales\Support\Fluent  $command
      * @param  \Doctrine\DBAL\Schema\Column  $column
      * @param  \Doctrine\DBAL\Schema\AbstractSchemaManager  $schema
      * @return \Doctrine\DBAL\Schema\TableDiff
@@ -56,7 +56,7 @@ class RenameColumn
      * Set the renamed columns on the table diff.
      *
      * @param  \Doctrine\DBAL\Schema\TableDiff  $tableDiff
-     * @param  \Illuminate\Support\Fluent  $command
+     * @param  \WPWhales\Support\Fluent  $command
      * @param  \Doctrine\DBAL\Schema\Column  $column
      * @return \Doctrine\DBAL\Schema\TableDiff
      */

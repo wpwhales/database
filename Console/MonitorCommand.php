@@ -1,11 +1,11 @@
 <?php
 
-namespace Illuminate\Database\Console;
+namespace WPWhales\Database\Console;
 
-use Illuminate\Contracts\Events\Dispatcher;
-use Illuminate\Database\ConnectionResolverInterface;
-use Illuminate\Database\Events\DatabaseBusy;
-use Illuminate\Support\Composer;
+use WPWhales\Contracts\Events\Dispatcher;
+use WPWhales\Database\ConnectionResolverInterface;
+use WPWhales\Database\Events\DatabaseBusy;
+use WPWhales\Support\Composer;
 use Symfony\Component\Console\Attribute\AsCommand;
 
 #[AsCommand(name: 'db:monitor')]
@@ -30,23 +30,23 @@ class MonitorCommand extends DatabaseInspectionCommand
     /**
      * The connection resolver instance.
      *
-     * @var \Illuminate\Database\ConnectionResolverInterface
+     * @var \WPWhales\Database\ConnectionResolverInterface
      */
     protected $connection;
 
     /**
      * The events dispatcher instance.
      *
-     * @var \Illuminate\Contracts\Events\Dispatcher
+     * @var \WPWhales\Contracts\Events\Dispatcher
      */
     protected $events;
 
     /**
      * Create a new command instance.
      *
-     * @param  \Illuminate\Database\ConnectionResolverInterface  $connection
-     * @param  \Illuminate\Contracts\Events\Dispatcher  $events
-     * @param  \Illuminate\Support\Composer  $composer
+     * @param  \WPWhales\Database\ConnectionResolverInterface  $connection
+     * @param  \WPWhales\Contracts\Events\Dispatcher  $events
+     * @param  \WPWhales\Support\Composer  $composer
      */
     public function __construct(ConnectionResolverInterface $connection, Dispatcher $events, Composer $composer)
     {
@@ -76,7 +76,7 @@ class MonitorCommand extends DatabaseInspectionCommand
      * Parse the database into an array of the connections.
      *
      * @param  string  $databases
-     * @return \Illuminate\Support\Collection
+     * @return \WPWhales\Support\Collection
      */
     protected function parseDatabases($databases)
     {
@@ -98,7 +98,7 @@ class MonitorCommand extends DatabaseInspectionCommand
     /**
      * Display the databases and their connection counts in the console.
      *
-     * @param  \Illuminate\Support\Collection  $databases
+     * @param  \WPWhales\Support\Collection  $databases
      * @return void
      */
     protected function displayConnections($databases)
@@ -119,7 +119,7 @@ class MonitorCommand extends DatabaseInspectionCommand
     /**
      * Dispatch the database monitoring events.
      *
-     * @param  \Illuminate\Support\Collection  $databases
+     * @param  \WPWhales\Support\Collection  $databases
      * @return void
      */
     protected function dispatchEvents($databases)

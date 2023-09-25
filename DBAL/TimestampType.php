@@ -1,6 +1,6 @@
 <?php
 
-namespace Illuminate\Database\DBAL;
+namespace WPWhales\Database\DBAL;
 
 use Doctrine\DBAL\Exception as DBALException;
 use Doctrine\DBAL\Platforms\AbstractPlatform;

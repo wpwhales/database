@@ -1,10 +1,10 @@
 <?php
 
-namespace Illuminate\Database\Schema;
+namespace WPWhales\Database\Schema;
 
 use Exception;
-use Illuminate\Database\Connection;
-use Illuminate\Support\Str;
+use WPWhales\Database\Connection;
+use WPWhales\Support\Str;
 use Symfony\Component\Process\Process;
 
 class MySqlSchemaState extends SchemaState
@@ -12,7 +12,7 @@ class MySqlSchemaState extends SchemaState
     /**
      * Dump the database's schema into a file.
      *
-     * @param  \Illuminate\Database\Connection  $connection
+     * @param  \WPWhales\Database\Connection  $connection
      * @param  string  $path
      * @return void
      */

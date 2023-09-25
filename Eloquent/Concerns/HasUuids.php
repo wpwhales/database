@@ -1,9 +1,9 @@
 <?php
 
-namespace Illuminate\Database\Eloquent\Concerns;
+namespace WPWhales\Database\Eloquent\Concerns;
 
-use Illuminate\Database\Eloquent\ModelNotFoundException;
-use Illuminate\Support\Str;
+use WPWhales\Database\Eloquent\ModelNotFoundException;
+use WPWhales\Support\Str;
 
 trait HasUuids
 {
@@ -40,12 +40,12 @@ trait HasUuids
     /**
      * Retrieve the model for a bound value.
      *
-     * @param  \Illuminate\Database\Eloquent\Model|\Illuminate\Database\Eloquent\Relations\Relation  $query
+     * @param  \WPWhales\Database\Eloquent\Model|\WPWhales\Database\Eloquent\Relations\Relation  $query
      * @param  mixed  $value
      * @param  string|null  $field
-     * @return \Illuminate\Database\Eloquent\Relations\Relation
+     * @return \WPWhales\Database\Eloquent\Relations\Relation
      *
-     * @throws \Illuminate\Database\Eloquent\ModelNotFoundException
+     * @throws \WPWhales\Database\Eloquent\ModelNotFoundException
      */
     public function resolveRouteBindingQuery($query, $value, $field = null)
     {

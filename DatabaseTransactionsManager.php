@@ -1,20 +1,20 @@
 <?php
 
-namespace Illuminate\Database;
+namespace WPWhales\Database;
 
 class DatabaseTransactionsManager
 {
     /**
      * All of the recorded transactions.
      *
-     * @var \Illuminate\Support\Collection
+     * @var \WPWhales\Support\Collection
      */
     protected $transactions;
 
     /**
      * The database transaction that should be ignored by callbacks.
      *
-     * @var \Illuminate\Database\DatabaseTransactionRecord
+     * @var \WPWhales\Database\DatabaseTransactionRecord
      */
     protected $callbacksShouldIgnore;
 
@@ -99,7 +99,7 @@ class DatabaseTransactionsManager
     /**
      * Specify that callbacks should ignore the given transaction when determining if they should be executed.
      *
-     * @param  \Illuminate\Database\DatabaseTransactionRecord  $transaction
+     * @param  \WPWhales\Database\DatabaseTransactionRecord  $transaction
      * @return $this
      */
     public function callbacksShouldIgnore(DatabaseTransactionRecord $transaction)
@@ -112,7 +112,7 @@ class DatabaseTransactionsManager
     /**
      * Get the transactions that are applicable to callbacks.
      *
-     * @return \Illuminate\Support\Collection
+     * @return \WPWhales\Support\Collection
      */
     public function callbackApplicableTransactions()
     {
@@ -124,7 +124,7 @@ class DatabaseTransactionsManager
     /**
      * Get all the transactions.
      *
-     * @return \Illuminate\Support\Collection
+     * @return \WPWhales\Support\Collection
      */
     public function getTransactions()
     {

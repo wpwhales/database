@@ -1,30 +1,30 @@
 <?php
 
-namespace Illuminate\Database\Query;
+namespace WPWhales\Database\Query;
 
 use BackedEnum;
 use Carbon\CarbonPeriod;
 use Closure;
 use DateTimeInterface;
-use Illuminate\Contracts\Database\Query\Builder as BuilderContract;
-use Illuminate\Contracts\Database\Query\ConditionExpression;
-use Illuminate\Contracts\Database\Query\Expression as ExpressionContract;
-use Illuminate\Contracts\Support\Arrayable;
-use Illuminate\Database\Concerns\BuildsQueries;
-use Illuminate\Database\Concerns\ExplainsQueries;
-use Illuminate\Database\ConnectionInterface;
-use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
-use Illuminate\Database\Eloquent\Relations\Relation;
-use Illuminate\Database\Query\Grammars\Grammar;
-use Illuminate\Database\Query\Processors\Processor;
-use Illuminate\Pagination\Paginator;
-use Illuminate\Support\Arr;
-use Illuminate\Support\Collection;
-use Illuminate\Support\LazyCollection;
-use Illuminate\Support\Str;
-use Illuminate\Support\Traits\Dumpable;
-use Illuminate\Support\Traits\ForwardsCalls;
-use Illuminate\Support\Traits\Macroable;
+use WPWhales\Contracts\Database\Query\Builder as BuilderContract;
+use WPWhales\Contracts\Database\Query\ConditionExpression;
+use WPWhales\Contracts\Database\Query\Expression as ExpressionContract;
+use WPWhales\Contracts\Support\Arrayable;
+use WPWhales\Database\Concerns\BuildsQueries;
+use WPWhales\Database\Concerns\ExplainsQueries;
+use WPWhales\Database\ConnectionInterface;
+use WPWhales\Database\Eloquent\Builder as EloquentBuilder;
+use WPWhales\Database\Eloquent\Relations\Relation;
+use WPWhales\Database\Query\Grammars\Grammar;
+use WPWhales\Database\Query\Processors\Processor;
+use WPWhales\Pagination\Paginator;
+use WPWhales\Support\Arr;
+use WPWhales\Support\Collection;
+use WPWhales\Support\LazyCollection;
+use WPWhales\Support\Str;
+use WPWhales\Support\Traits\Dumpable;
+use WPWhales\Support\Traits\ForwardsCalls;
+use WPWhales\Support\Traits\Macroable;
 use InvalidArgumentException;
 use LogicException;
 use RuntimeException;
@@ -38,21 +38,21 @@ class Builder implements BuilderContract
     /**
      * The database connection instance.
      *
-     * @var \Illuminate\Database\ConnectionInterface
+     * @var \WPWhales\Database\ConnectionInterface
      */
     public $connection;
 
     /**
      * The database query grammar instance.
      *
-     * @var \Illuminate\Database\Query\Grammars\Grammar
+     * @var \WPWhales\Database\Query\Grammars\Grammar
      */
     public $grammar;
 
     /**
      * The database query post processor instance.
      *
-     * @var \Illuminate\Database\Query\Processors\Processor
+     * @var \WPWhales\Database\Query\Processors\Processor
      */
     public $processor;
 
@@ -106,7 +106,7 @@ class Builder implements BuilderContract
     /**
      * The index hint for the query.
      *
-     * @var \Illuminate\Database\Query\IndexHint
+     * @var \WPWhales\Database\Query\IndexHint
      */
     public $indexHint;
 
@@ -234,9 +234,9 @@ class Builder implements BuilderContract
     /**
      * Create a new query builder instance.
      *
-     * @param  \Illuminate\Database\ConnectionInterface  $connection
-     * @param  \Illuminate\Database\Query\Grammars\Grammar|null  $grammar
-     * @param  \Illuminate\Database\Query\Processors\Processor|null  $processor
+     * @param  \WPWhales\Database\ConnectionInterface  $connection
+     * @param  \WPWhales\Database\Query\Grammars\Grammar|null  $grammar
+     * @param  \WPWhales\Database\Query\Processors\Processor|null  $processor
      * @return void
      */
     public function __construct(ConnectionInterface $connection,
@@ -275,7 +275,7 @@ class Builder implements BuilderContract
     /**
      * Add a subselect expression to the query.
      *
-     * @param  \Closure|\Illuminate\Database\Query\Builder|\Illuminate\Database\Eloquent\Builder|string  $query
+     * @param  \Closure|\WPWhales\Database\Query\Builder|\WPWhales\Database\Eloquent\Builder|string  $query
      * @param  string  $as
      * @return $this
      *
@@ -311,7 +311,7 @@ class Builder implements BuilderContract
     /**
      * Makes "from" fetch from a subquery.
      *
-     * @param  \Closure|\Illuminate\Database\Query\Builder|\Illuminate\Database\Eloquent\Builder|string  $query
+     * @param  \Closure|\WPWhales\Database\Query\Builder|\WPWhales\Database\Eloquent\Builder|string  $query
      * @param  string  $as
      * @return $this
      *
@@ -343,7 +343,7 @@ class Builder implements BuilderContract
     /**
      * Creates a subquery and parse it.
      *
-     * @param  \Closure|\Illuminate\Database\Query\Builder|\Illuminate\Database\Eloquent\Builder|string  $query
+     * @param  \Closure|\WPWhales\Database\Query\Builder|\WPWhales\Database\Eloquent\Builder|string  $query
      * @return array
      */
     protected function createSub($query)
@@ -453,7 +453,7 @@ class Builder implements BuilderContract
     /**
      * Set the table which the query is targeting.
      *
-     * @param  \Closure|\Illuminate\Database\Query\Builder|\Illuminate\Database\Eloquent\Builder|string  $table
+     * @param  \Closure|\WPWhales\Database\Query\Builder|\WPWhales\Database\Eloquent\Builder|string  $table
      * @param  string|null  $as
      * @return $this
      */
@@ -510,10 +510,10 @@ class Builder implements BuilderContract
     /**
      * Add a join clause to the query.
      *
-     * @param  \Illuminate\Contracts\Database\Query\Expression|string  $table
+     * @param  \WPWhales\Contracts\Database\Query\Expression|string  $table
      * @param  \Closure|string  $first
      * @param  string|null  $operator
-     * @param  \Illuminate\Contracts\Database\Query\Expression|string|null  $second
+     * @param  \WPWhales\Contracts\Database\Query\Expression|string|null  $second
      * @param  string  $type
      * @param  bool  $where
      * @return $this
@@ -550,10 +550,10 @@ class Builder implements BuilderContract
     /**
      * Add a "join where" clause to the query.
      *
-     * @param  \Illuminate\Contracts\Database\Query\Expression|string  $table
+     * @param  \WPWhales\Contracts\Database\Query\Expression|string  $table
      * @param  \Closure|string  $first
      * @param  string  $operator
-     * @param  \Illuminate\Contracts\Database\Query\Expression|string  $second
+     * @param  \WPWhales\Contracts\Database\Query\Expression|string  $second
      * @param  string  $type
      * @return $this
      */
@@ -565,11 +565,11 @@ class Builder implements BuilderContract
     /**
      * Add a subquery join clause to the query.
      *
-     * @param  \Closure|\Illuminate\Database\Query\Builder|\Illuminate\Database\Eloquent\Builder|string  $query
+     * @param  \Closure|\WPWhales\Database\Query\Builder|\WPWhales\Database\Eloquent\Builder|string  $query
      * @param  string  $as
      * @param  \Closure|string  $first
      * @param  string|null  $operator
-     * @param  \Illuminate\Contracts\Database\Query\Expression|string|null  $second
+     * @param  \WPWhales\Contracts\Database\Query\Expression|string|null  $second
      * @param  string  $type
      * @param  bool  $where
      * @return $this
@@ -590,10 +590,10 @@ class Builder implements BuilderContract
     /**
      * Add a left join to the query.
      *
-     * @param  \Illuminate\Contracts\Database\Query\Expression|string  $table
+     * @param  \WPWhales\Contracts\Database\Query\Expression|string  $table
      * @param  \Closure|string  $first
      * @param  string|null  $operator
-     * @param  \Illuminate\Contracts\Database\Query\Expression|string|null  $second
+     * @param  \WPWhales\Contracts\Database\Query\Expression|string|null  $second
      * @return $this
      */
     public function leftJoin($table, $first, $operator = null, $second = null)
@@ -604,10 +604,10 @@ class Builder implements BuilderContract
     /**
      * Add a "join where" clause to the query.
      *
-     * @param  \Illuminate\Contracts\Database\Query\Expression|string  $table
+     * @param  \WPWhales\Contracts\Database\Query\Expression|string  $table
      * @param  \Closure|string  $first
      * @param  string  $operator
-     * @param  \Illuminate\Contracts\Database\Query\Expression|string|null  $second
+     * @param  \WPWhales\Contracts\Database\Query\Expression|string|null  $second
      * @return $this
      */
     public function leftJoinWhere($table, $first, $operator, $second)
@@ -618,11 +618,11 @@ class Builder implements BuilderContract
     /**
      * Add a subquery left join to the query.
      *
-     * @param  \Closure|\Illuminate\Database\Query\Builder|\Illuminate\Database\Eloquent\Builder|string  $query
+     * @param  \Closure|\WPWhales\Database\Query\Builder|\WPWhales\Database\Eloquent\Builder|string  $query
      * @param  string  $as
      * @param  \Closure|string  $first
      * @param  string|null  $operator
-     * @param  \Illuminate\Contracts\Database\Query\Expression|string|null  $second
+     * @param  \WPWhales\Contracts\Database\Query\Expression|string|null  $second
      * @return $this
      */
     public function leftJoinSub($query, $as, $first, $operator = null, $second = null)
@@ -633,10 +633,10 @@ class Builder implements BuilderContract
     /**
      * Add a right join to the query.
      *
-     * @param  \Illuminate\Contracts\Database\Query\Expression|string  $table
+     * @param  \WPWhales\Contracts\Database\Query\Expression|string  $table
      * @param  \Closure|string  $first
      * @param  string|null  $operator
-     * @param  \Illuminate\Contracts\Database\Query\Expression|string|null  $second
+     * @param  \WPWhales\Contracts\Database\Query\Expression|string|null  $second
      * @return $this
      */
     public function rightJoin($table, $first, $operator = null, $second = null)
@@ -647,10 +647,10 @@ class Builder implements BuilderContract
     /**
      * Add a "right join where" clause to the query.
      *
-     * @param  \Illuminate\Contracts\Database\Query\Expression|string  $table
+     * @param  \WPWhales\Contracts\Database\Query\Expression|string  $table
      * @param  \Closure|string  $first
      * @param  string  $operator
-     * @param  \Illuminate\Contracts\Database\Query\Expression|string  $second
+     * @param  \WPWhales\Contracts\Database\Query\Expression|string  $second
      * @return $this
      */
     public function rightJoinWhere($table, $first, $operator, $second)
@@ -661,11 +661,11 @@ class Builder implements BuilderContract
     /**
      * Add a subquery right join to the query.
      *
-     * @param  \Closure|\Illuminate\Database\Query\Builder|\Illuminate\Database\Eloquent\Builder|string  $query
+     * @param  \Closure|\WPWhales\Database\Query\Builder|\WPWhales\Database\Eloquent\Builder|string  $query
      * @param  string  $as
      * @param  \Closure|string  $first
      * @param  string|null  $operator
-     * @param  \Illuminate\Contracts\Database\Query\Expression|string|null  $second
+     * @param  \WPWhales\Contracts\Database\Query\Expression|string|null  $second
      * @return $this
      */
     public function rightJoinSub($query, $as, $first, $operator = null, $second = null)
@@ -676,10 +676,10 @@ class Builder implements BuilderContract
     /**
      * Add a "cross join" clause to the query.
      *
-     * @param  \Illuminate\Contracts\Database\Query\Expression|string  $table
+     * @param  \WPWhales\Contracts\Database\Query\Expression|string  $table
      * @param  \Closure|string|null  $first
      * @param  string|null  $operator
-     * @param  \Illuminate\Contracts\Database\Query\Expression|string|null  $second
+     * @param  \WPWhales\Contracts\Database\Query\Expression|string|null  $second
      * @return $this
      */
     public function crossJoin($table, $first = null, $operator = null, $second = null)
@@ -696,7 +696,7 @@ class Builder implements BuilderContract
     /**
      * Add a subquery cross join to the query.
      *
-     * @param  \Closure|\Illuminate\Database\Query\Builder|\Illuminate\Database\Eloquent\Builder|string  $query
+     * @param  \Closure|\WPWhales\Database\Query\Builder|\WPWhales\Database\Eloquent\Builder|string  $query
      * @param  string  $as
      * @return $this
      */
@@ -716,10 +716,10 @@ class Builder implements BuilderContract
     /**
      * Get a new join clause.
      *
-     * @param  \Illuminate\Database\Query\Builder  $parentQuery
+     * @param  \WPWhales\Database\Query\Builder  $parentQuery
      * @param  string  $type
      * @param  string  $table
-     * @return \Illuminate\Database\Query\JoinClause
+     * @return \WPWhales\Database\Query\JoinClause
      */
     protected function newJoinClause(self $parentQuery, $type, $table)
     {
@@ -747,7 +747,7 @@ class Builder implements BuilderContract
     /**
      * Add a basic where clause to the query.
      *
-     * @param  \Closure|string|array|\Illuminate\Contracts\Database\Query\Expression  $column
+     * @param  \Closure|string|array|\WPWhales\Contracts\Database\Query\Expression  $column
      * @param  mixed  $operator
      * @param  mixed  $value
      * @param  string  $boolean
@@ -934,7 +934,7 @@ class Builder implements BuilderContract
     /**
      * Add an "or where" clause to the query.
      *
-     * @param  \Closure|string|array|\Illuminate\Contracts\Database\Query\Expression  $column
+     * @param  \Closure|string|array|\WPWhales\Contracts\Database\Query\Expression  $column
      * @param  mixed  $operator
      * @param  mixed  $value
      * @return $this
@@ -951,7 +951,7 @@ class Builder implements BuilderContract
     /**
      * Add a basic "where not" clause to the query.
      *
-     * @param  \Closure|string|array|\Illuminate\Contracts\Database\Query\Expression  $column
+     * @param  \Closure|string|array|\WPWhales\Contracts\Database\Query\Expression  $column
      * @param  mixed  $operator
      * @param  mixed  $value
      * @param  string  $boolean
@@ -971,7 +971,7 @@ class Builder implements BuilderContract
     /**
      * Add an "or where not" clause to the query.
      *
-     * @param  \Closure|string|array|\Illuminate\Contracts\Database\Query\Expression  $column
+     * @param  \Closure|string|array|\WPWhales\Contracts\Database\Query\Expression  $column
      * @param  mixed  $operator
      * @param  mixed  $value
      * @return $this
@@ -1063,7 +1063,7 @@ class Builder implements BuilderContract
     /**
      * Add a "where in" clause to the query.
      *
-     * @param  \Illuminate\Contracts\Database\Query\Expression|string  $column
+     * @param  \WPWhales\Contracts\Database\Query\Expression|string  $column
      * @param  mixed  $values
      * @param  string  $boolean
      * @param  bool  $not
@@ -1108,7 +1108,7 @@ class Builder implements BuilderContract
     /**
      * Add an "or where in" clause to the query.
      *
-     * @param  \Illuminate\Contracts\Database\Query\Expression|string  $column
+     * @param  \WPWhales\Contracts\Database\Query\Expression|string  $column
      * @param  mixed  $values
      * @return $this
      */
@@ -1120,7 +1120,7 @@ class Builder implements BuilderContract
     /**
      * Add a "where not in" clause to the query.
      *
-     * @param  \Illuminate\Contracts\Database\Query\Expression|string  $column
+     * @param  \WPWhales\Contracts\Database\Query\Expression|string  $column
      * @param  mixed  $values
      * @param  string  $boolean
      * @return $this
@@ -1133,7 +1133,7 @@ class Builder implements BuilderContract
     /**
      * Add an "or where not in" clause to the query.
      *
-     * @param  \Illuminate\Contracts\Database\Query\Expression|string  $column
+     * @param  \WPWhales\Contracts\Database\Query\Expression|string  $column
      * @param  mixed  $values
      * @return $this
      */
@@ -1146,7 +1146,7 @@ class Builder implements BuilderContract
      * Add a "where in raw" clause for integer values to the query.
      *
      * @param  string  $column
-     * @param  \Illuminate\Contracts\Support\Arrayable|array  $values
+     * @param  \WPWhales\Contracts\Support\Arrayable|array  $values
      * @param  string  $boolean
      * @param  bool  $not
      * @return $this
@@ -1174,7 +1174,7 @@ class Builder implements BuilderContract
      * Add an "or where in raw" clause for integer values to the query.
      *
      * @param  string  $column
-     * @param  \Illuminate\Contracts\Support\Arrayable|array  $values
+     * @param  \WPWhales\Contracts\Support\Arrayable|array  $values
      * @return $this
      */
     public function orWhereIntegerInRaw($column, $values)
@@ -1186,7 +1186,7 @@ class Builder implements BuilderContract
      * Add a "where not in raw" clause for integer values to the query.
      *
      * @param  string  $column
-     * @param  \Illuminate\Contracts\Support\Arrayable|array  $values
+     * @param  \WPWhales\Contracts\Support\Arrayable|array  $values
      * @param  string  $boolean
      * @return $this
      */
@@ -1199,7 +1199,7 @@ class Builder implements BuilderContract
      * Add an "or where not in raw" clause for integer values to the query.
      *
      * @param  string  $column
-     * @param  \Illuminate\Contracts\Support\Arrayable|array  $values
+     * @param  \WPWhales\Contracts\Support\Arrayable|array  $values
      * @return $this
      */
     public function orWhereIntegerNotInRaw($column, $values)
@@ -1210,7 +1210,7 @@ class Builder implements BuilderContract
     /**
      * Add a "where null" clause to the query.
      *
-     * @param  string|array|\Illuminate\Contracts\Database\Query\Expression  $columns
+     * @param  string|array|\WPWhales\Contracts\Database\Query\Expression  $columns
      * @param  string  $boolean
      * @param  bool  $not
      * @return $this
@@ -1229,7 +1229,7 @@ class Builder implements BuilderContract
     /**
      * Add an "or where null" clause to the query.
      *
-     * @param  string|array|\Illuminate\Contracts\Database\Query\Expression  $column
+     * @param  string|array|\WPWhales\Contracts\Database\Query\Expression  $column
      * @return $this
      */
     public function orWhereNull($column)
@@ -1240,7 +1240,7 @@ class Builder implements BuilderContract
     /**
      * Add a "where not null" clause to the query.
      *
-     * @param  string|array|\Illuminate\Contracts\Database\Query\Expression  $columns
+     * @param  string|array|\WPWhales\Contracts\Database\Query\Expression  $columns
      * @param  string  $boolean
      * @return $this
      */
@@ -1252,7 +1252,7 @@ class Builder implements BuilderContract
     /**
      * Add a where between statement to the query.
      *
-     * @param  \Illuminate\Contracts\Database\Query\Expression|string  $column
+     * @param  \WPWhales\Contracts\Database\Query\Expression|string  $column
      * @param  iterable  $values
      * @param  string  $boolean
      * @param  bool  $not
@@ -1276,7 +1276,7 @@ class Builder implements BuilderContract
     /**
      * Add a where between statement using columns to the query.
      *
-     * @param  \Illuminate\Contracts\Database\Query\Expression|string  $column
+     * @param  \WPWhales\Contracts\Database\Query\Expression|string  $column
      * @param  array  $values
      * @param  string  $boolean
      * @param  bool  $not
@@ -1294,7 +1294,7 @@ class Builder implements BuilderContract
     /**
      * Add an or where between statement to the query.
      *
-     * @param  \Illuminate\Contracts\Database\Query\Expression|string  $column
+     * @param  \WPWhales\Contracts\Database\Query\Expression|string  $column
      * @param  iterable  $values
      * @return $this
      */
@@ -1306,7 +1306,7 @@ class Builder implements BuilderContract
     /**
      * Add an or where between statement using columns to the query.
      *
-     * @param  \Illuminate\Contracts\Database\Query\Expression|string  $column
+     * @param  \WPWhales\Contracts\Database\Query\Expression|string  $column
      * @param  array  $values
      * @return $this
      */
@@ -1318,7 +1318,7 @@ class Builder implements BuilderContract
     /**
      * Add a where not between statement to the query.
      *
-     * @param  \Illuminate\Contracts\Database\Query\Expression|string  $column
+     * @param  \WPWhales\Contracts\Database\Query\Expression|string  $column
      * @param  iterable  $values
      * @param  string  $boolean
      * @return $this
@@ -1331,7 +1331,7 @@ class Builder implements BuilderContract
     /**
      * Add a where not between statement using columns to the query.
      *
-     * @param  \Illuminate\Contracts\Database\Query\Expression|string  $column
+     * @param  \WPWhales\Contracts\Database\Query\Expression|string  $column
      * @param  array  $values
      * @param  string  $boolean
      * @return $this
@@ -1344,7 +1344,7 @@ class Builder implements BuilderContract
     /**
      * Add an or where not between statement to the query.
      *
-     * @param  \Illuminate\Contracts\Database\Query\Expression|string  $column
+     * @param  \WPWhales\Contracts\Database\Query\Expression|string  $column
      * @param  iterable  $values
      * @return $this
      */
@@ -1356,7 +1356,7 @@ class Builder implements BuilderContract
     /**
      * Add an or where not between statement using columns to the query.
      *
-     * @param  \Illuminate\Contracts\Database\Query\Expression|string  $column
+     * @param  \WPWhales\Contracts\Database\Query\Expression|string  $column
      * @param  array  $values
      * @return $this
      */
@@ -1368,7 +1368,7 @@ class Builder implements BuilderContract
     /**
      * Add an "or where not null" clause to the query.
      *
-     * @param  \Illuminate\Contracts\Database\Query\Expression|string  $column
+     * @param  \WPWhales\Contracts\Database\Query\Expression|string  $column
      * @return $this
      */
     public function orWhereNotNull($column)
@@ -1379,7 +1379,7 @@ class Builder implements BuilderContract
     /**
      * Add a "where date" statement to the query.
      *
-     * @param  \Illuminate\Contracts\Database\Query\Expression|string  $column
+     * @param  \WPWhales\Contracts\Database\Query\Expression|string  $column
      * @param  string  $operator
      * @param  \DateTimeInterface|string|null  $value
      * @param  string  $boolean
@@ -1403,7 +1403,7 @@ class Builder implements BuilderContract
     /**
      * Add an "or where date" statement to the query.
      *
-     * @param  \Illuminate\Contracts\Database\Query\Expression|string  $column
+     * @param  \WPWhales\Contracts\Database\Query\Expression|string  $column
      * @param  string  $operator
      * @param  \DateTimeInterface|string|null  $value
      * @return $this
@@ -1420,7 +1420,7 @@ class Builder implements BuilderContract
     /**
      * Add a "where time" statement to the query.
      *
-     * @param  \Illuminate\Contracts\Database\Query\Expression|string  $column
+     * @param  \WPWhales\Contracts\Database\Query\Expression|string  $column
      * @param  string  $operator
      * @param  \DateTimeInterface|string|null  $value
      * @param  string  $boolean
@@ -1444,7 +1444,7 @@ class Builder implements BuilderContract
     /**
      * Add an "or where time" statement to the query.
      *
-     * @param  \Illuminate\Contracts\Database\Query\Expression|string  $column
+     * @param  \WPWhales\Contracts\Database\Query\Expression|string  $column
      * @param  string  $operator
      * @param  \DateTimeInterface|string|null  $value
      * @return $this
@@ -1461,7 +1461,7 @@ class Builder implements BuilderContract
     /**
      * Add a "where day" statement to the query.
      *
-     * @param  \Illuminate\Contracts\Database\Query\Expression|string  $column
+     * @param  \WPWhales\Contracts\Database\Query\Expression|string  $column
      * @param  string  $operator
      * @param  \DateTimeInterface|string|int|null  $value
      * @param  string  $boolean
@@ -1489,7 +1489,7 @@ class Builder implements BuilderContract
     /**
      * Add an "or where day" statement to the query.
      *
-     * @param  \Illuminate\Contracts\Database\Query\Expression|string  $column
+     * @param  \WPWhales\Contracts\Database\Query\Expression|string  $column
      * @param  string  $operator
      * @param  \DateTimeInterface|string|int|null  $value
      * @return $this
@@ -1506,7 +1506,7 @@ class Builder implements BuilderContract
     /**
      * Add a "where month" statement to the query.
      *
-     * @param  \Illuminate\Contracts\Database\Query\Expression|string  $column
+     * @param  \WPWhales\Contracts\Database\Query\Expression|string  $column
      * @param  string  $operator
      * @param  \DateTimeInterface|string|int|null  $value
      * @param  string  $boolean
@@ -1534,7 +1534,7 @@ class Builder implements BuilderContract
     /**
      * Add an "or where month" statement to the query.
      *
-     * @param  \Illuminate\Contracts\Database\Query\Expression|string  $column
+     * @param  \WPWhales\Contracts\Database\Query\Expression|string  $column
      * @param  string  $operator
      * @param  \DateTimeInterface|string|int|null  $value
      * @return $this
@@ -1551,7 +1551,7 @@ class Builder implements BuilderContract
     /**
      * Add a "where year" statement to the query.
      *
-     * @param  \Illuminate\Contracts\Database\Query\Expression|string  $column
+     * @param  \WPWhales\Contracts\Database\Query\Expression|string  $column
      * @param  string  $operator
      * @param  \DateTimeInterface|string|int|null  $value
      * @param  string  $boolean
@@ -1575,7 +1575,7 @@ class Builder implements BuilderContract
     /**
      * Add an "or where year" statement to the query.
      *
-     * @param  \Illuminate\Contracts\Database\Query\Expression|string  $column
+     * @param  \WPWhales\Contracts\Database\Query\Expression|string  $column
      * @param  string  $operator
      * @param  \DateTimeInterface|string|int|null  $value
      * @return $this
@@ -1593,7 +1593,7 @@ class Builder implements BuilderContract
      * Add a date based (year, month, day, time) statement to the query.
      *
      * @param  string  $type
-     * @param  \Illuminate\Contracts\Database\Query\Expression|string  $column
+     * @param  \WPWhales\Contracts\Database\Query\Expression|string  $column
      * @param  string  $operator
      * @param  mixed  $value
      * @param  string  $boolean
@@ -1627,7 +1627,7 @@ class Builder implements BuilderContract
     /**
      * Create a new query instance for nested where condition.
      *
-     * @return \Illuminate\Database\Query\Builder
+     * @return \WPWhales\Database\Query\Builder
      */
     public function forNestedWhere()
     {
@@ -1637,7 +1637,7 @@ class Builder implements BuilderContract
     /**
      * Add another query builder as a nested where to the query builder.
      *
-     * @param  \Illuminate\Database\Query\Builder  $query
+     * @param  \WPWhales\Database\Query\Builder  $query
      * @param  string  $boolean
      * @return $this
      */
@@ -1657,9 +1657,9 @@ class Builder implements BuilderContract
     /**
      * Add a full sub-select to the query.
      *
-     * @param  \Illuminate\Contracts\Database\Query\Expression|string  $column
+     * @param  \WPWhales\Contracts\Database\Query\Expression|string  $column
      * @param  string  $operator
-     * @param  \Closure||\Illuminate\Database\Query\Builder|\Illuminate\Database\Eloquent\Builder  $callback
+     * @param  \Closure||\WPWhales\Database\Query\Builder|\WPWhales\Database\Eloquent\Builder  $callback
      * @param  string  $boolean
      * @return $this
      */
@@ -1688,7 +1688,7 @@ class Builder implements BuilderContract
     /**
      * Add an exists clause to the query.
      *
-     * @param  \Closure|\Illuminate\Database\Query\Builder|\Illuminate\Database\Eloquent\Builder  $callback
+     * @param  \Closure|\WPWhales\Database\Query\Builder|\WPWhales\Database\Eloquent\Builder  $callback
      * @param  string  $boolean
      * @param  bool  $not
      * @return $this
@@ -1712,7 +1712,7 @@ class Builder implements BuilderContract
     /**
      * Add an or exists clause to the query.
      *
-     * @param  \Closure|\Illuminate\Database\Query\Builder|\Illuminate\Database\Eloquent\Builder  $callback
+     * @param  \Closure|\WPWhales\Database\Query\Builder|\WPWhales\Database\Eloquent\Builder  $callback
      * @param  bool  $not
      * @return $this
      */
@@ -1724,7 +1724,7 @@ class Builder implements BuilderContract
     /**
      * Add a where not exists clause to the query.
      *
-     * @param  \Closure|\Illuminate\Database\Query\Builder|\Illuminate\Database\Eloquent\Builder  $callback
+     * @param  \Closure|\WPWhales\Database\Query\Builder|\WPWhales\Database\Eloquent\Builder  $callback
      * @param  string  $boolean
      * @return $this
      */
@@ -1736,7 +1736,7 @@ class Builder implements BuilderContract
     /**
      * Add a where not exists clause to the query.
      *
-     * @param  \Closure|\Illuminate\Database\Query\Builder|\Illuminate\Database\Eloquent\Builder  $callback
+     * @param  \Closure|\WPWhales\Database\Query\Builder|\WPWhales\Database\Eloquent\Builder  $callback
      * @return $this
      */
     public function orWhereNotExists($callback)
@@ -1747,7 +1747,7 @@ class Builder implements BuilderContract
     /**
      * Add an exists clause to the query.
      *
-     * @param  \Illuminate\Database\Query\Builder  $query
+     * @param  \WPWhales\Database\Query\Builder  $query
      * @param  string  $boolean
      * @param  bool  $not
      * @return $this
@@ -2053,7 +2053,7 @@ class Builder implements BuilderContract
     /**
      * Add a "group by" clause to the query.
      *
-     * @param  array|\Illuminate\Contracts\Database\Query\Expression|string  ...$groups
+     * @param  array|\WPWhales\Contracts\Database\Query\Expression|string  ...$groups
      * @return $this
      */
     public function groupBy(...$groups)
@@ -2087,7 +2087,7 @@ class Builder implements BuilderContract
     /**
      * Add a "having" clause to the query.
      *
-     * @param  \Illuminate\Contracts\Database\Query\Expression|\Closure|string  $column
+     * @param  \WPWhales\Contracts\Database\Query\Expression|\Closure|string  $column
      * @param  string|int|float|null  $operator
      * @param  string|int|float|null  $value
      * @param  string  $boolean
@@ -2139,7 +2139,7 @@ class Builder implements BuilderContract
     /**
      * Add an "or having" clause to the query.
      *
-     * @param  \Illuminate\Contracts\Database\Query\Expression|\Closure|string  $column
+     * @param  \WPWhales\Contracts\Database\Query\Expression|\Closure|string  $column
      * @param  string|int|float|null  $operator
      * @param  string|int|float|null  $value
      * @return $this
@@ -2170,7 +2170,7 @@ class Builder implements BuilderContract
     /**
      * Add another query builder as a nested having to the query builder.
      *
-     * @param  \Illuminate\Database\Query\Builder  $query
+     * @param  \WPWhales\Database\Query\Builder  $query
      * @param  string  $boolean
      * @return $this
      */
@@ -2298,7 +2298,7 @@ class Builder implements BuilderContract
     /**
      * Add an "order by" clause to the query.
      *
-     * @param  \Closure|\Illuminate\Database\Query\Builder|\Illuminate\Database\Eloquent\Builder|\Illuminate\Contracts\Database\Query\Expression|string  $column
+     * @param  \Closure|\WPWhales\Database\Query\Builder|\WPWhales\Database\Eloquent\Builder|\WPWhales\Contracts\Database\Query\Expression|string  $column
      * @param  string  $direction
      * @return $this
      *
@@ -2331,7 +2331,7 @@ class Builder implements BuilderContract
     /**
      * Add a descending "order by" clause to the query.
      *
-     * @param  \Closure|\Illuminate\Database\Query\Builder|\Illuminate\Database\Eloquent\Builder|\Illuminate\Contracts\Database\Query\Expression|string  $column
+     * @param  \Closure|\WPWhales\Database\Query\Builder|\WPWhales\Database\Eloquent\Builder|\WPWhales\Contracts\Database\Query\Expression|string  $column
      * @return $this
      */
     public function orderByDesc($column)
@@ -2342,7 +2342,7 @@ class Builder implements BuilderContract
     /**
      * Add an "order by" clause for a timestamp to the query.
      *
-     * @param  \Closure|\Illuminate\Database\Query\Builder|\Illuminate\Contracts\Database\Query\Expression|string  $column
+     * @param  \Closure|\WPWhales\Database\Query\Builder|\WPWhales\Contracts\Database\Query\Expression|string  $column
      * @return $this
      */
     public function latest($column = 'created_at')
@@ -2353,7 +2353,7 @@ class Builder implements BuilderContract
     /**
      * Add an "order by" clause for a timestamp to the query.
      *
-     * @param  \Closure|\Illuminate\Database\Query\Builder|\Illuminate\Contracts\Database\Query\Expression|string  $column
+     * @param  \Closure|\WPWhales\Database\Query\Builder|\WPWhales\Contracts\Database\Query\Expression|string  $column
      * @return $this
      */
     public function oldest($column = 'created_at')
@@ -2499,7 +2499,7 @@ class Builder implements BuilderContract
     /**
      * Remove all existing orders and optionally add a new order.
      *
-     * @param  \Closure|\Illuminate\Database\Query\Builder|\Illuminate\Contracts\Database\Query\Expression|string|null  $column
+     * @param  \Closure|\WPWhales\Database\Query\Builder|\WPWhales\Contracts\Database\Query\Expression|string|null  $column
      * @param  string  $direction
      * @return $this
      */
@@ -2535,7 +2535,7 @@ class Builder implements BuilderContract
     /**
      * Add a union statement to the query.
      *
-     * @param  \Closure|\Illuminate\Database\Query\Builder|\Illuminate\Database\Eloquent\Builder  $query
+     * @param  \Closure|\WPWhales\Database\Query\Builder|\WPWhales\Database\Eloquent\Builder  $query
      * @param  bool  $all
      * @return $this
      */
@@ -2555,7 +2555,7 @@ class Builder implements BuilderContract
     /**
      * Add a union all statement to the query.
      *
-     * @param  \Closure|\Illuminate\Database\Query\Builder|\Illuminate\Database\Eloquent\Builder  $query
+     * @param  \Closure|\WPWhales\Database\Query\Builder|\WPWhales\Database\Eloquent\Builder  $query
      * @return $this
      */
     public function unionAll($query)
@@ -2719,8 +2719,8 @@ class Builder implements BuilderContract
      * @param  string  $column
      * @return mixed
      *
-     * @throws \Illuminate\Database\RecordsNotFoundException
-     * @throws \Illuminate\Database\MultipleRecordsFoundException
+     * @throws \WPWhales\Database\RecordsNotFoundException
+     * @throws \WPWhales\Database\MultipleRecordsFoundException
      */
     public function soleValue($column)
     {
@@ -2733,7 +2733,7 @@ class Builder implements BuilderContract
      * Execute the query as a "select" statement.
      *
      * @param  array|string  $columns
-     * @return \Illuminate\Support\Collection
+     * @return \WPWhales\Support\Collection
      */
     public function get($columns = ['*'])
     {
@@ -2762,7 +2762,7 @@ class Builder implements BuilderContract
      * @param  string  $pageName
      * @param  int|null  $page
      * @param  \Closure|int|null  $total
-     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
+     * @return \WPWhales\Contracts\Pagination\LengthAwarePaginator
      */
     public function paginate($perPage = 15, $columns = ['*'], $pageName = 'page', $page = null, $total = null)
     {
@@ -2789,7 +2789,7 @@ class Builder implements BuilderContract
      * @param  array|string  $columns
      * @param  string  $pageName
      * @param  int|null  $page
-     * @return \Illuminate\Contracts\Pagination\Paginator
+     * @return \WPWhales\Contracts\Pagination\Paginator
      */
     public function simplePaginate($perPage = 15, $columns = ['*'], $pageName = 'page', $page = null)
     {
@@ -2811,8 +2811,8 @@ class Builder implements BuilderContract
      * @param  int|null  $perPage
      * @param  array|string  $columns
      * @param  string  $cursorName
-     * @param  \Illuminate\Pagination\Cursor|string|null  $cursor
-     * @return \Illuminate\Contracts\Pagination\CursorPaginator
+     * @param  \WPWhales\Pagination\Cursor|string|null  $cursor
+     * @return \WPWhales\Contracts\Pagination\CursorPaginator
      */
     public function cursorPaginate($perPage = 15, $columns = ['*'], $cursorName = 'cursor', $cursor = null)
     {
@@ -2823,7 +2823,7 @@ class Builder implements BuilderContract
      * Ensure the proper order by required for cursor pagination.
      *
      * @param  bool  $shouldReverse
-     * @return \Illuminate\Support\Collection
+     * @return \WPWhales\Support\Collection
      */
     protected function ensureOrderForCursorPagination($shouldReverse = false)
     {
@@ -2933,7 +2933,7 @@ class Builder implements BuilderContract
     /**
      * Get a lazy collection for the given query.
      *
-     * @return \Illuminate\Support\LazyCollection
+     * @return \WPWhales\Support\LazyCollection
      */
     public function cursor()
     {
@@ -2965,9 +2965,9 @@ class Builder implements BuilderContract
     /**
      * Get a collection instance containing the values of a given column.
      *
-     * @param  \Illuminate\Contracts\Database\Query\Expression|string  $column
+     * @param  \WPWhales\Contracts\Database\Query\Expression|string  $column
      * @param  string|null  $key
-     * @return \Illuminate\Support\Collection
+     * @return \WPWhales\Support\Collection
      */
     public function pluck($column, $key = null)
     {
@@ -3026,7 +3026,7 @@ class Builder implements BuilderContract
      * @param  array  $queryResult
      * @param  string  $column
      * @param  string  $key
-     * @return \Illuminate\Support\Collection
+     * @return \WPWhales\Support\Collection
      */
     protected function pluckFromObjectColumn($queryResult, $column, $key)
     {
@@ -3051,7 +3051,7 @@ class Builder implements BuilderContract
      * @param  array  $queryResult
      * @param  string  $column
      * @param  string  $key
-     * @return \Illuminate\Support\Collection
+     * @return \WPWhales\Support\Collection
      */
     protected function pluckFromArrayColumn($queryResult, $column, $key)
     {
@@ -3142,7 +3142,7 @@ class Builder implements BuilderContract
     /**
      * Retrieve the "count" result of the query.
      *
-     * @param  \Illuminate\Contracts\Database\Query\Expression|string  $columns
+     * @param  \WPWhales\Contracts\Database\Query\Expression|string  $columns
      * @return int
      */
     public function count($columns = '*')
@@ -3153,7 +3153,7 @@ class Builder implements BuilderContract
     /**
      * Retrieve the minimum value of a given column.
      *
-     * @param  \Illuminate\Contracts\Database\Query\Expression|string  $column
+     * @param  \WPWhales\Contracts\Database\Query\Expression|string  $column
      * @return mixed
      */
     public function min($column)
@@ -3164,7 +3164,7 @@ class Builder implements BuilderContract
     /**
      * Retrieve the maximum value of a given column.
      *
-     * @param  \Illuminate\Contracts\Database\Query\Expression|string  $column
+     * @param  \WPWhales\Contracts\Database\Query\Expression|string  $column
      * @return mixed
      */
     public function max($column)
@@ -3175,7 +3175,7 @@ class Builder implements BuilderContract
     /**
      * Retrieve the sum of the values of a given column.
      *
-     * @param  \Illuminate\Contracts\Database\Query\Expression|string  $column
+     * @param  \WPWhales\Contracts\Database\Query\Expression|string  $column
      * @return mixed
      */
     public function sum($column)
@@ -3188,7 +3188,7 @@ class Builder implements BuilderContract
     /**
      * Retrieve the average of the values of a given column.
      *
-     * @param  \Illuminate\Contracts\Database\Query\Expression|string  $column
+     * @param  \WPWhales\Contracts\Database\Query\Expression|string  $column
      * @return mixed
      */
     public function avg($column)
@@ -3199,7 +3199,7 @@ class Builder implements BuilderContract
     /**
      * Alias for the "avg" method.
      *
-     * @param  \Illuminate\Contracts\Database\Query\Expression|string  $column
+     * @param  \WPWhales\Contracts\Database\Query\Expression|string  $column
      * @return mixed
      */
     public function average($column)
@@ -3392,7 +3392,7 @@ class Builder implements BuilderContract
      * Insert new records into the table using a subquery.
      *
      * @param  array  $columns
-     * @param  \Closure|\Illuminate\Database\Query\Builder|\Illuminate\Database\Eloquent\Builder|string  $query
+     * @param  \Closure|\WPWhales\Database\Query\Builder|\WPWhales\Database\Eloquent\Builder|string  $query
      * @return int
      */
     public function insertUsing(array $columns, $query)
@@ -3637,7 +3637,7 @@ class Builder implements BuilderContract
     /**
      * Get a new instance of the query builder.
      *
-     * @return \Illuminate\Database\Query\Builder
+     * @return \WPWhales\Database\Query\Builder
      */
     public function newQuery()
     {
@@ -3647,7 +3647,7 @@ class Builder implements BuilderContract
     /**
      * Create a new query instance for a sub-query.
      *
-     * @return \Illuminate\Database\Query\Builder
+     * @return \WPWhales\Database\Query\Builder
      */
     protected function forSubQuery()
     {
@@ -3670,7 +3670,7 @@ class Builder implements BuilderContract
      * Create a raw database expression.
      *
      * @param  mixed  $value
-     * @return \Illuminate\Contracts\Database\Query\Expression
+     * @return \WPWhales\Contracts\Database\Query\Expression
      */
     public function raw($value)
     {
@@ -3758,7 +3758,7 @@ class Builder implements BuilderContract
     /**
      * Merge an array of bindings into our bindings.
      *
-     * @param  \Illuminate\Database\Query\Builder  $query
+     * @param  \WPWhales\Database\Query\Builder  $query
      * @return $this
      */
     public function mergeBindings(self $query)
@@ -3809,7 +3809,7 @@ class Builder implements BuilderContract
     /**
      * Get the database connection instance.
      *
-     * @return \Illuminate\Database\ConnectionInterface
+     * @return \WPWhales\Database\ConnectionInterface
      */
     public function getConnection()
     {
@@ -3819,7 +3819,7 @@ class Builder implements BuilderContract
     /**
      * Get the database query processor instance.
      *
-     * @return \Illuminate\Database\Query\Processors\Processor
+     * @return \WPWhales\Database\Query\Processors\Processor
      */
     public function getProcessor()
     {
@@ -3829,7 +3829,7 @@ class Builder implements BuilderContract
     /**
      * Get the query grammar instance.
      *
-     * @return \Illuminate\Database\Query\Grammars\Grammar
+     * @return \WPWhales\Database\Query\Grammars\Grammar
      */
     public function getGrammar()
     {

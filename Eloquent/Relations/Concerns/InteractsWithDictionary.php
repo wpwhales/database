@@ -1,6 +1,6 @@
 <?php
 
-namespace Illuminate\Database\Eloquent\Relations\Concerns;
+namespace WPWhales\Database\Eloquent\Relations\Concerns;
 
 use BackedEnum;
 use Doctrine\Instantiator\Exception\InvalidArgumentException;

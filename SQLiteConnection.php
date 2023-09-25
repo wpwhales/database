@@ -1,15 +1,15 @@
 <?php
 
-namespace Illuminate\Database;
+namespace WPWhales\Database;
 
 use Exception;
-use Illuminate\Database\PDO\SQLiteDriver;
-use Illuminate\Database\Query\Grammars\SQLiteGrammar as QueryGrammar;
-use Illuminate\Database\Query\Processors\SQLiteProcessor;
-use Illuminate\Database\Schema\Grammars\SQLiteGrammar as SchemaGrammar;
-use Illuminate\Database\Schema\SQLiteBuilder;
-use Illuminate\Database\Schema\SqliteSchemaState;
-use Illuminate\Filesystem\Filesystem;
+use WPWhales\Database\PDO\SQLiteDriver;
+use WPWhales\Database\Query\Grammars\SQLiteGrammar as QueryGrammar;
+use WPWhales\Database\Query\Processors\SQLiteProcessor;
+use WPWhales\Database\Schema\Grammars\SQLiteGrammar as SchemaGrammar;
+use WPWhales\Database\Schema\SQLiteBuilder;
+use WPWhales\Database\Schema\SqliteSchemaState;
+use WPWhales\Filesystem\Filesystem;
 
 class SQLiteConnection extends Connection
 {
@@ -64,7 +64,7 @@ class SQLiteConnection extends Connection
     /**
      * Get the default query grammar instance.
      *
-     * @return \Illuminate\Database\Query\Grammars\SQLiteGrammar
+     * @return \WPWhales\Database\Query\Grammars\SQLiteGrammar
      */
     protected function getDefaultQueryGrammar()
     {
@@ -76,7 +76,7 @@ class SQLiteConnection extends Connection
     /**
      * Get a schema builder instance for the connection.
      *
-     * @return \Illuminate\Database\Schema\SQLiteBuilder
+     * @return \WPWhales\Database\Schema\SQLiteBuilder
      */
     public function getSchemaBuilder()
     {
@@ -90,7 +90,7 @@ class SQLiteConnection extends Connection
     /**
      * Get the default schema grammar instance.
      *
-     * @return \Illuminate\Database\Schema\Grammars\SQLiteGrammar
+     * @return \WPWhales\Database\Schema\Grammars\SQLiteGrammar
      */
     protected function getDefaultSchemaGrammar()
     {
@@ -102,7 +102,7 @@ class SQLiteConnection extends Connection
     /**
      * Get the schema state for the connection.
      *
-     * @param  \Illuminate\Filesystem\Filesystem|null  $files
+     * @param  \WPWhales\Filesystem\Filesystem|null  $files
      * @param  callable|null  $processFactory
      *
      * @throws \RuntimeException
@@ -115,7 +115,7 @@ class SQLiteConnection extends Connection
     /**
      * Get the default post processor instance.
      *
-     * @return \Illuminate\Database\Query\Processors\SQLiteProcessor
+     * @return \WPWhales\Database\Query\Processors\SQLiteProcessor
      */
     protected function getDefaultPostProcessor()
     {
@@ -125,7 +125,7 @@ class SQLiteConnection extends Connection
     /**
      * Get the Doctrine DBAL driver.
      *
-     * @return \Illuminate\Database\PDO\SQLiteDriver
+     * @return \WPWhales\Database\PDO\SQLiteDriver
      */
     protected function getDoctrineDriver()
     {

@@ -1,9 +1,9 @@
 <?php
 
-namespace Illuminate\Database\Eloquent\Casts;
+namespace WPWhales\Database\Eloquent\Casts;
 
 use ArrayObject as BaseArrayObject;
-use Illuminate\Contracts\Support\Arrayable;
+use WPWhales\Contracts\Support\Arrayable;
 use JsonSerializable;
 
 /**
@@ -17,7 +17,7 @@ class ArrayObject extends BaseArrayObject implements Arrayable, JsonSerializable
     /**
      * Get a collection containing the underlying array.
      *
-     * @return \Illuminate\Support\Collection
+     * @return \WPWhales\Support\Collection
      */
     public function collect()
     {

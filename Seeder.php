@@ -1,12 +1,12 @@
 <?php
 
-namespace Illuminate\Database;
+namespace WPWhales\Database;
 
-use Illuminate\Console\Command;
-use Illuminate\Console\View\Components\TwoColumnDetail;
-use Illuminate\Contracts\Container\Container;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Support\Arr;
+use WPWhales\Console\Command;
+use WPWhales\Console\View\Components\TwoColumnDetail;
+use WPWhales\Contracts\Container\Container;
+use WPWhales\Database\Console\Seeds\WithoutModelEvents;
+use WPWhales\Support\Arr;
 use InvalidArgumentException;
 
 abstract class Seeder
@@ -14,14 +14,14 @@ abstract class Seeder
     /**
      * The container instance.
      *
-     * @var \Illuminate\Contracts\Container\Container
+     * @var \WPWhales\Contracts\Container\Container
      */
     protected $container;
 
     /**
      * The console command instance.
      *
-     * @var \Illuminate\Console\Command
+     * @var \WPWhales\Console\Command
      */
     protected $command;
 
@@ -121,7 +121,7 @@ abstract class Seeder
      * Resolve an instance of the given seeder class.
      *
      * @param  string  $class
-     * @return \Illuminate\Database\Seeder
+     * @return \WPWhales\Database\Seeder
      */
     protected function resolve($class)
     {
@@ -143,7 +143,7 @@ abstract class Seeder
     /**
      * Set the IoC container instance.
      *
-     * @param  \Illuminate\Contracts\Container\Container  $container
+     * @param  \WPWhales\Contracts\Container\Container  $container
      * @return $this
      */
     public function setContainer(Container $container)
@@ -156,7 +156,7 @@ abstract class Seeder
     /**
      * Set the console command instance.
      *
-     * @param  \Illuminate\Console\Command  $command
+     * @param  \WPWhales\Console\Command  $command
      * @return $this
      */
     public function setCommand(Command $command)

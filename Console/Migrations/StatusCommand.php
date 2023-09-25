@@ -1,9 +1,9 @@
 <?php
 
-namespace Illuminate\Database\Console\Migrations;
+namespace WPWhales\Database\Console\Migrations;
 
-use Illuminate\Database\Migrations\Migrator;
-use Illuminate\Support\Collection;
+use WPWhales\Database\Migrations\Migrator;
+use WPWhales\Support\Collection;
 use Symfony\Component\Console\Input\InputOption;
 
 class StatusCommand extends BaseCommand
@@ -25,14 +25,14 @@ class StatusCommand extends BaseCommand
     /**
      * The migrator instance.
      *
-     * @var \Illuminate\Database\Migrations\Migrator
+     * @var \WPWhales\Database\Migrations\Migrator
      */
     protected $migrator;
 
     /**
      * Create a new migration rollback command instance.
      *
-     * @param  \Illuminate\Database\Migrations\Migrator  $migrator
+     * @param  \WPWhales\Database\Migrations\Migrator  $migrator
      * @return void
      */
     public function __construct(Migrator $migrator)
@@ -89,7 +89,7 @@ class StatusCommand extends BaseCommand
      *
      * @param  array  $ran
      * @param  array  $batches
-     * @return \Illuminate\Support\Collection
+     * @return \WPWhales\Support\Collection
      */
     protected function getStatusFor(array $ran, array $batches)
     {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Illuminate\Database;
+namespace WPWhales\Database;
 
-use Illuminate\Support\ConfigurationUrlParser as BaseConfigurationUrlParser;
+use WPWhales\Support\ConfigurationUrlParser as BaseConfigurationUrlParser;
 
 class ConfigurationUrlParser extends BaseConfigurationUrlParser
 {
